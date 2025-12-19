@@ -1,0 +1,7 @@
+CLASS snoddasmannen/galimulator/ui/InformationWidget snoddasmannen/galimulator/ui/InformationWidget
+	FIELD a ttl I
+	FIELD b content Ljava/lang/String;
+	FIELD c contentWidget Lsnoddasmannen/galimulator/ui/BaseButtonWidget;
+	FIELD d __unusedNinepatch0 Lcom/badlogic/gdx/graphics/g2d/NinePatch;
+	METHOD a setContent (Ljava/lang/String;)V
+	METHOD i getContent ()Ljava/lang/String;

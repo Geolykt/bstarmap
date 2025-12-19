@@ -1,0 +1,337 @@
+CLASS snoddasmannen/galimulator/Space snoddasmannen/galimulator/Space
+	FIELD aa bufferedToastWidget Lsnoddasmannen/galimulator/ui/BufferedWidgetWrapper;
+	FIELD ab monsterSpawnerRandom Ljava/util/Random;
+	FIELD aB __unusedField1 Z
+	FIELD aC __unusedField0 Z
+	FIELD activeWidgets activeWidgets Ljava/util/Vector;
+	FIELD actors actors Ljava/util/Vector;
+	FIELD actorSpawnPredicates actorSpawnPredicates Ljava/util/ArrayList;
+	FIELD aE __unusedField0 Lsnoddasmannen/galimulator/RewardData;
+	FIELD aF __nopField__provideRewards Z
+		COMMENT Always false.
+	FIELD aG __unusedField__reward Lsnoddasmannen/galimulator/RewardData;
+		COMMENT This method is unused as it is related to the feature where you can unlock actors
+		COMMENT by watching an advert, which only exists on Android releases of galimulator. As such,
+		COMMENT this functionality is unused on desktop releases of the game.
+	FIELD aI cancellableListener Lsnoddasmannen/galimulator/AuxiliaryListener;
+	FIELD aJ stepTarget I
+	FIELD aspectRatio aspectRatio F
+	FIELD at __unusedField2 Z
+	FIELD au __unusedField3 Z
+	FIELD av __unusedField4 I
+	FIELD B bulletinLog Lsnoddasmannen/galimulator/ui/class_5;
+	FIELD backgroundTaskDescription backgroundTaskDescription Ljava/lang/String;
+	FIELD d displayedItems Ljava/util/Vector;
+	FIELD disruptedStars disruptedStars Ljava/util/Vector;
+	FIELD E untickedGalaxy Z
+		COMMENT Denotes whether the current galaxy has been created or <b>loaded</b> since the last tick.
+		COMMENT
+		COMMENT Snodmap name: justLoaded (as per the testing suite)
+	FIELD empires empires Ljava/util/Vector;
+	FIELD F WIDGET_MANIPULATION_LOCK Ljava/util/concurrent/locks/ReentrantLock;
+	FIELD j shownItems Ljava/util/ArrayList;
+	FIELD l totems Ljava/util/Vector;
+	FIELD M backgroundTaskProgress Ljava/lang/String;
+	FIELD neutralEmpire neutralEmpire Lsnoddasmannen/galimulator/Empire;
+	FIELD p families Ljava/util/Vector;
+	FIELD paused paused Z
+	FIELD persons persons Ljava/util/Vector;
+	FIELD quests quests Ljava/util/Vector;
+	FIELD r cultures Ljava/util/ArrayList;
+	FIELD sandboxUsed sandboxUsed Z
+	FIELD starCount starCount F
+	FIELD stars stars Ljava/util/Vector;
+	FIELD starsQuadTree starsQuadTree Lsnoddasmannen/galimulator/QuadTree;
+	FIELD vanity vanity Lsnoddasmannen/galimulator/VanityHolder;
+	FIELD w __unusedField0 Ljava/util/Vector;
+	FIELD W mapCache Ljava/util/List;
+	FIELD wars wars Ljava/util/Vector;
+	FIELD x auxiliaryListeners Ljava/util/Vector;
+	FIELD Y newActors Ljava/util/Vector;
+	FIELD Z unbufferedToastWidget Lsnoddasmannen/galimulator/ui/InformationWidget;
+	METHOD a getStarsWithin (FFF)Ljava/util/Vector;
+		COMMENT Obtains all stars within a square denoted by the parameters centerX and centerY. The square has a radius
+		COMMENT (that is the minimal distance from center to an edge of the square) of squareRadius.
+		ARG 0 centerX
+		ARG 1 centerY
+		ARG 2 squareRadius
+	METHOD a getStarsNear (FFI)Ljava/util/ArrayList;
+		ARG 0 x
+		ARG 1 y
+		ARG 2 outputStarCount
+	METHOD a findNearestEnemy (FFLsnoddasmannen/galimulator/Empire;FLjava/util/Vector;)Lsnoddasmannen/galimulator/actors/Actor;
+		ARG 0 x
+		ARG 1 y
+		ARG 2 ownerEmpire
+		ARG 3 searchRadius
+		ARG 4 pool
+	METHOD a __unusedMethod0 (I)V
+		ARG 0 __unknownArg
+	METHOD a generateGalaxySync (ILsnoddasmannen/galimulator/MapData;)V
+		ARG 0 starCount
+		ARG 1 mapMeta
+	METHOD a getStarsWithin (Lcom/badlogic/gdx/math/Rectangle;)Ljava/util/Vector;
+		ARG 0 aabb
+	METHOD a getNearestMonster (Lcom/badlogic/gdx/math/Vector2;)Lsnoddasmannen/galimulator/actors/Actor;
+		ARG 0 position
+	METHOD a getPeopleNear (Lcom/badlogic/gdx/math/Vector2;F)Ljava/util/Vector;
+		ARG 0 location
+		ARG 1 distanceSq
+	METHOD a has (Ljava/util/ArrayList;Lsnoddasmannen/galimulator/Culture;)Z
+		ARG 0 cultures
+		ARG 1 culture
+	METHOD a has (Ljava/util/ArrayList;Lsnoddasmannen/galimulator/Star;)V
+		ARG 0 stars
+		ARG 1 star
+	METHOD a getTotem (Lsnoddasmannen/galimulator/actors/Totem$TotemType;)Lsnoddasmannen/galimulator/actors/Totem;
+		ARG 0 totem
+	METHOD a setTotem (Lsnoddasmannen/galimulator/actors/Totem$TotemType;FFZ)V
+		ARG 0 totem
+		ARG 1 x
+		ARG 2 y
+		ARG 3 active
+	METHOD a registerAlliance (Lsnoddasmannen/galimulator/Alliance;)V
+	METHOD a removeCancellableAuxiliaryListener (Lsnoddasmannen/galimulator/AuxiliaryListener;)V
+		ARG 0 listener
+	METHOD a addCancellableAuxiliaryListener (Lsnoddasmannen/galimulator/AuxiliaryListener;Ljava/lang/String;)V
+		ARG 0 listener
+		ARG 1 listenerDescription
+	METHOD a registerCorporation (Lsnoddasmannen/galimulator/corporation/Corporation;)V
+	METHOD a registerCulture (Lsnoddasmannen/galimulator/Culture;)V
+	METHOD a canControlEmpireShips (Lsnoddasmannen/galimulator/Empire;)Z
+		COMMENT Potentially broken. Beware
+	METHOD a (Lsnoddasmannen/galimulator/Empire;Lsnoddasmannen/galimulator/War;)Z
+		ARG 1 war
+	METHOD a __unusedMethod0 (Lsnoddasmannen/galimulator/interface_10;)V
+		ARG 0 arg0
+	METHOD a showPlayerStatusWidget (Lsnoddasmannen/galimulator/Player;)V
+	METHOD a set_ai (Lsnoddasmannen/galimulator/PlayServiceStatus;)V
+		ARG 0 arg
+	METHOD a __nopMethod0 (Lsnoddasmannen/galimulator/RewardData;)V
+		ARG 0 arg
+	METHOD a openGalaxyPreviewWidget (Lsnoddasmannen/galimulator/StarGenerator;)Lsnoddasmannen/galimulator/ui/GalaxyPreviewWidget;
+		ARG 0 generator
+	METHOD a openTutorial (Lsnoddasmannen/galimulator/Tutorial;)V
+		ARG 0 tutorial
+	METHOD a __unusedMethod__setProvideRewards (Z)V
+		ARG 0 provideRewards
+	METHOD aA __nopMethod2 ()V
+	METHOD aB __nopMethod0 ()V
+	METHOD ad showTutorialSelection ()V
+	METHOD aD __nopMethod1 ()V
+	METHOD addActor addActor (Lsnoddasmannen/galimulator/actors/Actor;)Lsnoddasmannen/galimulator/actors/Actor;
+	METHOD addAuxiliaryListener addAuxiliaryListener (Lsnoddasmannen/galimulator/AuxiliaryListener;)V
+		ARG 0 listener
+	METHOD aE deactivateTotems ()V
+	METHOD ag toggleUIVisibility ()V
+	METHOD aI getGalaxyTypeSelectionDialog ()Lsnoddasmannen/galimulator/Dialog;
+	METHOD aJ getSelectableMaps ()Ljava/util/List;
+	METHOD aL getBitmapStarGenerators ()Ljava/util/List;
+	METHOD am __nopMethod3 ()V
+	METHOD an getRandomEmpire ()Lsnoddasmannen/galimulator/Empire;
+	METHOD aN getRandomPerson ()Lsnoddasmannen/galimulator/Person;
+	METHOD aO getFamilies ()Ljava/util/Vector;
+	METHOD ap __unusedMethod1 ()V
+	METHOD aP sortFamilies ()V
+	METHOD as makeWebbedStarlanes ()V
+	METHOD av spawnSpaceOddity ()V
+		COMMENT Will not spawn any space oddities or monsters if a space oddity already exists.
+		COMMENT
+		COMMENT @see Actor#isMonster()
+	METHOD aw getResearchMultiplier ()F
+	METHOD b __unusedMethod0 ()V
+	METHOD b getNearestEnemy (FFLsnoddasmannen/galimulator/actors/Actor;F)Lsnoddasmannen/galimulator/actors/Actor;
+		ARG 0 originX
+		ARG 1 originY
+		ARG 2 witness
+		ARG 3 searchRadius
+	METHOD b findNearestEnemyFast (FFLsnoddasmannen/galimulator/Empire;F)Lsnoddasmannen/galimulator/actors/Actor;
+		ARG 0 x
+		ARG 1 y
+		ARG 2 ownerEmpire
+		ARG 3 searchRadius
+	METHOD b lookupActor (I)Lsnoddasmannen/galimulator/actors/Actor;
+		ARG 0 actorId
+	METHOD b unregisterAlliance (Lsnoddasmannen/galimulator/Alliance;)V
+	METHOD b unregisterArtifact (Lsnoddasmannen/galimulator/artifacts/Artifact;)V
+	METHOD b unregisterCulture (Lsnoddasmannen/galimulator/Culture;)V
+	METHOD b addFamily (Lsnoddasmannen/galimulator/Family;)V
+		ARG 0 family
+	METHOD b unregisterQuest (Lsnoddasmannen/galimulator/Quest;)V
+	METHOD b __unusedMethod__setReward (Lsnoddasmannen/galimulator/RewardData;)V
+		COMMENT This method is unused as it is related to the feature where you can unlock actors
+		COMMENT by watching an advert, which only exists on Android releases of galimulator. As such,
+		COMMENT this functionality is unused on desktop releases of the game.
+	METHOD b setHalfStepping (Z)V
+		COMMENT Whether to move at "half" speed, i.e. by omitting every second logical simulation tick.
+	METHOD bb ensureConnectedStarsConnected ()V
+		COMMENT Connect stars that are connected according to their {@link Star#intLanes}.
+		COMMENT This will likely be called while loading a savegame. Not of relevance in other scenarios.
+	METHOD bc ensureStarOwnerSet ()V
+		COMMENT Ensure that the star's ownerEmpire corresponds to the empire defined by the star's ownerid.
+	METHOD bd connectInterconnected ()V
+	METHOD be connectQuick ()V
+	METHOD bf connectStandard ()V
+	METHOD c lookupCulture (I)Lsnoddasmannen/galimulator/Culture;
+		ARG 0 cultureId
+	METHOD c restartGalaxy (ILsnoddasmannen/galimulator/MapData;)V
+		ARG 0 newStarCount
+		ARG 1 newMapMeta
+	METHOD c createPerson (Lcom/badlogic/gdx/math/Vector2;)Lsnoddasmannen/galimulator/Person;
+		ARG 0 birthPosition
+	METHOD c removeFamily (Lsnoddasmannen/galimulator/Family;)V
+		ARG 0 family
+	METHOD c isDisrupted (Lsnoddasmannen/galimulator/Star;)Z
+		ARG 0 star
+	METHOD c clearActiveWidgets (Z)V
+		ARG 0 keepWidgetManipulationLock
+	METHOD C closeLastWidget ()Z
+	METHOD closeNonPersistentWidgets closeNonPersistentWidgets ()V
+	METHOD connectStars connectStars (Lsnoddasmannen/galimulator/Star;Lsnoddasmannen/galimulator/Star;)V
+	METHOD d lookupFleet (I)Lsnoddasmannen/galimulator/Fleet;
+		ARG 0 fleetId
+	METHOD d postBulletin (Ljava/lang/String;)V
+	METHOD d addDisruption (Lsnoddasmannen/galimulator/Star;)V
+		ARG 0 star
+	METHOD d focusWidget (Lsnoddasmannen/galimulator/ui/Widget;)V
+		COMMENT Note: Only works for Widgets added unbuffered or BufferedWidgetWrappers.
+	METHOD D tickPausedItems ()I
+		COMMENT Returns 0 if no items exist/are to be displayed, 1 otherwise.
+	METHOD draw draw (Lsnoddasmannen/galimulator/rendersystem/RenderCache;)V
+	METHOD e getSaveNames ()Ljava/util/Vector;
+	METHOD e lookupEmpire (I)Lsnoddasmannen/galimulator/Empire;
+		ARG 0 empireId
+	METHOD e removeDisruption (Lsnoddasmannen/galimulator/Star;)V
+		ARG 0 star
+	METHOD f getHighestXPActor ()Lsnoddasmannen/galimulator/actors/Actor;
+	METHOD f lookupArtifact (I)Lsnoddasmannen/galimulator/artifacts/Artifact;
+		ARG 0 artifactId
+	METHOD f onEmpireDeath (Lsnoddasmannen/galimulator/Empire;)V
+	METHOD F getRandomStar ()Lsnoddasmannen/galimulator/Star;
+	METHOD findNearestActor findNearestEnemy (FFLsnoddasmannen/galimulator/Empire;F)Lsnoddasmannen/galimulator/actors/Actor;
+		ARG 0 x
+		ARG 1 y
+		ARG 2 ownerEmpire
+		ARG 3 searchRadius
+	METHOD findStarNear findStarNear (FF)Lsnoddasmannen/galimulator/Star;
+	METHOD findStarNear findStarNear (FFDLsnoddasmannen/galimulator/Empire;)Lsnoddasmannen/galimulator/Star;
+	METHOD g getStarsOf (Lsnoddasmannen/galimulator/Empire;)Ljava/util/Vector;
+	METHOD g togglePaused (Z)V
+		ARG 0 resumeAtFullSpeed
+	METHOD generateGalaxy generateGalaxy (ILsnoddasmannen/galimulator/MapData;)V
+		ARG 0 starCount
+		ARG 1 mapMeta
+	METHOD get_aE get__UnusedField0 ()Lsnoddasmannen/galimulator/RewardData;
+	METHOD get_aF __nopMethod__isProvidingRewards ()Z
+		COMMENT Always returns false.
+	METHOD get_ag isSlowMode ()Z
+	METHOD get_aJ getStepTargetYear ()I
+	METHOD get_r getCultures ()Ljava/util/ArrayList;
+	METHOD get_x getAuxiliaryListeners ()Ljava/util/Vector;
+	METHOD getMainTickLoopLock getMainTickLoopLock ()Ljava/util/concurrent/Semaphore;
+	METHOD getMapData getMapData ()Lsnoddasmannen/galimulator/MapData;
+	METHOD getMaxX getMaxX ()F
+	METHOD getMaxY getMaxY ()F
+	METHOD getMilliYear getMilliYear ()I
+	METHOD getOrCreateWar getOrCreateWar (Lsnoddasmannen/galimulator/Empire;Lsnoddasmannen/galimulator/Empire;)Lsnoddasmannen/galimulator/War;
+		ARG 0 e1
+		ARG 1 e2
+	METHOD getParticipatingWars getParticipatingWars (Lsnoddasmannen/galimulator/Empire;)Ljava/util/List;
+		ARG 0 empire
+	METHOD getPersons getPersons ()Ljava/util/Vector;
+	METHOD getPlayer getPlayer ()Lsnoddasmannen/galimulator/Player;
+	METHOD getStateActorCreators getStateActorCreators ()Ljava/util/List;
+	METHOD h canSpawnEmpires ()Z
+	METHOD h stepMilliYears (I)V
+	METHOD h setBackgroundTaskProgress (Ljava/lang/String;)V
+		ARG 0 backgroundProgress
+	METHOD h syncDisruptedFlag (Lsnoddasmannen/galimulator/Star;)Z
+		COMMENT Synchronize the Star's disrupted flag with the list of disrupted stars within the Space class.
+		COMMENT More specifically, the flag will be set to true if the star is located in the list and false otherwise.
+		ARG 0 star
+	METHOD i __unusedMethod_giveReward ()V
+		COMMENT This method is unused as it is related to the feature where you can unlock actors
+		COMMENT by watching an advert, which only exists on Android releases of galimulator. As such,
+		COMMENT this functionality is unused on desktop releases of the game.
+	METHOD i displayAd (I)Lsnoddasmannen/galimulator/ui/Widget;
+	METHOD initialize initialize (F)V
+		ARG 0 aspectRatio
+	METHOD initializeActorSpawnPredicates initializeActorSpawnPredicates ()V
+	METHOD isPaused isPaused ()Z
+	METHOD j __nopMethod4 ()V
+	METHOD j lookupStarFromUID (I)Lsnoddasmannen/galimulator/Star;
+		COMMENT Star UIDs begin with {@value -1} - do not ask why
+		ARG 0 starUID
+	METHOD j saveScenario (Ljava/lang/String;)V
+		ARG 0 filename
+	METHOD j connectOnAString (Z)V
+	METHOD k __unusedMethod__generateReward ()Lsnoddasmannen/galimulator/RewardData;
+	METHOD k __nopMethod4 (I)V
+		ARG 0 arg
+	METHOD l getPeopleAtJobLevel (I)Ljava/util/Vector;
+		ARG 0 jobLevel
+	METHOD naiveRestoreQuadtree naiveRestoreQuadtree ()V
+	METHOD openOptionChooser openOptionChooser (Ljava/lang/String;Ljava/lang/String;Ljava/util/List;ILsnoddasmannen/galimulator/ui/Widget$WIDGET_ID;Z)Lsnoddasmannen/galimulator/ui/OptionChooserWidget;
+	METHOD postBulletin postBulletin (Lsnoddasmannen/galimulator/AbstractBulletin;)V
+	METHOD recomputeVisibleWidgets recomputeVisibleWidgets ()V
+	METHOD regenerateVoronoiCells regenerateVoronoiCells ()V
+	METHOD removeAuxiliaryListener removeAuxiliaryListener (Lsnoddasmannen/galimulator/AuxiliaryListener;)V
+		ARG 0 listener
+	METHOD restoreQuadtree restoreQuadtree ()V
+	METHOD setBackgroundTaskDescription setBackgroundTaskDescription (Ljava/lang/String;)V
+		ARG 0 taskDescription
+	METHOD setPaused setPaused (Z)V
+		ARG 0 paused
+	METHOD setupBackgroundEffects setupBackgroundEffects ()V
+	METHOD showDialog showDialog (Lsnoddasmannen/galimulator/Dialog;ZLsnoddasmannen/galimulator/ui/Widget$WIDGET_ID;Z)V
+	METHOD showItem showItem (Lsnoddasmannen/galimulator/Item;)V
+	METHOD showToast showToast (Ljava/lang/String;)V
+		ARG 0 toast
+	METHOD showWidget showWidget (Ljava/lang/Class;)V
+	METHOD spawnActor spawnActor (Lsnoddasmannen/galimulator/Star;)Lsnoddasmannen/galimulator/actors/Actor;
+		ARG 0 location
+	METHOD u reopenUIWidgets ()V
+	METHOD X showStepButton ()V
+	METHOD Z openWarRoom ()V
+	CLASS ActorSpawningPredicate ActorSpawningPredicate
+		FIELD actorFactory actorFactory Lsnoddasmannen/galimulator/actors/StateActorCreator;
+		FIELD religionRequirement religionRequirement Lsnoddasmannen/galimulator/Religion;
+		FIELD spawningChance spawningChance F
+		FIELD specialRequirements specialRequirements Ljava/util/List;
+		METHOD <init> (Lsnoddasmannen/galimulator/actors/StateActorCreator;F)V
+			ARG 1 creatkr
+			ARG 2 spawningChance
+		METHOD <init> (Lsnoddasmannen/galimulator/actors/StateActorCreator;FLjava/util/List;Lsnoddasmannen/galimulator/Religion;)V
+			ARG 1 creator
+			ARG 2 spawningChance
+			ARG 3 requiredSpecials
+			ARG 4 requiredReligion
+		METHOD <init> (Lsnoddasmannen/galimulator/actors/StateActorCreator;FLsnoddasmannen/galimulator/EmpireSpecial;)V
+			ARG 1 creator
+			ARG 2 spawningChance
+			ARG 3 requiredSpecial
+		METHOD <init> (Lsnoddasmannen/galimulator/actors/StateActorCreator;FLsnoddasmannen/galimulator/Religion;)V
+			ARG 1 creator
+			ARG 2 spawningChance
+			ARG 3 religionRequirement
+		METHOD test test (Lsnoddasmannen/galimulator/Star;)Z
+			ARG 1 spawnLocation
+	CLASS ConnectionMethod ConnectionMethod
+		FIELD name name Ljava/lang/String;
+		METHOD <init> (Ljava/lang/String;ILjava/lang/String;)V
+			ARG 3 name
+		METHOD a runMethod ()V
+	CLASS MapsSelectionEvent MapsSelectionEvent
+		FIELD a activity Lsnoddasmannen/galimulator/Space$MapsSelectionEvent$MapSelectionActivity;
+		FIELD b selectedMap Lsnoddasmannen/galimulator/MapData;
+		METHOD <init> <init> (Lsnoddasmannen/galimulator/Space$MapsSelectionEvent$MapSelectionActivity;Lsnoddasmannen/galimulator/MapData;)V
+			ARG 1 activity
+			ARG 2 map
+		CLASS MapSelectionActivity MapSelectionActivity
+	CLASS SaveMode SaveMode
+	CLASS StarAdjustmentMethod StarAdjustmentMethod
+		FIELD name name Ljava/lang/String;
+		METHOD <init> (Ljava/lang/String;ILjava/lang/String;)V
+			ARG 3 name
+		METHOD a adjust (Lsnoddasmannen/galimulator/Star;)V
+			ARG 1 star

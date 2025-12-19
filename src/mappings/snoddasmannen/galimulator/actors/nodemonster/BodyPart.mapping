@@ -1,0 +1,15 @@
+CLASS snoddasmannen/galimulator/actors/nodemonster/BodyPart snoddasmannen/galimulator/actors/nodemonster/BodyPart
+	FIELD baseAngle baseAngle F
+	FIELD baseOffset baseOffset Lcom/badlogic/gdx/math/Vector2;
+	FIELD mother mother Lsnoddasmannen/galimulator/actors/nodemonster/NodeMonster;
+	FIELD nodeType nodeType Lsnoddasmannen/galimulator/actors/nodemonster/BodypartBlueprint$NodeType;
+	METHOD <init> (Lsnoddasmannen/galimulator/actors/nodemonster/NodeMonster;Lsnoddasmannen/galimulator/actors/nodemonster/BodypartBlueprint$NodeType;FLcom/badlogic/gdx/math/Vector2;)V
+		ARG 1 mother
+		ARG 2 nodeType
+		ARG 3 baseAngle
+			COMMENT In radians. Doesn't do anything on it's own.
+		ARG 4 baseOffset
+	METHOD updatePosition updatePosition (Lcom/badlogic/gdx/math/Vector2;F)V
+		ARG 1 offset
+		ARG 2 rotation
+			COMMENT In radians

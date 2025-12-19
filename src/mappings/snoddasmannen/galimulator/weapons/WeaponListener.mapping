@@ -1,0 +1,4 @@
+CLASS snoddasmannen/galimulator/weapons/interface_0 snoddasmannen/galimulator/weapons/WeaponListener
+	METHOD onFiredAt onFiredAt (FF)V
+		ARG 1 x
+		ARG 2 y

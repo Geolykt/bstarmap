@@ -1,0 +1,17 @@
+CLASS snoddasmannen/galimulator/actors/anneverworm/AnneverEgg snoddasmannen/galimulator/actors/anneverworm/AnneverEgg
+	FIELD displayAngle displayAngle F
+	FIELD eggType eggType Lsnoddasmannen/galimulator/actors/anneverworm/AnneverEgg$EggType;
+	FIELD mater mater Lsnoddasmannen/galimulator/actors/anneverworm/Anneverworm;
+	FIELD MATURE_AGE MATURE_AGE I
+		COMMENT Note: Beware of constant inlining.
+	FIELD shakeAngle shakeAngle F
+	FIELD shakeSize shakeSize F
+	METHOD <init> (Lsnoddasmannen/galimulator/actors/Actor;Lsnoddasmannen/galimulator/actors/anneverworm/AnneverEgg$EggType;)V
+		ARG 1 actor
+		ARG 2 type
+	METHOD getEggHeight getEggHeight (Lsnoddasmannen/galimulator/actors/anneverworm/AnneverEgg$EggType;)F
+		ARG 0 type
+	METHOD getEggWidth getEggWidth (Lsnoddasmannen/galimulator/actors/anneverworm/AnneverEgg$EggType;)F
+		ARG 0 type
+	METHOD getMovementModifier getMovementModifier ()F
+	CLASS EggType EggType

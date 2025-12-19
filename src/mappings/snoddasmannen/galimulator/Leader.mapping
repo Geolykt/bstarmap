@@ -1,0 +1,7 @@
+CLASS snoddasmannen/galimulator/Leader snoddasmannen/galimulator/Leader
+	METHOD a getFrontlineFocus (Lsnoddasmannen/galimulator/Empire;)F
+		ARG 1 enemy
+	METHOD b setFront (Lsnoddasmannen/galimulator/Empire;)V
+		ARG 1 front
+	METHOD c toggleFront (Lsnoddasmannen/galimulator/Empire;)V
+		ARG 1 enemy

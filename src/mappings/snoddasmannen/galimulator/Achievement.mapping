@@ -1,0 +1,4 @@
+CLASS snoddasmannen/galimulator/Achievement snoddasmannen/galimulator/Achievement
+	FIELD steamName steamName Ljava/lang/String;
+	METHOD <init> <init> (Ljava/lang/String;ILjava/lang/String;)V
+		ARG 3 steamName

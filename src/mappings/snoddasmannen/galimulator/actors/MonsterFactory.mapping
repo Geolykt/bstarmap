@@ -1,0 +1,2 @@
+CLASS snoddasmannen/galimulator/actors/MonsterFactory snoddasmannen/galimulator/actors/MonsterFactory
+	METHOD create create ()Lsnoddasmannen/galimulator/actors/Actor;

@@ -1,0 +1,20 @@
+CLASS snoddasmannen/galimulator/rendersystem/ppclass_0 snoddasmannen/galimulator/rendersystem/__UnusedClass__QuadTreeThread
+	FIELD a queuedElements Ljava/util/concurrent/LinkedBlockingDeque;
+		COMMENT Elements waiting to still be added.
+	FIELD b quadTree Lsnoddasmannen/galimulator/class_31;
+	FIELD c lock Ljava/util/concurrent/Semaphore;
+	FIELD d done Z
+	FIELD e addedElements I
+	FIELD f activeThreads I
+		COMMENT Not thread safe, globally shared state.
+		COMMENT
+		COMMENT Do not expect this value to be accurate. Use your own monitoring if necessary.
+	METHOD <init> (Ljava/util/concurrent/Semaphore;)V
+		ARG 1 semaphore
+	METHOD a markDone ()V
+	METHOD a setQuadTree (Lsnoddasmannen/galimulator/class_31;)V
+		ARG 1 quadTree
+	METHOD a add (Lsnoddasmannen/galimulator/rendersystem/interface_0;)V
+		COMMENT Add an element to the queue.
+		ARG 1 element
+	METHOD b clear ()V

@@ -1,0 +1,20 @@
+CLASS snoddasmannen/galimulator/shipstates/State snoddasmannen/galimulator/shipstates/State
+	FIELD abortable abortable Z
+	FIELD description description Ljava/lang/String;
+	FIELD firstRun firstRun Z
+	FIELD independent independent Z
+	FIELD serialVersionUID serialVersionUID J
+	FIELD ship ship Lsnoddasmannen/galimulator/actors/StateActor;
+	METHOD <init> (Lsnoddasmannen/galimulator/actors/StateActor;Ljava/lang/String;)V
+		ARG 1 ship
+		ARG 2 description
+	METHOD a onVisitStar (Lsnoddasmannen/galimulator/Star;)Lsnoddasmannen/galimulator/shipstates/State;
+		ARG 1 visitedStar
+	METHOD a setAbortable (Z)V
+		ARG 1 abortable
+	METHOD b tick ()Lsnoddasmannen/galimulator/shipstates/State;
+	METHOD getAbortable getAbortable ()Z
+	METHOD getDescription getDescription ()Ljava/lang/String;
+	METHOD getIndependent getIndependent ()Z
+	METHOD getWaypoint getWaypoint ()Lsnoddasmannen/galimulator/Star;
+	METHOD h_ isOrbiting ()Z

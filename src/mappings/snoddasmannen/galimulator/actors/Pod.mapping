@@ -1,0 +1,8 @@
+CLASS snoddasmannen/galimulator/actors/Pod snoddasmannen/galimulator/actors/Pod
+	FIELD decorativeAngle decorativeAngle F
+	FIELD tail tail Lcom/badlogic/gdx/graphics/g2d/TextureRegion;
+	FIELD tailWidth tailWidth F
+	FIELD troopsDeployed troopsDeployed Z
+	METHOD <init> (Lsnoddasmannen/galimulator/Star;)V
+		ARG 1 position
+	METHOD loadTail loadTail ()V

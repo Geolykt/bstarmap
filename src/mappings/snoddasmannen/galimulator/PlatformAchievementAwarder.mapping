@@ -1,0 +1,3 @@
+CLASS snoddasmannen/galimulator/interface_13 snoddasmannen/galimulator/PlatformAchievementAwarder
+	METHOD a awardAchievement (Lsnoddasmannen/galimulator/Achievement;)V
+		ARG 1 achievement

@@ -1,0 +1,47 @@
+CLASS snoddasmannen/galimulator/VanityHolder snoddasmannen/galimulator/VanityHolder
+	FIELD allianceNameFile allianceNameFile Ljava/lang/String;
+	FIELD allianceNames allianceNames Ljava/util/Vector;
+	FIELD empireNameFile empireNameFile Ljava/lang/String;
+	FIELD empireNames empireNames Ljava/util/Vector;
+	FIELD familyNameFile familyNameFile Ljava/lang/String;
+	FIELD familyNames familyNames Ljava/util/Vector;
+	FIELD hunterNameFile hunterNameFile Ljava/lang/String;
+	FIELD hunterNames hunterNames Ljava/util/Vector;
+	FIELD mottos mottos Ljava/util/Vector;
+	FIELD mottosFileName mottosFileName Ljava/lang/String;
+	FIELD planetDescriptions planetDescriptions Ljava/util/Vector;
+	FIELD planetDescriptionsFile planetDescriptionsFile Ljava/lang/String;
+	FIELD planetMaps planetMaps Ljava/util/HashMap;
+	FIELD serialVersionUID serialVersionUID J
+	FIELD shipNameFile shipNameFile Ljava/lang/String;
+	FIELD shipNames shipNames Ljava/util/Vector;
+	METHOD <init> (Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)V
+		ARG 1 empireNameFile
+		ARG 2 shipNameFile
+		ARG 3 familyNameFile
+		ARG 4 allianceNameFile
+		ARG 5 planetDescriptionsFile
+		ARG 6 mottosFile
+		ARG 7 hunterNamesFile
+	METHOD a hasEmpireNames ()Z
+	METHOD a removeRandomPlanetDescription (I)Ljava/lang/String;
+		ARG 1 planetId
+	METHOD a removeRandomElement (Ljava/util/Vector;)Ljava/lang/String;
+		ARG 1 vector
+	METHOD b hasShipNames ()Z
+	METHOD c hasFamilyNames ()Z
+	METHOD d hasPlanetDescriptions ()Z
+	METHOD e hasAllianceNames ()Z
+	METHOD g removeRandomEmpireName ()Lsnoddasmannen/galimulator/class_55;
+	METHOD getMotto getMotto ()Ljava/lang/String;
+		COMMENT Although called getMotto, this method also removes the motto from the list of available mottos.
+		COMMENT
+		COMMENT The name is an artifact from Autodeobf times and kept for compatibility reasons.
+	METHOD h removeRandomShipName ()Ljava/lang/String;
+	METHOD hasMotto hasMotto ()Z
+	METHOD i removeRandomFamilyName ()Ljava/lang/String;
+	METHOD j removeRandomAllianceName ()Ljava/lang/String;
+	METHOD l getHunterName ()Ljava/lang/String;
+		COMMENT Unlike other methods of this class, it will not remove already utilized names.
+		COMMENT Additionally, it will fall back to a random "cute" name as per the random name generator.
+	METHOD m reloadVanityFiles ()V

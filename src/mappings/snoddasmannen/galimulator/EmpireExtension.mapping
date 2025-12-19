@@ -1,0 +1,2 @@
+CLASS snoddasmannen/galimulator/EmpireExtension snoddasmannen/galimulator/EmpireExtension
+	METHOD extendedBuildActor extendedBuildActor (Lsnoddasmannen/galimulator/Star;)Lsnoddasmannen/galimulator/actors/Actor;

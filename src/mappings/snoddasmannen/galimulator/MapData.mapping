@@ -1,0 +1,3 @@
+CLASS snoddasmannen/galimulator/MapData snoddasmannen/galimulator/MapData
+	FIELD governments governments Ljava/util/ArrayList;
+	METHOD hasMovingStars hasMovingStars ()Z

@@ -1,0 +1,4 @@
+CLASS snoddasmannen/galimulator/FlagItem snoddasmannen/galimulator/FlagItem
+	CLASS BuiltinSymbols BuiltinSymbols
+		METHOD a getRandomBasicSymbol ()Lsnoddasmannen/galimulator/FlagItem$BuiltinSymbols;
+		METHOD b getRandomBuiltin ()Lsnoddasmannen/galimulator/FlagItem$BuiltinSymbols;

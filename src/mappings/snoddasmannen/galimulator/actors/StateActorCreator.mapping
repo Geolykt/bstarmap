@@ -1,0 +1,13 @@
+CLASS snoddasmannen/galimulator/actors/StateActorCreator snoddasmannen/galimulator/actors/StateActorCreator
+	METHOD createShip createShip (Lsnoddasmannen/galimulator/Star;Z)Lsnoddasmannen/galimulator/actors/StateActor;
+		ARG 1 location
+	METHOD getConstructionTime getConstructionTime ()I
+	METHOD getPrototype getPrototype ()Lsnoddasmannen/galimulator/actors/StateActor;
+	METHOD getShipName getShipName ()Ljava/lang/String;
+	METHOD initialize initialize ()V
+	METHOD isModded isModded ()Z
+		COMMENT Whether this StateActorCreate is a JsonActorFactory.
+		COMMENT
+		COMMENT Modded ships that don't make use of JsonActorFactory should not return true for this method.
+		COMMENT Doing so anyways may lead to crashes due to casting errors.
+	METHOD isNative isNative ()Z

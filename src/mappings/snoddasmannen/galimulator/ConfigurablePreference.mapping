@@ -1,0 +1,7 @@
+CLASS snoddasmannen/galimulator/ConfigurablePreference snoddasmannen/galimulator/ConfigurablePreference
+	METHOD a setValue (Ljava/lang/Object;)V
+		ARG 1 value
+	METHOD getCategory getCategory ()Ljava/lang/String;
+	METHOD getName getName ()Ljava/lang/String;
+	METHOD getValue getValue ()Ljava/lang/Object;
+	METHOD getValueType getValueType ()Lsnoddasmannen/galimulator/UserSettings$SettingType;

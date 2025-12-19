@@ -1,0 +1,7 @@
+CLASS snoddasmannen/galimulator/ui/class_74 snoddasmannen/galimulator/ui/SandboxModeWidget
+	METHOD b spawnMonsters (Z)V
+		ARG 1 spawnMany
+	CLASS Local0 MonsterSpawningHandler
+		FIELD a spawnMany Z
+		METHOD <init> (Lsnoddasmannen/galimulator/ui/class_74;Z)V
+			ARG 2 spawnMany

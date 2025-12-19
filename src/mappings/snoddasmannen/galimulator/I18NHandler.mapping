@@ -1,0 +1,7 @@
+CLASS snoddasmannen/galimulator/class_43 snoddasmannen/galimulator/I18NHandler
+	FIELD a instance Lsnoddasmannen/galimulator/class_43;
+	FIELD b bundle Lcom/badlogic/gdx/utils/I18NBundle;
+	METHOD a forgetInstance ()V
+	METHOD a getTranslation (Ljava/lang/String;)Ljava/lang/String;
+		ARG 1 key
+	METHOD b getInstancee ()Lsnoddasmannen/galimulator/class_43;

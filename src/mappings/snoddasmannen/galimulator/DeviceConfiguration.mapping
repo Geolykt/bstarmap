@@ -1,0 +1,8 @@
+CLASS snoddasmannen/galimulator/DeviceConfiguration snoddasmannen/galimulator/DeviceConfiguration
+	METHOD getConfiguration getConfiguration ()Lsnoddasmannen/galimulator/DeviceConfiguration;
+	METHOD getMinHeight getMinHeight ()I
+	METHOD recalculateScreen recalculateScreen ()V
+	METHOD requiresUnlocking requiresUnlocking ()Z
+	METHOD shipShadersEnabled shipShadersEnabled ()Z
+	METHOD sprawlByDefault sprawlByDefault ()Z
+	METHOD supportsPlay supportsPlay ()Z

@@ -1,0 +1,5 @@
+CLASS snoddasmannen/galimulator/Employer snoddasmannen/galimulator/Employer
+	METHOD getHelper getHelper ()Lsnoddasmannen/galimulator/EmployerHelper;
+	METHOD getJobTypes getJobTypes ()Ljava/util/List;
+	METHOD getName getName ()Ljava/lang/String;
+	METHOD isAlive isAlive ()Z

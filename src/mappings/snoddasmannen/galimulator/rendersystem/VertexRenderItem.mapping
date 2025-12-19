@@ -1,0 +1,4 @@
+CLASS snoddasmannen/galimulator/rendersystem/VertexRenderItem snoddasmannen/galimulator/rendersystem/VertexRenderItem
+	FIELD a vertices [F
+	METHOD <init> <init> ([F)V
+		ARG 1 vertices

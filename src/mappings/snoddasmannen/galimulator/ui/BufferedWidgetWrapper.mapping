@@ -1,0 +1,5 @@
+CLASS snoddasmannen/galimulator/ui/BufferedWidgetWrapper snoddasmannen/galimulator/ui/BufferedWidgetWrapper
+	FIELD a wrappingWidget Lsnoddasmannen/galimulator/ui/Widget;
+	METHOD hover (FFZ)V
+		ARG 3
+			COMMENT From what is discernible, this value is always true, though with subclassing that may not be the case.

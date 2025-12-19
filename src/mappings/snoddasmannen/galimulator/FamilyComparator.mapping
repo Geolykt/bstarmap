@@ -1,0 +1,7 @@
+CLASS snoddasmannen/galimulator/ppclass_33 snoddasmannen/galimulator/FamilyComparator
+	FIELD a alive Z
+	METHOD a a (Ljava/util/ArrayList;Lsnoddasmannen/galimulator/MapData;)V
+		ARG 2 galaxyType
+	METHOD a createComponentFrom (Lsnoddasmannen/galimulator/MapData;Ljava/lang/String;)Lsnoddasmannen/galimulator/dialog/DialogComponent;
+		ARG 1 mapType
+		ARG 2 generatorGroup

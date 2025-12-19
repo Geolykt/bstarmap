@@ -1,0 +1,11 @@
+CLASS snoddasmannen/galimulator/class_1 snoddasmannen/galimulator/GalimulatorTelemetry
+	COMMENT Always delegates to what basically are NOP methods on desktop versions of Galimulator.
+	COMMENT Whether this class is actually being used for telemetry outside of desktops remains to be seen.
+	FIELD a instance Lsnoddasmannen/galimulator/class_1;
+	METHOD a reportNonFatalException (Ljava/lang/Exception;)V
+		ARG 1 error
+	METHOD a reportAction (Ljava/lang/String;)V
+		ARG 1 userAction
+	METHOD a setInstance (Lsnoddasmannen/galimulator/class_1;)V
+		ARG 0 telemetryInstance
+	METHOD get_a getInstance ()Lsnoddasmannen/galimulator/class_1;

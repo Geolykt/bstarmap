@@ -1,0 +1,91 @@
+CLASS snoddasmannen/galimulator/actors/StateActor snoddasmannen/galimulator/actors/StateActor
+	FIELD alive alive Z
+	FIELD crap crap I
+		COMMENT Global debug variable. Likely unusued in modded galim as it really isn't useful for anything.
+		COMMENT
+		COMMENT This variable is responsible for the nonsensical "X000" log spam.
+	FIELD finalDestination finalDestination Lsnoddasmannen/galimulator/Star;
+	FIELD firstMaxSpeed firstMaxSpeed F
+	FIELD fleet fleet Lsnoddasmannen/galimulator/Fleet;
+	FIELD fleetable fleetable Z
+	FIELD fleetCommander fleetCommander Z
+		COMMENT Whether this actor is a commander of the fleet it is in
+	FIELD formatter formatter Ljava/text/DecimalFormat;
+	FIELD guide guide Lsnoddasmannen/galimulator/guides/Guide;
+	FIELD helper helper Lsnoddasmannen/galimulator/EmployerHelper;
+	FIELD hitPoints hitPoints F
+	FIELD isNative isNative Z
+	FIELD leftGalaxy leftGalaxy Z
+	FIELD location location Lsnoddasmannen/galimulator/Star;
+	FIELD maxHitPoints maxHitPoints I
+	FIELD maxSpeed maxSpeed F
+	FIELD movementState movementState Lsnoddasmannen/galimulator/shipstates/State;
+	FIELD owner owner Lsnoddasmannen/galimulator/Empire;
+	FIELD speed speed D
+	FIELD strategicState strategicState Lsnoddasmannen/galimulator/shipstates/State;
+	FIELD supportBonus supportBonus I
+	FIELD weapons weapons Ljava/util/Vector;
+	METHOD <init> (Lsnoddasmannen/galimulator/Star;Ljava/lang/String;FFFLsnoddasmannen/galimulator/guides/Guide;Ljava/lang/String;IZZZ)V
+		ARG 1 position
+		ARG 5 maxSpeed
+		ARG 6 guide
+		ARG 8 maxHitPoints
+		ARG 10 fleetable
+		ARG 11 isNative
+	METHOD beThrownInDirection beThrownInDirection (F)V
+		ARG 1 angle
+	METHOD chaseActor chaseActor (Lsnoddasmannen/galimulator/actors/Actor;)V
+	METHOD comeBackToGalaxy comeBackToGalaxy ()V
+	METHOD considerDefection considerDefection ()Z
+	METHOD considerQuesting considerQuesting ()Z
+	METHOD danceForJoy danceForJoy ()V
+	METHOD defect defect (Lsnoddasmannen/galimulator/Empire;)V
+		ARG 1 defectTo
+	METHOD disarm disarm ()V
+	METHOD findStarOfInterest findStarOfInterest ()Lsnoddasmannen/galimulator/Star;
+	METHOD generateShipName generateShipName ()Ljava/lang/String;
+	METHOD getAppropriateNewStateFor getAppropriateNewStateFor (Lsnoddasmannen/galimulator/Star;)Lsnoddasmannen/galimulator/shipstates/State;
+		ARG 1 star
+	METHOD getDefaultState getDefaultState ()Lsnoddasmannen/galimulator/shipstates/State;
+	METHOD getFinalDestination getFinalDestination ()Lsnoddasmannen/galimulator/Star;
+	METHOD getFreeSpaceRange getFreeSpaceRange ()F
+	METHOD getLocation getLocation ()Lsnoddasmannen/galimulator/Star;
+	METHOD getMaxSpeed getMaxSpeed ()F
+	METHOD getOrbitDistance getOrbitDistance ()F
+	METHOD getShipDefaultState getShipDefaultState ()Lsnoddasmannen/galimulator/shipstates/State;
+	METHOD getSupportBonus getSupportBonus ()F
+	METHOD isFleetable isFleetable ()Z
+	METHOD isFleetCommander isFleetCommander ()Z
+	METHOD isIndependent isIndependent ()Z
+	METHOD isOrbiting isOrbiting ()Z
+	METHOD kill kill ()V
+	METHOD leaveGalaxy leaveGalaxy ()V
+	METHOD move move ()V
+	METHOD moveAroundActor moveAroundActor (Lsnoddasmannen/galimulator/actors/Actor;)V
+		ARG 1 actor
+	METHOD moveInWideningCircles moveInWideningCircles ()V
+	METHOD moveOutOfGalaxy moveOutOfGalaxy ()V
+	METHOD moveToAndOrbit moveToAndOrbit (Lsnoddasmannen/galimulator/Star;)V
+	METHOD moveUncontrollably moveUncontrollably (F)V
+	METHOD orbitCurrentStar orbitCurrentStar ()V
+	METHOD sanitizeCurrentLocation sanitizeCurrentLocation ()V
+	METHOD setFinalDestination setFinalDestination (Lsnoddasmannen/galimulator/Star;)Z
+		COMMENT Returns true if the actor can wayfind to the destination, false otherwise.
+		ARG 1 destination
+			COMMENT Nullable.
+	METHOD setFleet setFleet (Lsnoddasmannen/galimulator/Fleet;)V
+	METHOD setFleetCommander setFleetCommander (Z)V
+	METHOD setLeftGalaxy setLeftGalaxy (Z)V
+		ARG 1 leftGalaxy
+	METHOD setLocation setLocation (Lsnoddasmannen/galimulator/Star;)V
+	METHOD setMaxSpeed setMaxSpeed ()V
+	METHOD setSlowSpeed setSlowSpeed ()V
+	METHOD smashIntoItem smashIntoItem (Lsnoddasmannen/galimulator/Item;)V
+		ARG 1 item
+	METHOD startMovingAround startMovingAround (Lsnoddasmannen/galimulator/actors/Actor;)V
+		ARG 1 actor
+	METHOD startRoamingAround startRoamingAround ()V
+	METHOD steerTowards steerTowards (FF)V
+		ARG 1 x
+		ARG 2 y
+	METHOD stop stop ()V

@@ -1,0 +1,14 @@
+CLASS snoddasmannen/galimulator/Family snoddasmannen/galimulator/Family
+	METHOD a countJobLevel (I)V
+		ARG 1 position
+	METHOD a setName (Ljava/lang/String;)V
+		ARG 1 name
+	METHOD a setLogHistoricalMembers (Z)V
+		ARG 1 log
+	METHOD b generateFirstName ()Ljava/lang/String;
+	METHOD b rememberMember (Lsnoddasmannen/galimulator/Person;)V
+		ARG 1 member
+	METHOD b setFollowed (Z)V
+		ARG 1 followed
+	METHOD c generateFamilyColors ()V
+	METHOD f getMemberCount ()I

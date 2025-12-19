@@ -1,0 +1,43 @@
+CLASS snoddasmannen/galimulator/Fleet snoddasmannen/galimulator/Fleet
+	FIELD finalDestination finalDestination Lsnoddasmannen/galimulator/Star;
+	FIELD fleetCommander fleetCommander Lsnoddasmannen/galimulator/actors/StateActor;
+	FIELD forceTravel forceTravel Z
+	FIELD front front Lsnoddasmannen/galimulator/Lazy$EmpireLazy;
+	FIELD id id I
+	FIELD lowestSpeed lowestSpeed F
+	FIELD name name Ljava/lang/String;
+	FIELD owner owner Lsnoddasmannen/galimulator/Lazy$EmpireLazy;
+	FIELD ships ships Ljava/util/Vector;
+	FIELD stickyTimer stickyTimer I
+	FIELD strategy strategy Lsnoddasmannen/galimulator/Fleet$FleetState;
+	FIELD target target Lsnoddasmannen/galimulator/actors/Actor;
+	METHOD <init> (Lsnoddasmannen/galimulator/Empire;)V
+		ARG 1 owner
+	METHOD a addActor (Lsnoddasmannen/galimulator/actors/StateActor;)V
+		ARG 1 actor
+	METHOD a setFront (Lsnoddasmannen/galimulator/Empire;)V
+		ARG 1 front
+	METHOD a hasFleetCommander (Lsnoddasmannen/galimulator/Star;)Z
+		ARG 1 location
+	METHOD a travelTo (Lsnoddasmannen/galimulator/Star;Z)V
+		ARG 1 location
+		ARG 2 forceTravel
+	METHOD b remove (Lsnoddasmannen/galimulator/actors/StateActor;)V
+		ARG 1 actor
+	METHOD b travelTo (Lsnoddasmannen/galimulator/Star;)V
+		ARG 1 finalDestination
+	METHOD c getIdleState (Lsnoddasmannen/galimulator/actors/StateActor;)Lsnoddasmannen/galimulator/shipstates/State;
+		COMMENT Name tentative
+		ARG 1 actor
+	METHOD d adjustSpeed ()V
+	METHOD d setCommander (Lsnoddasmannen/galimulator/actors/StateActor;)V
+		ARG 1 commander
+	METHOD e getFront ()Lsnoddasmannen/galimulator/Empire;
+	METHOD f tick ()V
+	METHOD getFinalDestination getFinalDestination ()Lsnoddasmannen/galimulator/Star;
+	METHOD getFleetCommander getFleetCommander ()Lsnoddasmannen/galimulator/actors/StateActor;
+	METHOD getName getName ()Ljava/lang/String;
+	METHOD getShips getShips ()Ljava/util/Vector;
+	METHOD getStrategy getStrategy ()Lsnoddasmannen/galimulator/Fleet$FleetState;
+	METHOD i getState ()Lsnoddasmannen/galimulator/shipstates/State;
+	CLASS FleetState FleetState

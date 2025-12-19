@@ -1,0 +1,28 @@
+CLASS snoddasmannen/galimulator/Alliance snoddasmannen/galimulator/Alliance
+	FIELD color color Lsnoddasmannen/galimulator/GalColor;
+	FIELD deathYear deathYear I
+	FIELD empireOneColor empireOneColor Lsnoddasmannen/galimulator/GalColor;
+	FIELD forbidNewMembers forbidNewMembers Z
+	FIELD items items Ljava/util/Vector;
+	FIELD members members Ljava/util/ArrayList;
+	FIELD name name Ljava/lang/String;
+	FIELD nameIdentifier nameIdentifier Ljava/lang/String;
+	FIELD semiOpaqueColor semiOpaqueColor Lsnoddasmannen/galimulator/GalColor;
+	FIELD serialVersionUID serialVersionUID J
+	FIELD startDate startDate I
+	METHOD <init> (Lsnoddasmannen/galimulator/AllianceDescriptor;)V
+		ARG 1 allianceDescriptor
+	METHOD a getTotalStarCount ()I
+	METHOD a setName (Ljava/lang/String;)V
+	METHOD a addMember (Lsnoddasmannen/galimulator/Empire;)V
+	METHOD b tick ()V
+	METHOD b removeMember (Lsnoddasmannen/galimulator/Empire;)V
+	METHOD c hasMember (Lsnoddasmannen/galimulator/Empire;)Z
+	METHOD d kill ()V
+	METHOD d canAccept (Lsnoddasmannen/galimulator/Empire;)Z
+	METHOD e getHighestTechLevel ()I
+	METHOD g getSemiOpaqueColor ()Lsnoddasmannen/galimulator/GalColor;
+	METHOD getColor getColor ()Lsnoddasmannen/galimulator/GalColor;
+	METHOD getName getName ()Ljava/lang/String;
+	METHOD i getAge ()F
+	METHOD k toColoredName ()Ljava/lang/String;

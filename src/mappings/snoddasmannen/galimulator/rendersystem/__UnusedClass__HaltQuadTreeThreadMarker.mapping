@@ -1,0 +1,6 @@
+CLASS snoddasmannen/galimulator/rendersystem/localclass_0 snoddasmannen/galimulator/rendersystem/__UnusedClass__HaltQuadTreeThreadMarker
+	COMMENT Contrary to the name, it actually does absolutely nothing. One might even ask why it is there.
+	COMMENT Funny, huh?
+	FIELD a this0 Lsnoddasmannen/galimulator/rendersystem/ppclass_0;
+	METHOD <init> (Lsnoddasmannen/galimulator/rendersystem/ppclass_0;)V
+		ARG 1 this0

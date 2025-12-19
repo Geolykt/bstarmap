@@ -1,0 +1,52 @@
+CLASS snoddasmannen/galimulator/QuadTree snoddasmannen/galimulator/QuadTree
+	FIELD a id I
+	FIELD b storedStar Lsnoddasmannen/galimulator/Star;
+	FIELD g southwest Lsnoddasmannen/galimulator/QuadTree;
+	FIELD h southeast Lsnoddasmannen/galimulator/QuadTree;
+	FIELD i northwest Lsnoddasmannen/galimulator/QuadTree;
+	FIELD j northeast Lsnoddasmannen/galimulator/QuadTree;
+	FIELD k nextId I
+	FIELD l pairs Ljava/util/Vector;
+	FIELD x1 x1 F
+	FIELD x2 x2 F
+	FIELD y1 y1 F
+	FIELD y2 y2 F
+	METHOD <init> (FFFF)V
+		ARG 1 x1
+		ARG 2 y1
+		ARG 3 x2
+		ARG 4 y2
+	METHOD a __DO_NOT_USE__nudgeStars ()V
+		COMMENT @deprecated This method likely induces bugs. Do not use.
+		COMMENT
+		COMMENT Nudge stars within the quadtree by placing it at an undefined position in the quadtree's space.
+		COMMENT
+		COMMENT It is unclear what the usecase is, but using this method will more likely than not induce more bugs than it is worth.
+		COMMENT Do not use.
+	METHOD a getStarsWithin (Lcom/badlogic/gdx/math/Rectangle;)Ljava/util/Vector;
+		ARG 1 aabb
+	METHOD a getStarsWithin (Ljava/util/Vector;Lcom/badlogic/gdx/math/Rectangle;)V
+		ARG 1 out
+		ARG 2 aabb
+	METHOD a __DO_NOT_USE_estimateDistance (Lsnoddasmannen/galimulator/QuadTree;)F
+		ARG 1 to
+	METHOD a generatePairsBetween (Lsnoddasmannen/galimulator/QuadTree;Lsnoddasmannen/galimulator/QuadTree;)Ljava/util/Vector;
+		ARG 0 parent
+		ARG 1 child
+	METHOD b getContainerWidth ()F
+	METHOD b isOverlapping (Lcom/badlogic/gdx/math/Rectangle;)Z
+		ARG 1 aabb
+	METHOD b isFallingWithin (Lsnoddasmannen/galimulator/Star;)Z
+		COMMENT Check whether the star falls within the quadtree purely based on the star's coordinates.
+		ARG 1 node
+	METHOD buildPairs buildPairs ()V
+	METHOD c drawQuadTreeBoundingBox ()V
+	METHOD c hasStarsWithin (Lcom/badlogic/gdx/math/Rectangle;)Z
+	METHOD c getNearestStar (Lsnoddasmannen/galimulator/QuadTree;)Lsnoddasmannen/galimulator/Star;
+		ARG 1 to
+	METHOD e getStoredStars ()Ljava/util/Vector;
+	METHOD g getWidth ()F
+	METHOD get_l getPairsFast ()Ljava/util/Vector;
+	METHOD h subdivideTree ()Z
+	METHOD insert insert (Lsnoddasmannen/galimulator/Star;)Z
+		ARG 1 node

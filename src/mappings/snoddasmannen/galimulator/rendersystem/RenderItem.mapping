@@ -1,0 +1,10 @@
+CLASS snoddasmannen/galimulator/rendersystem/RenderItem snoddasmannen/galimulator/rendersystem/RenderItem
+	FIELD b boundingRectangle Lcom/badlogic/gdx/math/Rectangle;
+	FIELD c camera Lcom/badlogic/gdx/graphics/OrthographicCamera;
+	METHOD a render ()V
+	METHOD b getCategory ()Lsnoddasmannen/galimulator/rendersystem/RenderItem$RenderCategory;
+	METHOD get_b getBoundingRectangle ()Lcom/badlogic/gdx/math/Rectangle;
+	METHOD get_c getCamera ()Lcom/badlogic/gdx/graphics/OrthographicCamera;
+	CLASS RenderCategory RenderCategory
+		METHOD a starDrawing ()V
+		METHOD b endDrawing ()V

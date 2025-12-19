@@ -1,0 +1,13 @@
+CLASS snoddasmannen/galimulator/actors/nodemonster/BodypartBlueprint snoddasmannen/galimulator/actors/nodemonster/BodypartBlueprint
+	FIELD baseAngle baseAngle F
+	FIELD offset offset Lcom/badlogic/gdx/math/Vector2;
+	FIELD type type Lsnoddasmannen/galimulator/actors/nodemonster/BodypartBlueprint$NodeType;
+	METHOD <init> (FLcom/badlogic/gdx/math/Vector2;Lsnoddasmannen/galimulator/actors/nodemonster/BodypartBlueprint$NodeType;)V
+		ARG 1 baseAngle
+		ARG 2 offset
+		ARG 3 type
+	METHOD <init> (Lsnoddasmannen/galimulator/actors/nodemonster/BodypartBlueprint;)V
+		ARG 1 type
+	METHOD createNode createNode (Lsnoddasmannen/galimulator/actors/nodemonster/NodeMonster;)Lsnoddasmannen/galimulator/actors/nodemonster/BodyPart;
+		ARG 1 mother
+	CLASS NodeType NodeType

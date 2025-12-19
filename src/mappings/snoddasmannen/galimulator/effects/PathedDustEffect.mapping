@@ -1,0 +1,9 @@
+CLASS snoddasmannen/galimulator/effects/PathedDustEffect snoddasmannen/galimulator/effects/PathedDustEffect
+	FIELD color color Lsnoddasmannen/galimulator/GalColor;
+	FIELD path path Lsnoddasmannen/galimulator/StarPath;
+	FIELD pathAngle pathAngle F
+	FIELD pathAngleVelocity pathAngleVelocity F
+	FIELD position position Lcom/badlogic/gdx/math/Vector2;
+	FIELD size size F
+	METHOD <init> (Lsnoddasmannen/galimulator/Star;)V
+		ARG 1 star

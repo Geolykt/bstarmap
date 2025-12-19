@@ -1,0 +1,4 @@
+CLASS snoddasmannen/galimulator/ui/class_5 snoddasmannen/galimulator/ui/BulletinLog
+	FIELD a bulletins Ljava/util/Vector;
+	METHOD a tick ()V
+	METHOD c clear ()V

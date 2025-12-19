@@ -1,0 +1,50 @@
+CLASS snoddasmannen/galimulator/class_31 snoddasmannen/galimulator/__UnusedClass__RendercacheQuadTree
+	COMMENT Note: Not only is this class unused, it most likely is broken and would need to be repaired.
+	COMMENT At which point one could just use any other off-the-shelf QuadTree implementation so
+	COMMENT there really is no need to use this class over a dedicated library.
+	COMMENT
+	COMMENT Fully remapped.
+	FIELD a __unused__uid I
+		COMMENT Why a QuadTree requires an integer ID is a bit beyond me.
+		COMMENT Might be removed in a mod in the far future maybe. Recompiled galimulator, anyone?
+	FIELD b topLevelElements Ljava/util/ArrayList;
+		COMMENT Elements that are present in this QuadTree, but not it's children.
+		COMMENT
+		COMMENT Although {@link #collect(ArrayList, Rectangle)} would also collect elements of the children, if applicable.
+	FIELD c x1 F
+	FIELD d x2 F
+	FIELD e y1 F
+	FIELD f y2 F
+	FIELD g nonEmptyChildren Z
+		COMMENT {@value true} if at least one child node has at least one element.
+	FIELD h quadTreeAABB Lcom/badlogic/gdx/math/Rectangle;
+	FIELD i southwest Lsnoddasmannen/galimulator/class_31;
+	FIELD j southeast Lsnoddasmannen/galimulator/class_31;
+	FIELD k northwest Lsnoddasmannen/galimulator/class_31;
+	FIELD l northeast Lsnoddasmannen/galimulator/class_31;
+	FIELD m nextQuadTreeId I
+		COMMENT Not exactly used, might be removed in a total refractor mod (only used to compute {@link #__unused__uid}).
+	METHOD <init> (FFFF)V
+		COMMENT This class expects that the width of the QuadTree (i.e. {@code x2 - x1}) is equal to the height of the QuadTree (i.e. {@code y2 - y1}).
+		COMMENT Further, {@code x2 > x1} and {@code y2 > y1} should apply.
+		COMMENT
+		COMMENT Not doing so wouldn't cause immediate exceptions to be thrown, but rather produces subtly incorrect behaviour (although still working as designed).
+		ARG 1 x1
+		ARG 2 y1
+		ARG 3 x2
+		ARG 4 y2
+	METHOD a getWidth ()F
+		COMMENT This class expects that the width of the QuadTree is equal to the height of the QuadTree!
+	METHOD a overlaps (Lcom/badlogic/gdx/math/Rectangle;)Z
+		ARG 1 region
+	METHOD a collect (Ljava/util/ArrayList;Lcom/badlogic/gdx/math/Rectangle;)V
+		ARG 1 collectorOut
+		ARG 2 collectionRegion
+	METHOD a add (Lsnoddasmannen/galimulator/rendersystem/interface_0;)Z
+		COMMENT Note: This method is most likely bugged and subdivides infinitely.
+		COMMENT
+		COMMENT Regardless, this method (as well as the entire rest of this class) is unused,
+		COMMENT so broken behaviour is more than expected.
+		ARG 1 object
+	METHOD b subdivide ()Z
+		COMMENT Method assumes that this branch of the tree wasn't subdivided already.

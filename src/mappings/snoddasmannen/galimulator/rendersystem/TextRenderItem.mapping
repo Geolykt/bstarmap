@@ -1,0 +1,19 @@
+CLASS snoddasmannen/galimulator/rendersystem/TextRenderItem snoddasmannen/galimulator/rendersystem/TextRenderItem
+	FIELD a x F
+	FIELD d y F
+	FIELD e rotation F
+	FIELD f rotationOrigin Lcom/badlogic/gdx/math/Vector3;
+	FIELD g text Ljava/lang/String;
+	FIELD h color Lsnoddasmannen/galimulator/GalColor;
+	FIELD i font Lsnoddasmannen/galimulator/GalFX$FONT_TYPE;
+	FIELD j scale F
+	METHOD <init> (FFFLcom/badlogic/gdx/math/Vector3;Ljava/lang/String;Lsnoddasmannen/galimulator/GalColor;Lsnoddasmannen/galimulator/GalFX$FONT_TYPE;FLcom/badlogic/gdx/graphics/Camera;)V
+		ARG 1 x
+		ARG 2 y
+		ARG 3 rotation
+		ARG 4 rotationOrigin
+		ARG 5 text
+		ARG 6 color
+		ARG 7 font
+		ARG 8 scale
+		ARG 9 camera

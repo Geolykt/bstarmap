@@ -1,0 +1,17 @@
+CLASS snoddasmannen/galimulator/class_29 snoddasmannen/galimulator/QuadTreePair
+	FIELD a parentStars Ljava/util/Vector;
+	FIELD b childStars Ljava/util/Vector;
+	FIELD c averagePositions Ljava/util/Vector;
+	METHOD <init> <init> (Ljava/util/Vector;Ljava/util/Vector;)V
+		ARG 1 parentStars
+		ARG 2 childStars
+	METHOD a getAverageLocations ()Ljava/util/Vector;
+		COMMENT Obtain the average positions of the pair;
+		COMMENT The X and Y axes should be self-explainatory, the Z axis is the radius or maximum distance a star has from the cluster.
+		COMMENT
+		COMMENT The returned Vector has two Vector3 objects for the parent and child QuadTree star cluster,
+		COMMENT the parent generally being the first entry but this method makes no guarantees that this behaviour
+		COMMENT always applies.
+	METHOD a getAveragePosition (Ljava/util/Vector;)Lcom/badlogic/gdx/math/Vector3;
+		COMMENT Z-Axis is radius or maximum distance a star has from the center of the provided cluster
+		ARG 1 stars

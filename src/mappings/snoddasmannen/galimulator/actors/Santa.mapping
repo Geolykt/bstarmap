@@ -1,0 +1,10 @@
+CLASS snoddasmannen/galimulator/actors/Santa snoddasmannen/galimulator/actors/Santa
+	FIELD alpha alpha F
+	FIELD REINDEER REINDEER I
+		COMMENT Note: Beware of constant inlining.
+	FIELD rudolfAlpha rudolfAlpha F
+	FIELD rudolfOffset rudolfOffset F
+	FIELD xdir xdir I
+	FIELD ydir ydir I
+	METHOD getRudolfPosition getRudolfPosition (I)Lcom/badlogic/gdx/math/Vector2;
+		ARG 1 rudolfIndex

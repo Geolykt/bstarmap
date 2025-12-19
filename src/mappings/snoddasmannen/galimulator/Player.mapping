@@ -1,0 +1,37 @@
+CLASS snoddasmannen/galimulator/Player snoddasmannen/galimulator/Player
+	METHOD a addExtraPoints (I)V
+		ARG 1 points
+	METHOD a isYearningForPeace (Lsnoddasmannen/galimulator/Empire;)Z
+		COMMENT Always returns false
+	METHOD a setAutoBuildShips (Z)V
+		ARG 1 flag
+	METHOD b isEmperorMode ()Z
+	METHOD b setEmpire (Lsnoddasmannen/galimulator/Empire;)V
+	METHOD c getDifficultyModifier ()Ljava/lang/String;
+	METHOD c getFocusBonous (Lsnoddasmannen/galimulator/Empire;)F
+		ARG 1 enemy
+	METHOD d tick ()V
+	METHOD d getPlayerDefenseBonus (Lsnoddasmannen/galimulator/Empire;)F
+		ARG 1 enemy
+	METHOD e reform ()V
+	METHOD e getLatestWarScore (Lsnoddasmannen/galimulator/Empire;)I
+		ARG 1 enemy
+	METHOD f isDangerousStress ()Z
+	METHOD f incrementLatestWarScore (Lsnoddasmannen/galimulator/Empire;)V
+		ARG 1 enemy
+	METHOD g isCriticalStress ()Z
+	METHOD g decrementLatestWarScore (Lsnoddasmannen/galimulator/Empire;)V
+		ARG 1 enemy
+	METHOD getAutoBuildShips getAutoBuildShips ()Z
+	METHOD getEmpire getEmpire ()Lsnoddasmannen/galimulator/Empire;
+	METHOD h removeWarScore (Lsnoddasmannen/galimulator/Empire;)V
+		ARG 1 enenmy
+	METHOD i hasSpy (Lsnoddasmannen/galimulator/Empire;)Z
+		ARG 1 targetEmpire
+	METHOD j getSpyForTarget (Lsnoddasmannen/galimulator/Empire;)Lsnoddasmannen/galimulator/Spy;
+		ARG 1 target
+	METHOD k setSpyTarget (Lsnoddasmannen/galimulator/Empire;)V
+		ARG 1 targetEmpire
+	METHOD n getFreeSpies ()I
+	METHOD q onTakeControl ()V
+	METHOD r onGameOver ()V

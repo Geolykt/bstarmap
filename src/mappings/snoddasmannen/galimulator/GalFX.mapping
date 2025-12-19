@@ -1,0 +1,361 @@
+CLASS snoddasmannen/galimulator/GalFX snoddasmannen/galimulator/GalFX
+	FIELD a mainSpriteBatch Lcom/badlogic/gdx/graphics/g2d/SpriteBatch;
+	FIELD A bigTextByDefault Z
+		COMMENT Whether to prefer using the large monotype font over the small monotype font
+		COMMENT when using MONOTYPE_DEFAULT.
+	FIELD ab planetShader Lcom/badlogic/gdx/graphics/glutils/ShaderProgram;
+	FIELD ac premultipliedAlphaShader Lcom/badlogic/gdx/graphics/glutils/ShaderProgram;
+	FIELD ad shipLightingShader Lcom/badlogic/gdx/graphics/glutils/ShaderProgram;
+	FIELD ae rippleShader Lcom/badlogic/gdx/graphics/glutils/ShaderProgram;
+	FIELD b whitesquareRegion Lcom/badlogic/gdx/graphics/g2d/TextureRegion;
+	FIELD C ScreensaverDisabler Lsnoddasmannen/galimulator/interface_1;
+	FIELD D keepScreenOn Z
+	FIELD E THREAD_LOCAL_GLYPH_LAYOUT Ljava/lang/ThreadLocal;
+	FIELD F gameAtlas Lcom/badlogic/gdx/graphics/g2d/TextureAtlas;
+	FIELD G toggleFullscreenLater Z
+	FIELD H flowerPower Z
+		COMMENT Whether the gift of vision is currently applied.
+		COMMENT This makes many of the draw calls to this class instead draw the default
+		COMMENT {@value "flower.png"} texture - why? Well, because that's a feature now (or rather
+		COMMENT has been for a while in Galimulator). Note: Does not have an effect on draw callls
+		COMMENT that define strict immunity to this feature, as well as other circumstances.
+		COMMENT
+		COMMENT In general, it does not have a defined effect on SLAPI, though SLAPI should in general not be affected.
+		COMMENT Well, in general - due to the nature of the temporary effect of the gift of vision,
+		COMMENT it probably is poorly tested.
+	FIELD I filledCircleRegion Lcom/badlogic/gdx/graphics/g2d/TextureRegion;
+	FIELD j asyncTextureFetchRequests Ljava/util/ArrayList;
+		COMMENT @deprecated SLAPI changes the implementation of {@link GalFX#fetchTexture(String)} so it does not make use of this field. Further, this field is not thread-safe despite it being solely used in an async environment.
+	FIELD J hollowCircleRegion Lcom/badlogic/gdx/graphics/g2d/TextureRegion;
+	FIELD k BASIC_VERTEX_SHADER Ljava/lang/String;
+	FIELD K thinCircleRegion Lcom/badlogic/gdx/graphics/g2d/TextureRegion;
+		COMMENT Corresponds to the {@value "thin-circle-outline.png"} texture file.
+	FIELD l PREMULTIPLIED_ALPHA_FRAGMENT_SHADER Ljava/lang/String;
+	FIELD L gradientCircleRegion Lcom/badlogic/gdx/graphics/g2d/TextureRegion;
+	FIELD m boardCamera Lcom/badlogic/gdx/graphics/OrthographicCamera;
+	FIELD M gradientRectangleRegion Lcom/badlogic/gdx/graphics/g2d/TextureRegion;
+	FIELD N fivestarRegion Lcom/badlogic/gdx/graphics/g2d/TextureRegion;
+	FIELD o mainPolygonBatch Lcom/badlogic/gdx/graphics/g2d/PolygonSpriteBatch;
+	FIELD O whitesquareTexture Lcom/badlogic/gdx/graphics/Texture;
+	FIELD p fontMonotypeSmall Lcom/badlogic/gdx/graphics/g2d/BitmapFont;
+		COMMENT Corresponds to the {@value "data/Audiowide-18.fnt"} font file.
+		COMMENT
+		COMMENT This font has markup enabled by default.
+	FIELD q fontMonotypeBig Lcom/badlogic/gdx/graphics/g2d/BitmapFont;
+		COMMENT Corresponds to the {@value "data/Audiowide-24.fnt"} font file.
+		COMMENT
+		COMMENT This font has libGDX markup enabled by default.
+	FIELD r fontSpace Lcom/badlogic/gdx/graphics/g2d/BitmapFont;
+		COMMENT Corresponds to the {@value "data/fonts/Signika2.fnt"} font file.
+		COMMENT
+		COMMENT
+		COMMENT This BitmapFont has markup enabled by default.
+	FIELD RENDERCACHE_LOCAL RENDERCACHE_LOCAL Ljava/lang/ThreadLocal;
+	FIELD s friendlyFont Lcom/badlogic/gdx/graphics/g2d/BitmapFont;
+		COMMENT When the current locale is set as russian, this BitmapFont corresponds to the
+		COMMENT {@value "data/fonts/Raleway/SemiBold-new-24.fnt"} file. Otherwise, it will correspond
+		COMMENT to the {@value "data/fonts/Signika.fnt"} font file.
+		COMMENT
+		COMMENT This font has, irrespective of above choice, libGDX markup enabled.
+	FIELD S __unusedSpritebatch0 Lcom/badlogic/gdx/graphics/g2d/SpriteBatch;
+	FIELD T specialsboxNinepatch Lcom/badlogic/gdx/graphics/g2d/NinePatch;
+	FIELD U windowNinepatch Lcom/badlogic/gdx/graphics/g2d/NinePatch;
+	FIELD v drawingSprites Z
+	FIELD V window3Ninepatch Lcom/badlogic/gdx/graphics/g2d/NinePatch;
+	FIELD w textureCache Ljava/util/HashMap;
+	FIELD W button3Ninepatch Lcom/badlogic/gdx/graphics/g2d/NinePatch;
+	FIELD x textureRegionCache Ljava/util/HashMap;
+	FIELD y atlasMap Ljava/util/HashMap;
+	FIELD Y followedActor Lsnoddasmannen/galimulator/actors/Actor;
+	FIELD Z boardRotation F
+	METHOD a drawVertices ([F)V
+		COMMENT Draw a set of vertices using the main {@link SpriteBatch}.
+		COMMENT Uses {@link #getBoardCamera()} for the projection.
+		COMMENT
+		COMMENT Note: In vanilla galimulator, this method indirectly causes a
+		COMMENT SpriteBatch to be flushed and thus a draw call, even if this
+		COMMENT method is called repeatedly. Mods such as FastStar resolve this
+		COMMENT performance issue though. It is not advised that you
+		COMMENT resolve this performance issue yourself due to afforementioned
+		COMMENT mods already existing. If you wish to improve their performance,
+		COMMENT PR to the respective repositories instead of creating your own
+		COMMENT optimization mods and inevitably causing inter-mod conflicts
+		COMMENT due to such.
+		ARG 0 vertices
+	METHOD a drawLine (DDDDFLsnoddasmannen/galimulator/GalColor;)V
+		COMMENT Draws a line using vertices.
+		COMMENT
+		COMMENT Warning: Unspecified camera. Make sure you are in the correct environment beforehand!
+		ARG 0 x1
+		ARG 2 y1
+		ARG 4 x2
+		ARG 6 y2
+		ARG 8 lineThickness
+		ARG 9 lineColor
+	METHOD a drawGradientCircle (DDDLsnoddasmannen/galimulator/GalColor;Lcom/badlogic/gdx/graphics/Camera;)V
+		ARG 0 xCenter
+		ARG 2 yMin
+			COMMENT Okay, this seems kinda wrong. Look into it with a bit more detail another day.
+		ARG 4 radius
+		ARG 6 color
+		ARG 7 projector
+	METHOD a drawCircle (DDDLsnoddasmannen/galimulator/GalColor;ZZLcom/badlogic/gdx/graphics/Camera;)V
+		COMMENT Likely unintended behaviour: Setting the fill parameter to {@value true} causes
+		COMMENT the draw call to be "swallowed" when the gift of vision is applied. This effect
+		COMMENT might not be observed in modded Galimulator, depending on the mods used (SLAPI
+		COMMENT might fix this bug for example).
+		ARG 0 centerX
+		ARG 2 centerY
+		ARG 4 radius
+		ARG 6 color
+			COMMENT This color will also be used for filling, if selected.
+		ARG 7 fill
+			COMMENT Whether to fill the rendered circle.
+		ARG 8 thinCircle
+			COMMENT No effect when drawing a filled circle. The rest of Galimulator uses {@value true} in that case, but it doesn't matter.
+		ARG 9 projection
+	METHOD a setZoom (F)V
+		ARG 0 zoom
+	METHOD a panTranslate (FF)V
+	METHOD a drawLine (FFFFFLsnoddasmannen/galimulator/GalColor;)V
+		COMMENT Draws a line using vertices.
+		COMMENT
+		COMMENT Warning: Unspecified camera. Make sure you are in the correct environment beforehand!
+		ARG 0 x1
+		ARG 1 y1
+		ARG 2 x2
+		ARG 3 y2
+		ARG 4 lineThickness
+		ARG 5 lineColor
+	METHOD a drawText (FFLjava/lang/String;Lsnoddasmannen/galimulator/GalColor;)F
+		ARG 0 x
+		ARG 1 y
+		ARG 2 text
+		ARG 3 color
+	METHOD a (FLjava/lang/String;Lsnoddasmannen/galimulator/GalFX$FONT_TYPE;)F
+		ARG 2 font
+	METHOD a __nopMethod0 (I)V
+		ARG 0 __const_0
+	METHOD a setBlendFunction (II)V
+		ARG 0 srcFunc
+		ARG 1 dstFunc
+	METHOD a (Lcom/badlogic/gdx/files/FileHandle;Ljava/lang/String;)Z
+		ARG 1 s
+	METHOD a useCamera (Lcom/badlogic/gdx/graphics/Camera;)V
+		ARG 0 camera
+	METHOD a drawPolygon (Lcom/badlogic/gdx/graphics/g2d/PolygonSprite;)V
+	METHOD a setCurrentShader (Lcom/badlogic/gdx/graphics/glutils/ShaderProgram;)V
+		ARG 0 shader
+	METHOD a fetchTexture (Ljava/lang/String;)Lcom/badlogic/gdx/graphics/Texture;
+		COMMENT Note: SLAPI overwrites the implementation of this method as it is not compatible with LWJGL3 due to the way this method determines the current thread.
+		ARG 0 pathname
+	METHOD a setShaderUniform (Ljava/lang/String;F)V
+		ARG 0 uniformName
+		ARG 1 uniformValue
+	METHOD a estimateLineWidths (Ljava/lang/String;Lcom/badlogic/gdx/graphics/g2d/BitmapFont;)Ljava/util/stream/Stream;
+		COMMENT Expects no wrapping; A line is denoted through "\\n".
+		ARG 0 text
+		ARG 1 font
+	METHOD a layoutFor (Ljava/lang/String;Lsnoddasmannen/galimulator/GalFX$FONT_TYPE;)Lcom/badlogic/gdx/graphics/g2d/GlyphLayout;
+		ARG 0 text
+		ARG 1 font
+	METHOD a getPercievedLuminocity (Lsnoddasmannen/galimulator/GalColor;)F
+		COMMENT The human brain and eye is better at distinguishing some colors over others due to the eye being more
+		COMMENT sensitive to some colors, while being less sensitive to others; henceforth some trivial math needs to be
+		COMMENT performed to roughly estimate the brightness of a color. Plainly adding the three color channels of a color
+		COMMENT does not suffice for many calculations.
+		COMMENT
+		COMMENT This method ignores the alpha channel of the given color. The returned value is roughly (+/- 1 ulp)
+		COMMENT in the range of 0 and 255.
+		ARG 0 color
+	METHOD a getManhattanDistance (Lsnoddasmannen/galimulator/GalColor;Lsnoddasmannen/galimulator/GalColor;)F
+		COMMENT Obtain the manhattan distance of the two colors.
+		COMMENT The returned value is in the range of 0 and 3.
+		ARG 0 color1
+		ARG 1 color2
+	METHOD a getHorizontalScale (Lsnoddasmannen/galimulator/GalFX$FONT_TYPE;)F
+		ARG 0 font
+	METHOD a setFontScale (Lsnoddasmannen/galimulator/GalFX$FONT_TYPE;F)V
+		COMMENT Set the scale of the given font, both horizontally and vertically.
+		COMMENT Have no effect if the desired scale is 0.
+		ARG 0 font
+		ARG 1 scale
+	METHOD a setScreensaverDisabler (Lsnoddasmannen/galimulator/interface_1;)V
+		ARG 0 disabler
+	METHOD a setActiveRenderCache (Lsnoddasmannen/galimulator/rendersystem/RenderCache;)V
+		ARG 0 rendercache
+	METHOD A __unusedMethod0 ()V
+		COMMENT The assumption that this method is unused is most likely incorrect.
+		COMMENT Please investigate fruther at a later point in time.
+	METHOD b getCameraRotationRad ()D
+	METHOD b zoom (F)V
+		COMMENT Values greater than 1 zoom out, values less than 1 zoom in.
+		COMMENT Multiplicative, i.e. repeated calls to this method will have a stacking effect,
+		COMMENT meaning that the zoom factor is a factor and not something absolute.
+		COMMENT
+		COMMENT Does not zoom arbitrarily far out after a certain point, see {@link #getDesiredZoom()}.
+		ARG 0 zoomFactor
+	METHOD b assembleStarlaneRect (FFFFFLsnoddasmannen/galimulator/GalColor;)[F
+		ARG 0 x1
+		ARG 1 y1
+		ARG 2 x2
+		ARG 3 y2
+		ARG 4 starlaneThickness
+		ARG 5 starlaneColor
+	METHOD b drawGradientRect (FFFFLsnoddasmannen/galimulator/GalColor;Lcom/badlogic/gdx/graphics/Camera;)V
+		ARG 0 x
+		ARG 1 y
+		ARG 2 width
+		ARG 3 height
+		ARG 4 color
+		ARG 5 projection
+	METHOD b getAtlas (Ljava/lang/String;)Lcom/badlogic/gdx/graphics/g2d/TextureAtlas;
+		COMMENT This method is relatively unused even in vanilla galimulator (it is only used in JsonActorFactory, and then only if the atlas was explicitly set).
+		COMMENT Either way, the practice of changing atlases mid-draw is frowned upon as it requires changing textures and a draw flush. This can reduce performance by more than necessary.
+		COMMENT
+		COMMENT This method lazily loads the TextureAtlas defined by the atlasPath parameter.
+		ARG 0 atlasPath
+	METHOD b estimateWidth (Ljava/lang/String;Lsnoddasmannen/galimulator/GalFX$FONT_TYPE;)I
+		COMMENT Expects no wrapping; Lines denoted through "\\n"
+		ARG 0 text
+		ARG 1 font
+	METHOD b followActor (Lsnoddasmannen/galimulator/actors/Actor;)V
+	METHOD b setKeepScreenOn (Z)V
+		ARG 0 keepScreenOn
+	METHOD c getBitmapFont (Lsnoddasmannen/galimulator/GalFX$FONT_TYPE;)Lcom/badlogic/gdx/graphics/g2d/BitmapFont;
+		ARG 0 font
+	METHOD c setFullscreen (Z)V
+		ARG 0 fullscreen
+	METHOD C useBoardCamera ()V
+	METHOD d resetZoom ()V
+	METHOD drawLine drawLine (DDDDFLsnoddasmannen/galimulator/GalColor;Lcom/badlogic/gdx/graphics/Camera;)V
+		ARG 0 x1
+		ARG 2 y1
+		ARG 4 x2
+		ARG 6 y2
+		ARG 8 lineWidth
+		ARG 9 color
+		ARG 10 projector
+	METHOD drawNinepatch drawNinepatch (Lcom/badlogic/gdx/graphics/g2d/NinePatch;IIIILsnoddasmannen/galimulator/GalColor;Lcom/badlogic/gdx/graphics/Camera;)V
+		COMMENT x/y are corner coordinates.
+		ARG 0 ninepatach
+		ARG 1 x
+		ARG 2 y
+		ARG 3 width
+		ARG 4 height
+		ARG 5 color
+		ARG 6 projection
+	METHOD drawRectangle drawRectangle (FFFFLsnoddasmannen/galimulator/GalColor;ZFLcom/badlogic/gdx/graphics/Camera;)V
+		ARG 0 x1
+		ARG 1 y1
+		ARG 2 x2
+		ARG 3 y2
+		ARG 4 color
+		ARG 5 fill
+		ARG 6 lineWidth
+			COMMENT Ignored if fill is true.
+		ARG 7 projector
+	METHOD drawRectangle drawRectangle (FFFFLsnoddasmannen/galimulator/GalColor;ZLcom/badlogic/gdx/graphics/Camera;)V
+		COMMENT Draw a rectangle using a default line width (if not filled) of 2.0
+		ARG 0 x1
+		ARG 1 y1
+		ARG 2 x2
+		ARG 3 y2
+		ARG 4 color
+		ARG 5 filled
+		ARG 6 projector
+	METHOD drawText drawText (FFFFLjava/lang/String;Lsnoddasmannen/galimulator/GalColor;Lsnoddasmannen/galimulator/GalFX$FONT_TYPE;Lcom/badlogic/gdx/graphics/Camera;I)V
+		COMMENT Must be called on the render thread. Cannot be called on the simulation thread.
+		ARG 0 x
+		ARG 1 y
+		ARG 2 targetWidth
+		ARG 3 __unused__targetHeight
+		ARG 4 text
+		ARG 5 textColor
+		ARG 6 font
+		ARG 7 projection
+		ARG 8 halign
+	METHOD drawText drawText (FFFLcom/badlogic/gdx/math/Vector3;Ljava/lang/String;Lsnoddasmannen/galimulator/GalColor;Lsnoddasmannen/galimulator/GalFX$FONT_TYPE;FLcom/badlogic/gdx/graphics/Camera;)F
+		ARG 0 x
+		ARG 1 y
+		ARG 2 rotation
+		ARG 3 rotationOrigin
+		ARG 4 text
+		ARG 5 color
+		ARG 6 font
+		ARG 7 scale
+		ARG 8 camera
+	METHOD drawText drawText (FFLjava/lang/String;Lsnoddasmannen/galimulator/GalColor;Lsnoddasmannen/galimulator/GalFX$FONT_TYPE;)F
+		ARG 0 x
+		ARG 1 y
+		ARG 2 text
+		ARG 3 color
+		ARG 4 font
+	METHOD drawTexture drawTexture (Lcom/badlogic/gdx/graphics/g2d/TextureRegion;DDDDDLsnoddasmannen/galimulator/GalColor;Z)V
+		COMMENT Render a {@link TextureRegion} on the board using board coordinates and projection.
+		ARG 0 textureRegion
+		ARG 1 x
+		ARG 3 y
+		ARG 5 width
+		ARG 7 height
+		ARG 9 angle
+		ARG 11 tint
+		ARG 12 centerDraw
+			COMMENT hether the passed x/y coordinates are the center coordinates of the draw call.
+			COMMENT In that case, width and height are treated as diameters in some sense (as far as
+			COMMENT diameters apply to rectangles that is)
+	METHOD drawTexture drawTexture (Lcom/badlogic/gdx/graphics/g2d/TextureRegion;DDDDDLsnoddasmannen/galimulator/GalColor;ZLcom/badlogic/gdx/graphics/Camera;)V
+		COMMENT Draw a {@link TextureRegion} using the provided projection (through the camera)
+		COMMENT at the specified location, with the specified rotation, width, and height.
+		ARG 0 textureRegion
+		ARG 1 x
+			COMMENT The Y component of the coordinate where the texture will be drawn.
+			COMMENT The meaning of this coordinate depends on the used camera passed with this
+			COMMENT call.
+		ARG 3 y
+			COMMENT The coordinate where the texture will be drawn.
+			COMMENT What the meaning of this coordinate is depends on the used camera.
+		ARG 5 width
+		ARG 7 height
+		ARG 9 rotation
+			COMMENT Probably in radians, but I'd have to check.
+		ARG 11 tint
+		ARG 12 centerDraw
+			COMMENT Whether the passed x/y coordinates are the center coordinates of the draw call.
+			COMMENT In that case, width and height are treated as diameters in some sense (as far as
+			COMMENT diameters apply to rectangles that is)
+		ARG 13 projector
+	METHOD e getDesiredZoom ()F
+	METHOD f initialize ()V
+	METHOD G getDesiredResolutionWidth ()I
+	METHOD get_ab getPlanetShader ()Lcom/badlogic/gdx/graphics/glutils/ShaderProgram;
+	METHOD get_ac getPremultipliedAlphaShader ()Lcom/badlogic/gdx/graphics/glutils/ShaderProgram;
+	METHOD get_ad getShipLightingShader ()Lcom/badlogic/gdx/graphics/glutils/ShaderProgram;
+	METHOD get_ae getRippleShader ()Lcom/badlogic/gdx/graphics/glutils/ShaderProgram;
+	METHOD get_D isKeepingScreenOn ()Z
+	METHOD get_F getGameAtlas ()Lcom/badlogic/gdx/graphics/g2d/TextureAtlas;
+	METHOD get_m getBoardCamera ()Lcom/badlogic/gdx/graphics/OrthographicCamera;
+	METHOD get_t getScreenCamera ()Lcom/badlogic/gdx/graphics/OrthographicCamera;
+	METHOD getScreenHeight getScreenHeight ()I
+	METHOD getScreenWidth getScreenWidth ()F
+	METHOD getTextureRegion getTextureRegion (Ljava/lang/String;)Lcom/badlogic/gdx/graphics/g2d/TextureRegion;
+		ARG 0 pathname
+	METHOD h useDefaultShader ()V
+	METHOD H getDesiredResolutionHeight ()I
+	METHOD i getCurrentShader ()Lcom/badlogic/gdx/graphics/glutils/ShaderProgram;
+	METHOD J __nop__resetUnusedProjection ()V
+	METHOD K getBoardZoom ()F
+	METHOD L getScreenGranularityFactory ()D
+	METHOD n centerCamera ()V
+	METHOD o toggleFullscreenLater ()V
+		COMMENT Toggle fullscreen after the current frame was rendered.
+	METHOD p toggleFullscreen ()V
+		COMMENT Note: You might want to use {@link #toggleFullscreenLater()} to potentially avoid bugs (I haven't tested what happens if you just call this method directly though)
+	METHOD projectBoardToScreen projectBoardToScreen (Lcom/badlogic/gdx/math/Vector3;)V
+	METHOD T getPlatformScreenSize ()Lsnoddasmannen/galimulator/ScreenSize;
+	METHOD unprojectScreenToBoard unprojectScreenToBoard (FF)Lcom/badlogic/gdx/math/Vector3;
+	METHOD w startSpriteDrawing ()V
+	METHOD x endSpriteDrawing ()V
+	METHOD y startPolygonDrawing ()V
+	METHOD z endPolygonDrawing ()V
+	CLASS FONT_TYPE Font

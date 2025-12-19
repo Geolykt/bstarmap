@@ -1,0 +1,7 @@
+CLASS snoddasmannen/galimulator/ui/class_59 snoddasmannen/galimulator/ui/class_59
+	FIELD b displayStarCount Lsnoddasmannen/galimulator/ui/class_49;
+	FIELD c displayTechLevel Lsnoddasmannen/galimulator/ui/class_49;
+	FIELD d empire Lsnoddasmannen/galimulator/Empire;
+	METHOD <init> (Lsnoddasmannen/galimulator/Empire;)V
+		ARG 1 empire
+	METHOD l getDisplayTechLevel ()Ljava/lang/String;

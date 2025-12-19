@@ -1,0 +1,51 @@
+CLASS snoddasmannen/galimulator/GalColor snoddasmannen/galimulator/GalColor
+	FIELD a a F
+	FIELD ALMOST_TRANSLUCENT ALMOST_TRANSLUCENT Lsnoddasmannen/galimulator/GalColor;
+	FIELD b b F
+	FIELD BLACK BLACK Lsnoddasmannen/galimulator/GalColor;
+	FIELD BLUE BLUE Lsnoddasmannen/galimulator/GalColor;
+	FIELD DARK_GREEN DARK_GREEN Lsnoddasmannen/galimulator/GalColor;
+	FIELD DARK_ORANGE DARK_ORANGE Lsnoddasmannen/galimulator/GalColor;
+	FIELD g g F
+	FIELD gdxColor gdxColor Lcom/badlogic/gdx/graphics/Color;
+	FIELD GRAY GRAY Lsnoddasmannen/galimulator/GalColor;
+	FIELD GREEN GREEN Lsnoddasmannen/galimulator/GalColor;
+	FIELD LIGHT_GRAY LIGHT_GRAY Lsnoddasmannen/galimulator/GalColor;
+	FIELD NEAR_SOLID NEAR_SOLID Lsnoddasmannen/galimulator/GalColor;
+	FIELD ORANGE ORANGE Lsnoddasmannen/galimulator/GalColor;
+	FIELD PURPLE PURPLE Lsnoddasmannen/galimulator/GalColor;
+	FIELD r r F
+	FIELD RATHER_TRANSLUCENT RATHER_TRANSLUCENT Lsnoddasmannen/galimulator/GalColor;
+	FIELD RED RED Lsnoddasmannen/galimulator/GalColor;
+	FIELD SEMI_OPAQUE SEMI_OPAQUE Lsnoddasmannen/galimulator/GalColor;
+	FIELD serialVersionUID serialVersionUID J
+	FIELD TRANSPARENT TRANSPARENT Lsnoddasmannen/galimulator/GalColor;
+	FIELD VERY_OPAQUE VERY_OPAQUE Lsnoddasmannen/galimulator/GalColor;
+	FIELD WHITE WHITE Lsnoddasmannen/galimulator/GalColor;
+	FIELD YELLOW YELLOW Lsnoddasmannen/galimulator/GalColor;
+	METHOD <init> <init> (FFF)V
+		ARG 1 r
+		ARG 2 g
+		ARG 3 b
+	METHOD <init> <init> (FFFF)V
+		ARG 1 r
+		ARG 2 g
+		ARG 3 b
+		ARG 4 a
+	METHOD <init> <init> (Lcom/badlogic/gdx/graphics/Color;)V
+		ARG 1 gdxColor
+	METHOD <init> <init> (Lsnoddasmannen/galimulator/GalColor;)V
+		ARG 1 color
+	METHOD generateRandomColor generateRandomColor (FLjava/util/Random;)Lsnoddasmannen/galimulator/GalColor;
+		ARG 0 minimumBrightness
+		ARG 1 randomSource
+	METHOD getGDXColor getGDXColor ()Lcom/badlogic/gdx/graphics/Color;
+	METHOD getHexColor getHexColor ()Ljava/lang/String;
+	METHOD mixColors mixColors (Lcom/badlogic/gdx/graphics/Color;Lcom/badlogic/gdx/graphics/Color;F)Lcom/badlogic/gdx/graphics/Color;
+		ARG 0 color1
+		ARG 1 color2
+		ARG 2 ratio
+	METHOD randomTweak randomTweak (FLjava/util/Random;)V
+		ARG 1 tweakDifference
+		ARG 2 randomSource
+	METHOD regenerateGDXColor regenerateGDXColor ()V

@@ -1,0 +1,3 @@
+CLASS snoddasmannen/galimulator/rendersystem/CameraRenderItem snoddasmannen/galimulator/rendersystem/CameraRenderItem
+	METHOD <init> <init> (Lcom/badlogic/gdx/graphics/Camera;)V
+		ARG 1 camera

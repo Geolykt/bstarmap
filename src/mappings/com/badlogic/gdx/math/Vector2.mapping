@@ -1,0 +1,4 @@
+CLASS com/badlogic/gdx/math/Vector2 com/badlogic/gdx/math/Vector2
+	FIELD x x F
+	FIELD y y F
+	METHOD rotateRad rotateRad (F)Lcom/badlogic/gdx/math/Vector2;

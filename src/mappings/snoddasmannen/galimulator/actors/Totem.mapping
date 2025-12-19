@@ -1,0 +1,27 @@
+CLASS snoddasmannen/galimulator/actors/Totem snoddasmannen/galimulator/actors/Totem
+	FIELD active active Z
+	FIELD closestStar closestStar Lsnoddasmannen/galimulator/Star;
+	FIELD type totemType Lsnoddasmannen/galimulator/actors/Totem$TotemType;
+	METHOD <init> (Lsnoddasmannen/galimulator/actors/Totem$TotemType;)V
+		ARG 1 totemType
+	METHOD getType getType ()Lsnoddasmannen/galimulator/actors/Totem$TotemType;
+	METHOD isActive isActive ()Z
+	METHOD setActive setActive (Z)V
+		ARG 1 active
+	METHOD setPosition setPosition (FF)V
+		ARG 1 x
+		ARG 2 y
+	METHOD updateStar updateStar ()V
+	CLASS TotemType TotemType
+		FIELD description description Ljava/lang/String;
+		FIELD icon icon Ljava/lang/String;
+		FIELD index index I
+		FIELD name name Ljava/lang/String;
+		METHOD <init> (Ljava/lang/String;ILjava/lang/String;Ljava/lang/String;Ljava/lang/String;I)V
+			ARG 3 name
+			ARG 4 description
+			ARG 5 icon
+			ARG 6 index
+		METHOD getDescription getDescription ()Ljava/lang/String;
+		METHOD getIcon getIcon ()Ljava/lang/String;
+		METHOD getName getName ()Ljava/lang/String;

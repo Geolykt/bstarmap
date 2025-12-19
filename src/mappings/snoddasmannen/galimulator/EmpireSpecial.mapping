@@ -1,0 +1,2 @@
+CLASS snoddasmannen/galimulator/EmpireSpecial snoddasmannen/galimulator/EmpireSpecial
+	METHOD a getTechBonusMultiplier ()F

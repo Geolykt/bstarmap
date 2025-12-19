@@ -1,0 +1,101 @@
+CLASS snoddasmannen/galimulator/Empire snoddasmannen/galimulator/Empire
+	FIELD agents agents Ljava/util/Vector;
+	FIELD alliance alliance Lsnoddasmannen/galimulator/Alliance;
+	FIELD beacons beacons Ljava/util/ArrayList;
+	FIELD color color Lsnoddasmannen/galimulator/GalColor;
+	FIELD factions factions Ljava/util/ArrayList;
+	FIELD flagship flagship Lsnoddasmannen/galimulator/actors/Flagship;
+	FIELD fleets fleets Ljava/util/ArrayList;
+	FIELD id id I
+	FIELD m inboundDiplomaticAction Lsnoddasmannen/galimulator/diplomacy/class_1;
+	FIELD master master Lsnoddasmannen/galimulator/Lazy$EmpireLazy;
+	FIELD n lastInboundDiplomaticAction I
+	FIELD name name Ljava/lang/String;
+	FIELD nameIdentifier nameIdentifier Ljava/lang/String;
+		COMMENT Note: This field may be null if the name identifier wasn't already generated.
+		COMMENT
+		COMMENT Use the appropriate getter method instead: {@link #getNameIdentifier()}
+	FIELD rendezvous rendezvous Lsnoddasmannen/galimulator/Star;
+	FIELD specials specials Ljava/util/ArrayList;
+	FIELD starCount starCount I
+	METHOD <init> (Lsnoddasmannen/galimulator/GalColor;Ljava/lang/String;Lsnoddasmannen/galimulator/Government;Lsnoddasmannen/galimulator/Empire;Ljava/lang/String;)V
+		ARG 1 color
+		ARG 2 name
+		ARG 3 government
+		ARG 4 empire
+		ARG 5 nameIdentifier
+	METHOD a setName (Ljava/lang/String;)V
+		ARG 1 name
+	METHOD a (Ljava/util/List;Ljava/lang/String;)Z
+		ARG 1 s
+	METHOD a addActor (Lsnoddasmannen/galimulator/actors/StateActor;)V
+		ARG 1 actor
+	METHOD a setInboundDiplomaticAction (Lsnoddasmannen/galimulator/diplomacy/class_1;)V
+	METHOD a declareWar (Lsnoddasmannen/galimulator/Empire;Z)V
+		ARG 2 notifyPlayer
+	METHOD a awardAchivement (Lsnoddasmannen/galimulator/EmpireAchievement$EmpireAchievementType;)V
+	METHOD a hasSpecial (Lsnoddasmannen/galimulator/EmpireSpecial;)Z
+		ARG 1 special
+	METHOD a setState (Lsnoddasmannen/galimulator/EmpireState;)V
+	METHOD a registerFaction (Lsnoddasmannen/galimulator/factions/Faction;)V
+	METHOD a addFleet (Lsnoddasmannen/galimulator/Fleet;)V
+		ARG 1 fleet
+	METHOD a setRendezvous (Lsnoddasmannen/galimulator/Star;)V
+		COMMENT Set a star where all of this empire's actors will move to.
+		COMMENT Use is questionable at best.
+		ARG 1 rendezvous
+	METHOD aa researchAdvance ()V
+	METHOD ab degenerate ()V
+	METHOD ad getResearchMultiplier ()F
+	METHOD aE getTechBonous ()F
+	METHOD ah canDegenerate ()Z
+	METHOD ai getAliveTime ()I
+	METHOD ak isJoiningAlliance ()Z
+	METHOD aT killEmpire ()V
+	METHOD aY getTechBonusEagerly ()F
+	METHOD az danceForJoy ()V
+	METHOD b getCivilianShipTexture ()Lcom/badlogic/gdx/graphics/g2d/TextureRegion;
+		COMMENT Texture is dependent on tech level
+	METHOD b setTechLevel (I)V
+	METHOD b removeActor (Lsnoddasmannen/galimulator/actors/StateActor;)V
+		ARG 1 actor
+	METHOD b (Lsnoddasmannen/galimulator/Government;)Ljava/lang/String;
+		ARG 0 government
+	METHOD b looseStar (Lsnoddasmannen/galimulator/Star;Lsnoddasmannen/galimulator/Empire;)V
+		ARG 1 lostStar
+		ARG 2 enemy
+	METHOD B acknowledgeInboundDiplomaticAction ()V
+	METHOD c c (Lsnoddasmannen/galimulator/Empire;)F
+		ARG 1 enemy
+	METHOD get_m getCurrentInboundDiplomaticAction ()Lsnoddasmannen/galimulator/diplomacy/class_1;
+	METHOD get_n getLastInboundDiplomaticActionTime ()I
+	METHOD getAgents getAgents ()Ljava/util/Vector;
+	METHOD getAlliance getAlliance ()Lsnoddasmannen/galimulator/Alliance;
+	METHOD getCapital getCapital ()Lsnoddasmannen/galimulator/Star;
+	METHOD getColor getColor ()Lsnoddasmannen/galimulator/GalColor;
+	METHOD getDisplayName getDisplayName ()Ljava/lang/String;
+	METHOD getExtension getExtension ()Lsnoddasmannen/galimulator/EmpireExtension;
+	METHOD getFlagship getFlagship ()Lsnoddasmannen/galimulator/actors/Flagship;
+	METHOD getMyAnnal getMyAnnal ()Lsnoddasmannen/galimulator/EmpireAnnals;
+	METHOD getReligion getReligion ()Lsnoddasmannen/galimulator/Religion;
+	METHOD getRendezvous getRendezvous ()Lsnoddasmannen/galimulator/Star;
+	METHOD getStarCount getStarCount ()I
+	METHOD getTechLevel getTechLevel ()I
+	METHOD h isAutomaticallyBuildingShips ()Z
+	METHOD isAtPeace isAtPeace (Lsnoddasmannen/galimulator/Empire;)Z
+	METHOD j getRandomBeaconStar ()Lsnoddasmannen/galimulator/Star;
+	METHOD J nextEmpireId ()I
+		COMMENT Really just an RNG call. That being said, modded versions might try to optimize this.
+	METHOD l isYearningForPeace (Lsnoddasmannen/galimulator/Empire;)Z
+	METHOD o canBeAbsorbed (Lsnoddasmannen/galimulator/Empire;)Z
+	METHOD p canAbsorb (Lsnoddasmannen/galimulator/Empire;)Z
+	METHOD P getNameIdentifier ()Ljava/lang/String;
+		COMMENT Lazily generates the name identifier if not already set.
+	METHOD r mergeEmpire (Lsnoddasmannen/galimulator/Empire;)V
+		ARG 1 mergeSource
+	METHOD resetSpecials resetSpecials ()V
+	METHOD setAlliance setAlliance (Lsnoddasmannen/galimulator/Alliance;)V
+		ARG 1 alliance
+	METHOD tickEmpire tickEmpire ()V
+	METHOD x getEnemyEmpires ()Ljava/util/List;
+	METHOD Y canResearch ()Z

@@ -1,0 +1,6 @@
+CLASS snoddasmannen/galimulator/factions/Faction snoddasmannen/galimulator/factions/Faction
+	METHOD b onAddStar (Lsnoddasmannen/galimulator/Star;)V
+	METHOD c tick ()V
+	METHOD c onRemoveStar (Lsnoddasmannen/galimulator/Star;)V
+	METHOD e onKill ()V
+	METHOD e tickFactionStar (Lsnoddasmannen/galimulator/Star;)V

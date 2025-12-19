@@ -1,0 +1,6 @@
+CLASS snoddasmannen/galimulator/ui/class_34 snoddasmannen/galimulator/ui/AuxiliaryListenerCancelButton
+	FIELD a listener Lsnoddasmannen/galimulator/AuxiliaryListener;
+	METHOD <init> (Lsnoddasmannen/galimulator/AuxiliaryListener;Ljava/lang/String;)V
+		ARG 1 listener
+		ARG 2 listenerdescription
+	METHOD get_a getListener ()Lsnoddasmannen/galimulator/AuxiliaryListener;

@@ -1,0 +1,24 @@
+CLASS snoddasmannen/galimulator/Galemulator snoddasmannen/galimulator/Galemulator
+	FIELD c rendercacheCollectorThread Ljava/lang/Thread;
+	FIELD e version Ljava/lang/String;
+	FIELD g timelapseModifier I
+	FIELD h panicMessage Ljava/lang/String;
+	FIELD mouseMoveId mouseMoveId I
+	METHOD a panic (Ljava/lang/Throwable;)V
+		COMMENT Method that handles a game crash.
+		COMMENT
+		COMMENT Well, it more or less just indirectly halts the main rendering thread to display the stackrace of the exception passed and that's it.
+		ARG 1 exception
+	METHOD c getVersion ()Ljava/lang/String;
+	METHOD getTimelapseModifier getTimelapseModifier ()I
+	METHOD setTimelapseModifier setTimelapseModifier (I)V
+		ARG 0 tpfModifier
+	CLASS RenderCacheCollector RenderCacheCollector
+		FIELD c collectorInstance Lsnoddasmannen/galimulator/Galemulator$RenderCacheCollector;
+		FIELD e galemulator Lsnoddasmannen/galimulator/Galemulator;
+		METHOD a getCollector ()Lsnoddasmannen/galimulator/Galemulator$RenderCacheCollector;
+		METHOD a setGalemulator (Lsnoddasmannen/galimulator/Galemulator;)V
+			ARG 1 galemulator
+		METHOD run ()V
+			COMMENT Note: SLAPI completely overwrites this method for extensibility reasons.
+			COMMENT As such, use this method for reference purposes only.

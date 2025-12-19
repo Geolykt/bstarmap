@@ -1,0 +1,8 @@
+CLASS snoddasmannen/galimulator/class_4 snoddasmannen/galimulator/MusicTrack
+	FIELD a trackName Ljava/lang/String;
+	FIELD b gdxMusic Lcom/badlogic/gdx/audio/Music;
+	METHOD <init> (Lcom/badlogic/gdx/audio/Music;)V
+		ARG 1 music
+	METHOD a startPlaying ()V
+	METHOD b stopPlaying ()V
+	METHOD c adjustVolume ()V

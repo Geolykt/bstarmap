@@ -1,0 +1,12 @@
+CLASS snoddasmannen/galimulator/StarPath snoddasmannen/galimulator/StarPath
+	FIELD xFudge xFudge F
+	FIELD yFudge yFudge F
+	METHOD a setFudge (F)V
+		COMMENT Actual x/y fudge is random. The provided argument is plainly the maximum amplitude of the fudge.
+		ARG 1 fudgeFactor
+	METHOD a move (FF)V
+		COMMENT Move the fudge by the given x/y coordinates.
+		ARG 1 x
+		ARG 2 y
+	METHOD b getPosition (F)Lcom/badlogic/gdx/math/Vector2;
+		ARG 1 angle

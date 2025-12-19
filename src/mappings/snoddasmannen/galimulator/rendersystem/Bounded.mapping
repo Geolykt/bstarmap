@@ -1,0 +1,2 @@
+CLASS snoddasmannen/galimulator/rendersystem/interface_0 snoddasmannen/galimulator/rendersystem/Bounded
+	METHOD f_ getBounds ()Lcom/badlogic/gdx/math/Rectangle;

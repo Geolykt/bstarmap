@@ -1,0 +1,28 @@
+CLASS snoddasmannen/galimulator/AudioManager snoddasmannen/galimulator/AudioManager
+	FIELD a currentTrack Lsnoddasmannen/galimulator/class_4;
+	FIELD b trackId I
+	FIELD c musicQueue Ljava/util/ArrayList;
+	FIELD d defaultVolume I
+	METHOD a startMusic ()V
+	METHOD a setMusicVolume (I)V
+		COMMENT Set the volume for the background music.
+		COMMENT A value of 100 denotes maximum volume, whilst 0 is muted.
+		COMMENT Note: Instead of 0 {@link #stopMusic} should be used instead.
+		ARG 0 volume
+	METHOD b stopMusic ()V
+	METHOD c loadMusic ()Ljava/util/ArrayList;
+	METHOD f nextTrack ()V
+	CLASS AudioSample AudioSample
+		FIELD sound sound Lcom/badlogic/gdx/audio/Sound;
+		FIELD volume volume F
+		METHOD <init> (Ljava/lang/String;ILjava/lang/String;)V
+			ARG 3 filename
+		METHOD <init> (Ljava/lang/String;ILjava/lang/String;F)V
+			ARG 3 filename
+			ARG 4 volume
+		METHOD a play (F)V
+			ARG 1 volume
+		METHOD a playSoundAt (FF)V
+			ARG 1 x
+			ARG 2 y
+		METHOD play play ()V

@@ -1,0 +1,2 @@
+CLASS snoddasmannen/galimulator/Culture snoddasmannen/galimulator/Culture
+	METHOD a culturalClash (Lsnoddasmannen/galimulator/Culture;Lsnoddasmannen/galimulator/Culture;)Lsnoddasmannen/galimulator/Culture;

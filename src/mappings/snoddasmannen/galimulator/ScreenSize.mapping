@@ -1,0 +1,5 @@
+CLASS snoddasmannen/galimulator/ScreenSize snoddasmannen/galimulator/ScreenSize
+	FIELD LARGE_PHONE LARGE_PHONE Lsnoddasmannen/galimulator/ScreenSize;
+	FIELD PC PC Lsnoddasmannen/galimulator/ScreenSize;
+	FIELD SMALL_PHONE SMALL_PHONE Lsnoddasmannen/galimulator/ScreenSize;
+	FIELD TABLET TABLET Lsnoddasmannen/galimulator/ScreenSize;

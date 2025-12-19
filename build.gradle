@@ -1,0 +1,67 @@
+plugins {
+    id 'base'
+    id 'maven-publish'
+    id 'java-library'
+
+    id 'sml6' version '0.0.1-a20251219.1'
+}
+
+project.group = "de.geolykt"
+base {
+    archivesName = "bstarmap"
+}
+project.version = "0.0.1"
+
+task fetchGalim(type: org.stianloader.sml6.tasks.FetchGameTask) {}
+
+task deobfGalim(type: org.stianloader.sml6.tasks.DeobfuscateGameTask, dependsOn: fetchGalim) {
+    inputJar = fetchGalim.outputJar
+}
+
+task tarballXZ(type: org.stianloader.sml6.tasks.XZTarBallerTask) {
+    from "src/mappings"
+    group = "build"
+    archiveExtension = "enigma.tar.xz"
+}
+
+task aggregateToTiny(type: org.stianloader.sml6.tasks.AggregateMappingsTask) {
+    from "src/mappings"
+    group = "build"
+    archiveExtension = "tinyv2"
+
+    inputFormat "enigma"
+    outputFormat "tiny v2"
+}
+
+task compressXZ(type: org.stianloader.sml6.tasks.XZCompressTask, dependsOn: aggregateToTiny) {
+    from aggregateToTiny.archiveFile
+    group = "build"
+    archiveExtension = "tinyv2.xz"
+}
+
+assemble.dependsOn(compressXZ)
+assemble.dependsOn(tarballXZ)
+
+publishing {
+    publications {
+        mavenJava(MavenPublication) {
+            groupId = project.group
+            artifactId = project.base.archivesName.get()
+            version = project.version
+
+            artifact aggregateToTiny
+            artifact tarballXZ
+            artifact compressXZ.asArtifact()
+        }
+    }
+    repositories {
+        if (System.getProperty('publishRepo') != null) {
+            maven {
+                url System.getProperty('publishRepo')
+                allowInsecureProtocol = true
+            }
+        } else {
+            mavenLocal()
+        }
+    }
+}

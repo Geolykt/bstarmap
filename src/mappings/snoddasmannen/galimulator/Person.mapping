@@ -1,0 +1,54 @@
+CLASS snoddasmannen/galimulator/Person snoddasmannen/galimulator/Person
+	FIELD a rebelCount I
+	FIELD b formatterSmaller Ljava/text/DecimalFormat;
+	FIELD c formatterLarge Ljava/text/DecimalFormat;
+	FIELD d attributeValues [F
+	FIELD f __unusedField0 I
+	METHOD a addPrestige (F)V
+		ARG 1 prestige
+	METHOD a setName (Ljava/lang/String;)V
+		ARG 1 name
+	METHOD a setConspiracy (Lsnoddasmannen/galimulator/conspiracies/Conspiracy;)V
+	METHOD a setGrandparent (Lsnoddasmannen/galimulator/Lazy$PersonLazy;)V
+		ARG 1 grandparent
+	METHOD a getNaturalAttributeValue (Lsnoddasmannen/galimulator/Person$PersonAttribute;)I
+		ARG 1 attribute
+	METHOD a hasSpecial (Lsnoddasmannen/galimulator/PersonSpecial;)Z
+		ARG 1 special
+	METHOD b getDisplayPrestige ()Ljava/lang/String;
+	METHOD b kill (Ljava/lang/String;)V
+		ARG 1 cause
+	METHOD b getJobDesire (Lsnoddasmannen/galimulator/Job;)I
+		ARG 1 candidateJob
+	METHOD b getNormalisedAttributeValue (Lsnoddasmannen/galimulator/Person$PersonAttribute;)F
+		COMMENT The returned value will in general be between 0.5 (for a value of 0) and 1.5 (for a value of 20),
+		COMMENT but this method does not clamp the results and as such it is possible to go outside these bounds.
+		COMMENT A person with the attribute value of 10 will have a normalised attribute value of 1, making it the
+		COMMENT baseline.
+		ARG 1 attribute
+	METHOD b removeSpecial (Lsnoddasmannen/galimulator/PersonSpecial;)V
+		ARG 1 special
+	METHOD c setJob (Lsnoddasmannen/galimulator/Job;)V
+		ARG 1 newJob
+	METHOD c setParent (Lsnoddasmannen/galimulator/Person;)V
+		ARG 1 parent1
+	METHOD c getAttributeValue (Lsnoddasmannen/galimulator/Person$PersonAttribute;)I
+		ARG 1 attribute
+	METHOD c addSpecial (Lsnoddasmannen/galimulator/PersonSpecial;)Z
+		ARG 1 special
+	METHOD d setParent2 (Lsnoddasmannen/galimulator/Person;)V
+		ARG 1 parent2
+	METHOD d getAttributeValue0 (Lsnoddasmannen/galimulator/Person$PersonAttribute;)F
+		ARG 1 attribute
+	METHOD d canObtainSpecial (Lsnoddasmannen/galimulator/PersonSpecial;)Z
+		ARG 1 special
+	METHOD e getDisplayAge ()Ljava/lang/String;
+	METHOD f getAge ()I
+	METHOD get_cv getCV ()Ljava/util/Vector;
+	METHOD getFamily getFamily ()Lsnoddasmannen/galimulator/Family;
+	METHOD getLastJobLevel getLastJobLevel ()I
+	METHOD l hasName ()Z
+		COMMENT Don't ask what this method is supposed to do
+	METHOD q getDisplayName ()Ljava/lang/String;
+	METHOD u getRandomSpecial ()Lsnoddasmannen/galimulator/PersonSpecial;
+	METHOD y endCVChapter ()V

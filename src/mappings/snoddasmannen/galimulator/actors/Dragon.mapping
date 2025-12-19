@@ -1,0 +1,18 @@
+CLASS snoddasmannen/galimulator/actors/Dragon snoddasmannen/galimulator/actors/Dragon
+	FIELD back back Lsnoddasmannen/galimulator/actors/Dragon;
+	FIELD birthProgress birthProgress I
+	FIELD front front Lsnoddasmannen/galimulator/actors/Dragon;
+	FIELD generation generation I
+	FIELD GENERATION_LIMIT GENERATION_LIMIT I
+		COMMENT Note: Beware of constant  inlining.
+	FIELD head head Lsnoddasmannen/galimulator/actors/Dragon;
+	FIELD lastDistance lastDistance F
+	FIELD totalDistance totalDistance Lcom/badlogic/gdx/math/Vector2;
+	FIELD turnRate turnRate F
+	FIELD velocity velocity Lcom/badlogic/gdx/math/Vector2;
+	METHOD <init> (Lsnoddasmannen/galimulator/actors/Dragon;)V
+		ARG 1 dragon
+	METHOD propagateNewHead propagateNewHead (Lsnoddasmannen/galimulator/actors/Dragon;)V
+		ARG 1 head
+	METHOD setBack setBack (Lsnoddasmannen/galimulator/actors/Dragon;)V
+		ARG 1 back

@@ -1,0 +1,2 @@
+CLASS snoddasmannen/galimulator/guides/Guide snoddasmannen/galimulator/guides/Guide
+	METHOD setPath setPath (Lsnoddasmannen/galimulator/Star;Lsnoddasmannen/galimulator/Star;Lsnoddasmannen/galimulator/Star;Lcom/badlogic/gdx/math/Vector2;)Z

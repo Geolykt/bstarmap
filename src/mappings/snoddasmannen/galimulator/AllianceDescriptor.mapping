@@ -1,0 +1,5 @@
+CLASS snoddasmannen/galimulator/AllianceDescriptor snoddasmannen/galimulator/AllianceDescriptor
+	METHOD getColor getColor ()Lsnoddasmannen/galimulator/GalColor;
+	METHOD getItems getItems ()Ljava/util/Vector;
+	METHOD getMembers getMembers ()Ljava/util/Vector;
+	METHOD getName getName ()Ljava/lang/String;

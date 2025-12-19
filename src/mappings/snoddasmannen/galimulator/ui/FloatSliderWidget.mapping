@@ -1,0 +1,11 @@
+CLASS snoddasmannen/galimulator/ui/class_77 snoddasmannen/galimulator/ui/FloatSliderWidget
+	FIELD b minValue F
+	FIELD c maxValue F
+	METHOD <init> <init> (FFI)V
+		ARG 1 minValue
+		ARG 2 maxValue
+		ARG 3 widgetWidth
+	METHOD a setSelectedValue (F)V
+		ARG 1 value
+	METHOD f getSliderText ()Ljava/lang/String;
+	METHOD g getCurrentValue ()F

@@ -1,0 +1,7 @@
+CLASS snoddasmannen/galimulator/class_47 snoddasmannen/galimulator/TutorialNode
+	FIELD b nodeID Ljava/lang/String;
+	FIELD i alignment Lsnoddasmannen/galimulator/ui/Widget$WIDGET_ALIGNMENT;
+	METHOD a setNodeID (Ljava/lang/String;)V
+	METHOD a setAlignment (Lsnoddasmannen/galimulator/ui/Widget$WIDGET_ALIGNMENT;)V
+		ARG 1 alignment
+	METHOD get_i getAlignment ()Lsnoddasmannen/galimulator/ui/Widget$WIDGET_ALIGNMENT;

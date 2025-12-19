@@ -1,0 +1,18 @@
+CLASS snoddasmannen/galimulator/ui/localclass_148 snoddasmannen/galimulator/ui/localclass_148
+	FIELD a __unusedField5 Z
+	FIELD b __unusedField1 Lsnoddasmannen/galimulator/Star;
+	FIELD c __unusedField2 Lsnoddasmannen/galimulator/effects/LocationSelectedEffect;
+	FIELD h __unusedField3 Lsnoddasmannen/galimulator/effects/LocationSelectedEffect;
+	FIELD i __unusedField4 Lsnoddasmannen/galimulator/effects/ArrowEffect;
+	FIELD j dragActionHandler Lsnoddasmannen/galimulator/ui/ppclass_6;
+	FIELD k this$0 Lsnoddasmannen/galimulator/ui/class_74;
+	METHOD <init> (Lsnoddasmannen/galimulator/ui/class_74;Lsnoddasmannen/galimulator/GalFX$NINEPATCH;IILjava/lang/String;Lsnoddasmannen/galimulator/GalFX$FONT_TYPE;Lsnoddasmannen/galimulator/GalColor;Lsnoddasmannen/galimulator/GalColor;I)V
+		ARG 1 this0
+		ARG 2 ninepatch
+		ARG 3 width
+		ARG 4 height
+		ARG 5 text
+		ARG 6 font
+		ARG 7 textColor
+		ARG 8 buttonColor
+		ARG 9 textOffsetX

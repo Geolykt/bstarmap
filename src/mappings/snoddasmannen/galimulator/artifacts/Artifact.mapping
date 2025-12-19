@@ -1,0 +1,14 @@
+CLASS snoddasmannen/galimulator/artifacts/Artifact snoddasmannen/galimulator/artifacts/Artifact
+	METHOD a onRemove ()V
+	METHOD a setAlive (Z)V
+		ARG 1 alive
+	METHOD e getResearchModifier ()I
+	CLASS ArtifactType ArtifactType
+		FIELD c instanceType Ljava/lang/Class;
+		METHOD a getTypes ()Ljava/util/Vector;
+		METHOD a lookupType (Ljava/lang/String;)Lsnoddasmannen/galimulator/artifacts/Artifact$ArtifactType;
+			ARG 0 type
+		METHOD a createInstance (Lsnoddasmannen/galimulator/Star;Lsnoddasmannen/galimulator/Empire;)Lsnoddasmannen/galimulator/artifacts/Artifact;
+			ARG 1 location
+			ARG 2 empire
+		METHOD b getRandomType ()Lsnoddasmannen/galimulator/artifacts/Artifact$ArtifactType;

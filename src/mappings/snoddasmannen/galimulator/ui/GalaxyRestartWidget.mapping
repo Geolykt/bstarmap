@@ -1,0 +1,15 @@
+CLASS snoddasmannen/galimulator/ui/class_72 snoddasmannen/galimulator/ui/GalaxyRestartWidget
+	FIELD a sliderMaxStars F
+		COMMENT The maximum amount of stars supported by the slider.
+		COMMENT More stars may be supported when explicitly entering a number, provided insane galaxy sizes are enabled.
+	FIELD d starCount I
+	FIELD e galaxyMetadata Lsnoddasmannen/galimulator/MapData;
+	FIELD f generatorSettingsWidget Lsnoddasmannen/galimulator/ui/class_47;
+	FIELD g preview Lsnoddasmannen/galimulator/ui/GalaxyPreviewWidget;
+	FIELD h scenarioSource Lsnoddasmannen/galimulator/interface_6;
+	FIELD i starlaneGenerator Lsnoddasmannen/galimulator/Space$ConnectionMethod;
+	FIELD j adjustmentMethod Lsnoddasmannen/galimulator/Space$StarAdjustmentMethod;
+	METHOD a setScenario (Lsnoddasmannen/galimulator/interface_6;)V
+		ARG 1 scneario
+	METHOD a setMapMeta (Lsnoddasmannen/galimulator/MapData;)V
+		ARG 1 map

@@ -1,0 +1,49 @@
+CLASS snoddasmannen/galimulator/ui/BaseButtonWidget snoddasmannen/galimulator/ui/BaseButtonWidget
+	FIELD a textHAlign I
+		COMMENT Horizontal alignment of the text within the button, see the constants within LibGDX's Align class.
+	FIELD b texture Lcom/badlogic/gdx/graphics/g2d/TextureRegion;
+	FIELD c width I
+		COMMENT -1 to make it dynamic
+	FIELD d buttonText Ljava/lang/String;
+	FIELD e buttonColor Lsnoddasmannen/galimulator/GalColor;
+	FIELD f textColor Lsnoddasmannen/galimulator/GalColor;
+	FIELD g height I
+	FIELD h textOffsetX I
+	FIELD i font Lsnoddasmannen/galimulator/GalFX$FONT_TYPE;
+	FIELD j textOffsetY F
+		COMMENT Possibly set to bogus values at runtime, especially for instances of NinepatchButtonWidget. Might require more in-depth analysis.
+	METHOD <init> (Lcom/badlogic/gdx/graphics/g2d/TextureRegion;III)V
+		ARG 1 texture
+		ARG 2 width
+			COMMENT A value of -1 denotes dynamically set width (based on the size of the button text)
+		ARG 3 height
+		ARG 4 textOffsetX
+			COMMENT Value should probably be 0 most of the time.
+	METHOD <init> (Ljava/lang/String;III)V
+		ARG 1 texturePath
+		ARG 2 width
+			COMMENT A value of -1 denotes dynamically set width (based on the size of the button text)
+		ARG 3 height
+		ARG 4 textOffsetX
+			COMMENT Value should probably be 0 most of the time.
+	METHOD <init> (Ljava/lang/String;IILjava/lang/String;Lsnoddasmannen/galimulator/GalFX$FONT_TYPE;Lsnoddasmannen/galimulator/GalColor;Lsnoddasmannen/galimulator/GalColor;I)V
+		ARG 1 texturePath
+			COMMENT May be nullable, especially if the texture is defined through other means (or if another form of Texture rendering is used, e.g. NinePatch)
+		ARG 2 width
+			COMMENT A value of -1 denotes dynamically set width (based on the size of the button text)
+		ARG 3 height
+		ARG 4 buttonText
+		ARG 5 font
+		ARG 6 textColor
+		ARG 7 buttonColor
+		ARG 8 textoffsetX
+			COMMENT Value should probably be 0 most of the time.
+	METHOD b setHAlign (I)V
+		COMMENT Sets the horizontal alignment of text within the widget.
+		ARG 1 halign
+			COMMENT Horizontal alignment of the text within the button, see the constants within LibGDX's Align class.
+	METHOD renderButtonBackground renderButtonBackground ()V
+	METHOD setButtonColor setButtonColor (Lsnoddasmannen/galimulator/GalColor;)V
+		ARG 1 buttonColor
+	METHOD setButtonText setButtonText (Ljava/lang/String;)V
+		ARG 1 buttonText

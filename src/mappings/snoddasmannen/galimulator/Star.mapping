@@ -1,0 +1,82 @@
+CLASS snoddasmannen/galimulator/Star snoddasmannen/galimulator/Star
+	FIELD b starlaneVertices Ljava/util/HashMap;
+	FIELD commodity commodity Lsnoddasmannen/galimulator/PreciousCommodity;
+	FIELD development development I
+	FIELD globalSizeFactor globalSizeFactor F
+	FIELD h disrupted Z
+	FIELD i cachedBorderVertices Z
+	FIELD id id I
+	FIELD intLanes intLanes Ljava/util/Vector;
+	FIELD lastMoved lastMoved Lcom/badlogic/gdx/math/Vector2;
+	FIELD name name Ljava/lang/String;
+	FIELD neighbours neighbours Ljava/util/Vector;
+	FIELD ownerEmpire ownerEmpire Lsnoddasmannen/galimulator/Empire;
+	FIELD ownerid ownerid I
+	FIELD path path Lsnoddasmannen/galimulator/StarPath;
+	FIELD pathAngle pathAngle F
+	FIELD pathAngleVelocity pathAngleVelocity F
+	FIELD pathNudge pathNudge Lcom/badlogic/gdx/math/Vector2;
+	FIELD t starRegionVertices [F
+	FIELD wealth wealth F
+	FIELD x x D
+	FIELD y y D
+	METHOD a addWealth (F)V
+		COMMENT Add a fixed wealth amount ontop of the current wealth of this star.
+		COMMENT Capped at 11.0F
+		ARG 1 amount
+	METHOD a distanceTo (FF)D
+		COMMENT Note: Try to use {@link #distanceToSq(float, float)} when applicable, for performance reasons.
+		COMMENT
+		COMMENT This method returns the euclidian distance between this star and the specified location.
+		ARG 1 x
+		ARG 2 y
+	METHOD a setName (Ljava/lang/String;)V
+		ARG 1 name
+	METHOD a calculateVoronoiVertices (Ljava/util/List;)V
+		ARG 1 voronoiEdges
+	METHOD a getStarlaneNeighbours0 (Ljava/util/Vector;I)V
+		ARG 1 accumulator
+		ARG 2 distance
+	METHOD a setCulture (Lsnoddasmannen/galimulator/Culture;)V
+	METHOD a setFaction (Lsnoddasmannen/galimulator/factions/Faction;)V
+	METHOD a setStarRegionTexture (Lsnoddasmannen/galimulator/Star$PolygonType;)V
+		ARG 1 texture
+	METHOD a setPath (Lsnoddasmannen/galimulator/StarPath;F)V
+		ARG 1 path
+		ARG 2 basePathAngleVelocity
+			COMMENT Actual velocity is this value multiplied by a random value between 2e-4 and 4e-4
+	METHOD A clearBorderVerticesCache ()V
+	METHOD addOrbitingActor addOrbitingActor (Lsnoddasmannen/galimulator/actors/StateActor;)V
+	METHOD b distanceToSq (FF)F
+		ARG 1 x
+		ARG 2 y
+	METHOD b distanceBetween (Lsnoddasmannen/galimulator/Star;Lsnoddasmannen/galimulator/Star;)D
+	METHOD c getStarlaneNeighbours (I)Ljava/util/Vector;
+		ARG 1 distance
+	METHOD d drawStarlanes ()V
+	METHOD getCommodity getCommodity ()Lsnoddasmannen/galimulator/PreciousCommodity;
+	METHOD getDevelopment getDevelopment ()I
+	METHOD getLastMoved getLastMoved ()Lcom/badlogic/gdx/math/Vector2;
+	METHOD getOwningEmpire getOwningEmpire ()Lsnoddasmannen/galimulator/Empire;
+	METHOD getPath getPath ()Lsnoddasmannen/galimulator/StarPath;
+	METHOD getPathAngleVelocity getPathAngleVelocity ()F
+	METHOD getStarNative getStarNative ()Lsnoddasmannen/galimulator/Native;
+	METHOD getWealth getWealth ()F
+	METHOD h clearBorderVerticesCache (Lsnoddasmannen/galimulator/Star;)V
+	METHOD i moveStar ()V
+	METHOD isCapital isCapital ()Z
+	METHOD l getForeignCultureConnections ()Ljava/util/Vector;
+		COMMENT Obtains the stars which are the starlane neighbours of this stars and also have a different culture.
+		COMMENT If this star is disrupted, an empty vector will be returned instead.
+	METHOD M getCulture ()Lsnoddasmannen/galimulator/Culture;
+	METHOD o isDeveloped ()Z
+	METHOD reduceWealthFactor reduceWealthFactor (F)V
+		ARG 1 value
+			COMMENT Between 0 (wealth untouched) and 1 (remove all wealth)
+	METHOD setDevelopment setDevelopment (I)V
+		COMMENT Set the development.
+		COMMENT
+		COMMENT Note: A development greater than 1440 makes little sense, see {@link #isDeveloped()}.
+		ARG 1 development
+	METHOD y drawStarBorders ()V
+	CLASS PolygonType PolygonType

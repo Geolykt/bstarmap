@@ -1,0 +1,3 @@
+CLASS snoddasmannen/galimulator/Government snoddasmannen/galimulator/Government
+	METHOD getName getName ()Ljava/lang/String;
+	METHOD loadList loadList (Ljava/lang/String;)V

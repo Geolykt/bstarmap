@@ -1,0 +1,2 @@
+CLASS snoddasmannen/galimulator/ui/class_94 snoddasmannen/galimulator/ui/TutorialDisplayWidget
+	FIELD c tutorial Lsnoddasmannen/galimulator/Tutorial;

@@ -1,0 +1,20 @@
+CLASS snoddasmannen/galimulator/effects/LocationSelectedEffect snoddasmannen/galimulator/effects/LocationSelectedEffect
+	FIELD alive alive Z
+	FIELD color color Lsnoddasmannen/galimulator/GalColor;
+	FIELD star star Lsnoddasmannen/galimulator/Star;
+	FIELD text text Ljava/lang/String;
+	FIELD textSize textSize I
+	METHOD <init> (FFLjava/lang/String;)V
+		ARG 1 boardX
+		ARG 2 boardY
+		ARG 3 tooltip
+	METHOD <init> (Lsnoddasmannen/galimulator/Star;Ljava/lang/String;)V
+		ARG 1 location
+		ARG 2 tooltip
+	METHOD a setTooltip (Ljava/lang/String;)V
+		ARG 1 text
+	METHOD a setAlive (Z)V
+		ARG 1 alive
+	METHOD getStar getStar ()Lsnoddasmannen/galimulator/Star;
+	METHOD setColor setColor (Lsnoddasmannen/galimulator/GalColor;)V
+		ARG 1 color

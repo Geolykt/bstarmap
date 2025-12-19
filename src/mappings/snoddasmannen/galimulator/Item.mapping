@@ -1,0 +1,16 @@
+CLASS snoddasmannen/galimulator/Item snoddasmannen/galimulator/Item
+	FIELD itemTexture itemTexture Lcom/badlogic/gdx/graphics/g2d/TextureRegion;
+	FIELD lastCappedActivity lastCappedActivity J
+	FIELD serialVersionUID serialVersionUID J
+	FIELD x x D
+	FIELD y y D
+	METHOD activity activity ()V
+	METHOD draw draw ()V
+	METHOD fpsCappedActivity fpsCappedActivity ()V
+	METHOD getPosition getPosition ()Lcom/badlogic/gdx/math/Vector2;
+	METHOD getX getX ()F
+	METHOD getY getY ()F
+	METHOD isAlive isAlive ()Z
+	METHOD showInBackground showInBackground ()Z
+	METHOD showInForeground showInForeground ()Z
+	METHOD useFixedCamera useFixedCamera ()Z

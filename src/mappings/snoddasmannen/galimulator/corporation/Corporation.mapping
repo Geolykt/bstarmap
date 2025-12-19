@@ -1,0 +1,2 @@
+CLASS snoddasmannen/galimulator/corporation/Corporation snoddasmannen/galimulator/corporation/Corporation
+	METHOD a tick ()V

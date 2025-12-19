@@ -1,0 +1,2 @@
+CLASS snoddasmannen/galimulator/Identifiable snoddasmannen/galimulator/Identifiable
+	METHOD getId getId ()I

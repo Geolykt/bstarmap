@@ -1,0 +1,10 @@
+CLASS snoddasmannen/galimulator/actors/Ghost snoddasmannen/galimulator/actors/Ghost
+	FIELD blinkTimer blinkTimer I
+	FIELD home home Lsnoddasmannen/galimulator/Star;
+	FIELD orbitDistance orbitDistance F
+	FIELD target target Lsnoddasmannen/galimulator/actors/Actor;
+	METHOD <init> (Lsnoddasmannen/galimulator/Star;Lsnoddasmannen/galimulator/Person;)V
+		ARG 1 position
+		ARG 2 person
+	METHOD setTarget setTarget (Lsnoddasmannen/galimulator/actors/Actor;)V
+		ARG 1 target

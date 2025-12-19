@@ -1,0 +1,3 @@
+CLASS snoddasmannen/galimulator/class_11 snoddasmannen/galimulator/SteamIntegrationUtils
+	FIELD a shutdownCallback Lcom/codedisaster/steamworks/SteamUtilsCallback;
+	METHOD a start ()V

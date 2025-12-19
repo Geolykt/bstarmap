@@ -1,0 +1,9 @@
+CLASS snoddasmannen/galimulator/guides/LandmarkManager snoddasmannen/galimulator/guides/LandmarkManager
+	FIELD a landmarks Ljava/util/ArrayList;
+	METHOD a discardLandmarks ()V
+	METHOD a getNearestLandmarkStar (Lsnoddasmannen/galimulator/Star;)Lsnoddasmannen/galimulator/Star;
+		COMMENT Obtains the Star of the Landmark closest to the {@code location} Star. Returns null if no stars match.
+		COMMENT To this method, distance is the raw eculidian distance - that is starlanes are ignored.
+		ARG 0 location
+	METHOD c getLandmarkArray ()Ljava/util/ArrayList;
+	METHOD d hasLandmarksGenerated ()Z

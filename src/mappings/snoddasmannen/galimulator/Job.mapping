@@ -1,0 +1,11 @@
+CLASS snoddasmannen/galimulator/Job snoddasmannen/galimulator/Job
+	FIELD c lastVacancy I
+	METHOD b setAlias (Ljava/lang/String;)V
+	METHOD b setHolder (Lsnoddasmannen/galimulator/Person;)V
+	METHOD d removeHolder ()V
+	METHOD h getJobLevel ()I
+	METHOD i getDisplayName ()Ljava/lang/String;
+	METHOD j getJobBonus ()F
+	METHOD k isReplenishing ()Z
+	METHOD o isVacancyMarked ()Z
+	METHOD p markVacancy ()V

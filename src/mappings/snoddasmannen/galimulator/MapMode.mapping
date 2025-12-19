@@ -1,0 +1,4 @@
+CLASS snoddasmannen/galimulator/MapMode snoddasmannen/galimulator/MapMode
+	METHOD getCurrentMode getCurrentMode ()Lsnoddasmannen/galimulator/MapMode$MapModes;
+	CLASS MapModes MapModes
+		METHOD getShowsActors getShowsActors ()Z

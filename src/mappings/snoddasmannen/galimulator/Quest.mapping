@@ -1,0 +1,4 @@
+CLASS snoddasmannen/galimulator/Quest snoddasmannen/galimulator/Quest
+	METHOD b tick ()V
+	CLASS Gift Gift
+		METHOD a onQuestCompletion (Lsnoddasmannen/galimulator/actors/StateActor;)V

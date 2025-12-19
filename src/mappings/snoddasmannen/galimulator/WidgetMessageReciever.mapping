@@ -1,0 +1,3 @@
+CLASS snoddasmannen/galimulator/WidgetMessageReciever snoddasmannen/galimulator/WidgetMessageReciever
+	METHOD recieveMessage recieveMessage (Lsnoddasmannen/galimulator/ui/Widget$WIDGET_MESSAGE;)V
+		ARG 1 message

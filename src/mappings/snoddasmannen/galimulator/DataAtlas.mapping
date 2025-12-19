@@ -1,0 +1,9 @@
+CLASS snoddasmannen/galimulator/class_14 snoddasmannen/galimulator/DataAtlas
+	FIELD a name Ljava/lang/String;
+	FIELD b atlas Lcom/badlogic/gdx/graphics/g2d/TextureAtlas;
+	FIELD c regionCache Ljava/util/HashMap;
+	METHOD <init> (Ljava/lang/String;Lcom/badlogic/gdx/graphics/g2d/TextureAtlas;)V
+		ARG 1 atlasName
+		ARG 2 atlas
+	METHOD a fetchTextureRegion (Ljava/lang/String;)Lcom/badlogic/gdx/graphics/g2d/TextureRegion;
+		ARG 1 regionName

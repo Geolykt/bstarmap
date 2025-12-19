@@ -1,0 +1,2 @@
+CLASS snoddasmannen/galimulator/Shortcut snoddasmannen/galimulator/Shortcut
+	METHOD doStuff doStuff ()V

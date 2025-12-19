@@ -1,0 +1,2 @@
+CLASS snoddasmannen/galimulator/actors/anneverworm/AnneverSomething snoddasmannen/galimulator/actors/anneverworm/AnneverSomething
+	METHOD getMater getMater ()Lsnoddasmannen/galimulator/actors/anneverworm/Anneverworm;

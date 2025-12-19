@@ -1,0 +1,3 @@
+CLASS snoddasmannen/galimulator/Lazy snoddasmannen/galimulator/Lazy
+	METHOD get get ()Lsnoddasmannen/galimulator/Identifiable;
+	CLASS EmpireLazy EmpireLazy

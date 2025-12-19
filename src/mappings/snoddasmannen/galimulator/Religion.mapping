@@ -1,0 +1,2 @@
+CLASS snoddasmannen/galimulator/Religion snoddasmannen/galimulator/Religion
+	METHOD getColor getColor ()Lsnoddasmannen/galimulator/GalColor;

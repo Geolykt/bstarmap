@@ -1,0 +1,33 @@
+CLASS snoddasmannen/galimulator/actors/Actor snoddasmannen/galimulator/actors/Actor
+	FIELD angle angle F
+	FIELD height height F
+	FIELD name name Ljava/lang/String;
+	FIELD textureName textureName Ljava/lang/String;
+	FIELD type type Lsnoddasmannen/galimulator/ActorType;
+	FIELD width width F
+	FIELD xp xp I
+	METHOD fireAtActor fireAtActor (Lsnoddasmannen/galimulator/actors/Actor;)V
+		ARG 1 actor
+	METHOD fireAtAngle fireAtAngle (F)V
+		ARG 1 angle
+	METHOD getAge getAge ()I
+	METHOD getAngle getAngle ()F
+	METHOD getDecorativeColor getDecorativeColor ()Lsnoddasmannen/galimulator/GalColor;
+	METHOD getDescription getDescription ()Ljava/lang/String;
+	METHOD getDistanceToActor getDistanceToActor (Lsnoddasmannen/galimulator/Item;)F
+	METHOD getLevel getLevel ()I
+	METHOD getName getName ()Ljava/lang/String;
+	METHOD getOwner getOwner ()Lsnoddasmannen/galimulator/Empire;
+	METHOD getTypeName getTypeName ()Ljava/lang/String;
+	METHOD getXPValue getXPValue ()I
+	METHOD hasLeftGalaxy hasLeftGalaxy ()Z
+	METHOD isBuildable isBuildable ()Z
+	METHOD isMonster isMonster ()Z
+	METHOD isSpaceOddity isSpaceOddity ()Z
+	METHOD onDeath onDeath ()V
+	METHOD receiveFire receiveFire (IF)Z
+	METHOD setColor setColor (Lsnoddasmannen/galimulator/GalColor;)V
+	METHOD setName setName (Ljava/lang/String;)V
+	METHOD setOwner setOwner (Lsnoddasmannen/galimulator/Empire;)V
+		ARG 1 owner
+	METHOD setUncoloredTextureName setUncoloredTextureName (Ljava/lang/String;)V

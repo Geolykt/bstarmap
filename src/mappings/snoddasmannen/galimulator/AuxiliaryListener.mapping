@@ -1,0 +1,18 @@
+CLASS snoddasmannen/galimulator/AuxiliaryListener snoddasmannen/galimulator/AuxiliaryListener
+	METHOD b onListenerDispose ()V
+	METHOD globalKeyDown globalTouchDown (FF)Z
+		COMMENT spStarmap incorrectly maps the method to "globalKeyDown", however this is a misnomer.
+		COMMENT As to how and why this mapping error came to be, I cannot give a definitive answer without
+		COMMENT useless amounts of reasearch. It goes to show that mappings should always be taken with
+		COMMENT a grain of salt as they can very well contain one or the other error.
+		ARG 1 screenX
+		ARG 2 screenY
+	METHOD globalPan globalPan (FF)Z
+		ARG 1 screenX
+		ARG 2 screenY
+	METHOD globalPanStop globalPanStop (FF)Z
+		ARG 1 screenX
+		ARG 2 screenY
+	METHOD globalTap globalTap (FF)Z
+		ARG 1 screenX
+		ARG 2 screenY

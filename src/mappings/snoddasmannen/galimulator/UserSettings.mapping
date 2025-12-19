@@ -1,0 +1,5 @@
+CLASS snoddasmannen/galimulator/UserSettings snoddasmannen/galimulator/UserSettings
+	FIELD a entries Ljava/util/Vector;
+	METHOD a initialize ()V
+	METHOD get_a getEntries ()Ljava/util/Vector;
+	CLASS SettingType SettingType

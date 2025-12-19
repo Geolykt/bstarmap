@@ -1,0 +1,3 @@
+CLASS snoddasmannen/galimulator/shipstates/MoveRoamingAroundGalaxy snoddasmannen/galimulator/shipstates/MoveRoamingAroundGalaxy
+	METHOD <init> (Lsnoddasmannen/galimulator/actors/StateActor;)V
+		ARG 1 ship

@@ -1,0 +1,27 @@
+CLASS snoddasmannen/galimulator/rendersystem/RenderCache snoddasmannen/galimulator/rendersystem/RenderCache
+	FIELD a itemsWriteView Ljava/util/ArrayList;
+		COMMENT Note: itemsReadView and itemsWrite view are identical instances. They affect each other.
+	FIELD b itemsReadView Ljava/util/ArrayList;
+		COMMENT Note: itemsReadView and itemsWrite view are identical instances. They affect each other.
+	FIELD c __nop_emptyList Ljava/util/ArrayList;
+		COMMENT Contrary to initial assumptions, this list is not always empty more likely than not.
+		COMMENT This may need to be investigated further at a later point in time, for example through a debugger.
+	FIELD d cacheId I
+	FIELD e __unusedField1 Lsnoddasmannen/galimulator/class_31;
+	FIELD f __unusedField0 Lsnoddasmannen/galimulator/rendersystem/ppclass_0;
+	FIELD h cullingCamera Lcom/badlogic/gdx/graphics/OrthographicCamera;
+	FIELD i currentCamera Lcom/badlogic/gdx/graphics/OrthographicCamera;
+	FIELD k drawingThreadId J
+	FIELD m cullSizeFactor F
+	METHOD a renderAll ()V
+	METHOD a renderItemList (Ljava/util/ArrayList;)V
+		ARG 1 renderItemList
+	METHOD b __nopMethod0 ()V
+		COMMENT Contrary to documentation, this is likely not a NOP element.
+		COMMENT Please investigate fruther at a later point in time.
+	METHOD c getRenderedItems ()I
+	METHOD g __unusedMethod0 ()V
+		COMMENT The assumption that this method is unused is most likely incorrect.
+		COMMENT Please investigate fruther at a later point in time.
+	METHOD pushItem pushItem (Lsnoddasmannen/galimulator/rendersystem/RenderItem;)V
+		ARG 1 item

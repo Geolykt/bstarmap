@@ -1,0 +1,2 @@
+CLASS snoddasmannen/galimulator/guides/AStarGuide snoddasmannen/galimulator/guides/AStarGuide
+	METHOD createAStarIfPossible createAStarIfPossible ()Lsnoddasmannen/galimulator/guides/Guide;

@@ -1,0 +1,2 @@
+CLASS snoddasmannen/galimulator/Blacklist snoddasmannen/galimulator/Blacklist
+	METHOD a contains (Ljava/lang/Object;)Z

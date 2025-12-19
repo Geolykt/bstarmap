@@ -1,0 +1,6 @@
+CLASS snoddasmannen/galimulator/class_57 snoddasmannen/galimulator/PlatformIntegrationManager
+	FIELD a actionIntegration Lsnoddasmannen/galimulator/interface_16;
+	METHOD a onTick ()V
+	METHOD a setIntegration (Lsnoddasmannen/galimulator/interface_16;)V
+		ARG 0 integration
+	METHOD c getUploadableMods ()Ljava/util/List;

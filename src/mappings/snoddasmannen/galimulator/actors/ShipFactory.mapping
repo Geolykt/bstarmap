@@ -1,0 +1,3 @@
+CLASS snoddasmannen/galimulator/actors/ShipFactory snoddasmannen/galimulator/actors/ShipFactory
+	METHOD getRandomBuildableType getRandomBuildableType ()Lsnoddasmannen/galimulator/actors/StateActorCreator;
+	CLASS ShipType ShipType

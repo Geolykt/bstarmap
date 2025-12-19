@@ -1,0 +1,16 @@
+CLASS snoddasmannen/galimulator/PersonSpecial snoddasmannen/galimulator/PersonSpecial
+	FIELD tr icon Lcom/badlogic/gdx/graphics/g2d/TextureRegion;
+	FIELD u valuesCache [Lsnoddasmannen/galimulator/PersonSpecial;
+	METHOD a showIconOnBoard (Lsnoddasmannen/galimulator/Employer;)V
+		ARG 1 location
+	METHOD a getJobDesireFactor (Lsnoddasmannen/galimulator/Person;Lsnoddasmannen/galimulator/Job;)F
+	METHOD a getAttributeImpact (Lsnoddasmannen/galimulator/Person$PersonAttribute;)F
+		ARG 1 attribute
+	METHOD a isIncompatible (Lsnoddasmannen/galimulator/PersonSpecial;)Z
+		ARG 1 otherSpecial
+	METHOD b getBirthSpecial ()Lsnoddasmannen/galimulator/PersonSpecial;
+	METHOD b onRecieveSpecial (Lsnoddasmannen/galimulator/Person;)V
+	METHOD c getBirthFrequency ()F
+	METHOD d canObtainOnBirth ()Z
+	METHOD f getDisplayName ()Ljava/lang/String;
+	METHOD get_tr getIcon ()Lcom/badlogic/gdx/graphics/g2d/TextureRegion;

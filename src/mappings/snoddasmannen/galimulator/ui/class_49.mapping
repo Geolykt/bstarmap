@@ -1,0 +1,14 @@
+CLASS snoddasmannen/galimulator/ui/class_49 snoddasmannen/galimulator/ui/class_49
+	FIELD a width I
+		COMMENT The width of this Widget. {@value -1} if the width of this element should be set automatically.
+		COMMENT Note that this could possibly cause layouting issues, so beware of that when setting
+		COMMENT inappropriately large text for the given text.
+		COMMENT
+		COMMENT Obtain the actual width of the Widget through {@link Widget#getWidth()}
+	FIELD g height I
+		COMMENT The height of the element, or {@value -1} to automatically set the height of the {@link Widget}.
+		COMMENT
+		COMMENT Obtain the actual height of the element through {@link Widget#getHeight()}
+	METHOD a setText (Ljava/lang/String;)V
+	METHOD a (Lsnoddasmannen/galimulator/GalColor;)V
+		ARG 1 color

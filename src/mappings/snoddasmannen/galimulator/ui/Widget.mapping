@@ -1,0 +1,86 @@
+CLASS snoddasmannen/galimulator/ui/Widget snoddasmannen/galimulator/ui/Widget
+	FIELD children children Ljava/util/Vector;
+	FIELD e x D
+	FIELD f y D
+	FIELD headerTitle headerTitle Ljava/lang/String;
+	FIELD internalCamera internalCamera Lcom/badlogic/gdx/graphics/Camera;
+	FIELD lastRegisteredMouseMevement lastRegisteredMouseMevement J
+	FIELD layout layout Lsnoddasmannen/galimulator/ui/WidgetLayout;
+	FIELD m getToastMessage Ljava/lang/String;
+	FIELD n widgetId Lsnoddasmannen/galimulator/ui/Widget$WIDGET_ID;
+	FIELD p messageRecievers Ljava/util/Vector;
+	FIELD positioning positioning Lsnoddasmannen/galimulator/ui/Widget$WIDGET_POSITIONING;
+	FIELD s dirty Z
+	FIELD t verticalScroll F
+	FIELD v __unusedField0 I
+	METHOD a setX (D)V
+		ARG 1 x
+	METHOD a onWidgetPan (FFFF)V
+		ARG 1 deltaX
+		ARG 2 deltaY
+		ARG 3 pointerX
+		ARG 4 pointerY
+	METHOD a setCamera (Lcom/badlogic/gdx/graphics/Camera;)V
+	METHOD a setWidgetId (Lsnoddasmannen/galimulator/ui/Widget$WIDGET_ID;)V
+		ARG 1 id
+	METHOD a setLayout (Lsnoddasmannen/galimulator/ui/WidgetLayout;)V
+		ARG 1 layout
+	METHOD a addMessageReciever (Lsnoddasmannen/galimulator/WidgetMessageReciever;)V
+		ARG 1 reciever
+	METHOD a setFocus (Z)V
+		ARG 1 focused
+	METHOD addChild addChild (Lsnoddasmannen/galimulator/ui/Widget;)Lsnoddasmannen/galimulator/ui/Widget;
+	METHOD b setY (D)V
+		ARG 1 y
+	METHOD b removeChild (Lsnoddasmannen/galimulator/ui/Widget;)V
+		ARG 1 child
+	METHOD b removeMessageReciever (Lsnoddasmannen/galimulator/WidgetMessageReciever;)V
+		ARG 1 reciever
+	METHOD c setToastMessage (Ljava/lang/String;)V
+		ARG 1 message
+	METHOD clearChildren clearChildren ()V
+	METHOD considerRelayout considerRelayout ()V
+	METHOD containsPoint containsPoint (Lcom/badlogic/gdx/math/Vector2;)Z
+		ARG 1 position
+	METHOD D focusWidget ()V
+		COMMENT Note: Only works for Widgets added unbuffered or BufferedWidgetWrappers.
+	METHOD d_ getWidgetIdentifier ()Ljava/lang/String;
+	METHOD draw draw ()V
+	METHOD drawBackground drawBackground (Lsnoddasmannen/galimulator/GalColor;)V
+		ARG 1 color
+	METHOD drawChildren drawChildren ()V
+	METHOD get_m toastMessage ()Ljava/lang/String;
+	METHOD get_n getWidgetId ()Lsnoddasmannen/galimulator/ui/Widget$WIDGET_ID;
+	METHOD getHeaderTitle getHeaderTitle ()Ljava/lang/String;
+	METHOD getHeight getHeight ()I
+	METHOD getInnerWidth getInnerWidth ()I
+	METHOD getPositioning getPositioning ()Lsnoddasmannen/galimulator/ui/Widget$WIDGET_POSITIONING;
+	METHOD getWidth getWidth ()I
+	METHOD getX getX ()D
+	METHOD getY getY ()D
+	METHOD hover hover (FFZ)V
+		ARG 1 x
+		ARG 2 y
+		ARG 3 __unknown__alwaysTrue
+			COMMENT From what is discernible, this value is always true.
+	METHOD interceptMouseDown interceptMouseDown (FF)Z
+		ARG 1 x
+		ARG 2 y
+	METHOD isPersistent isPersistent ()Z
+	METHOD mouseDown mouseDown (DD)V
+		ARG 1 x
+		ARG 3 y
+	METHOD onDispose onDispose ()V
+	METHOD propagateMessageLocally propagateMessageLocally (Lsnoddasmannen/galimulator/ui/Widget$WIDGET_MESSAGE;)V
+		ARG 1 message
+	METHOD refreshLayout refreshLayout ()V
+	METHOD setHeaderColor setHeaderColor (Lsnoddasmannen/galimulator/GalColor;)V
+		ARG 1 color
+	METHOD setHeaderTitle setHeaderTitle (Ljava/lang/String;)V
+		ARG 1 title
+	METHOD setPositioning setPositioning (Lsnoddasmannen/galimulator/ui/Widget$WIDGET_POSITIONING;)V
+		ARG 1 positioning
+	METHOD u getChildCount ()I
+	METHOD z updateScroll ()V
+	CLASS WIDGET_ALIGNMENT WidgetAlignment
+	CLASS WIDGET_MESSAGE WIDGET_MESSAGE

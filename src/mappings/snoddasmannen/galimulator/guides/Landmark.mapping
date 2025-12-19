@@ -1,0 +1,16 @@
+CLASS snoddasmannen/galimulator/guides/ppclass_0 snoddasmannen/galimulator/guides/Landmark
+	FIELD a landmarkStar Lsnoddasmannen/galimulator/Star;
+	FIELD b starlaneDistances Ljava/util/Map;
+	METHOD <init> <init> (Lsnoddasmannen/galimulator/Star;)V
+		ARG 1 landmarkStar
+	METHOD a getStarlaneDistance (Lsnoddasmannen/galimulator/Star;)F
+		COMMENT Returns {@link snoddasmannen.galimulator.Space#getMaxX()} if the distance is not known at will.
+		COMMENT
+		COMMENT The distance of a star (in this cast the landmark's center star) to another star according to this method
+		COMMENT is the smallest sum of the length of the starlanes between two stars.
+		COMMENT
+		COMMENT This method is thus used for efficent pathfinding caching.
+		ARG 1 target
+	METHOD a updateStarlaneDistance (Lsnoddasmannen/galimulator/Star;F)V
+		ARG 1 target
+		ARG 2 distance

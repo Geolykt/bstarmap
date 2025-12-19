@@ -1,0 +1,5 @@
+CLASS com/badlogic/gdx/input/GestureDetector com/badlogic/gdx/input/GestureDetector
+	CLASS GestureListener GestureListener
+		METHOD tap (FFII)Z
+			ARG 1 screenX
+			ARG 2 screenY

@@ -1,0 +1,3 @@
+CLASS snoddasmannen/galimulator/Spy snoddasmannen/galimulator/Spy
+	METHOD a setTarget (Lsnoddasmannen/galimulator/Empire;)V
+	METHOD b tick ()V

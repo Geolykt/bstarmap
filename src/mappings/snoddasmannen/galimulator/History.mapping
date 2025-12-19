@@ -1,0 +1,2 @@
+CLASS snoddasmannen/galimulator/History snoddasmannen/galimulator/History
+	METHOD a tick ()V

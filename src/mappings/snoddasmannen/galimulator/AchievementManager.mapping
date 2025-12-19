@@ -1,0 +1,6 @@
+CLASS snoddasmannen/galimulator/class_46 snoddasmannen/galimulator/AchievementManager
+	FIELD a platform Lsnoddasmannen/galimulator/interface_13;
+	METHOD a awardAchivement (Lsnoddasmannen/galimulator/Achievement;)V
+		ARG 0 achievement
+	METHOD a setPlatform (Lsnoddasmannen/galimulator/interface_13;)V
+		ARG 0 platform

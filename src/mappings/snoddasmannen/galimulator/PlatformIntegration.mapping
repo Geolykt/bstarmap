@@ -1,0 +1,3 @@
+CLASS snoddasmannen/galimulator/interface_16 snoddasmannen/galimulator/PlatformIntegration
+	METHOD a onTick ()V
+	METHOD c getIntegrationLogo ()Ljava/lang/String;

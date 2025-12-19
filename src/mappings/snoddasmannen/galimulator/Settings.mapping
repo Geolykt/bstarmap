@@ -1,0 +1,31 @@
+CLASS snoddasmannen/galimulator/Settings snoddasmannen/galimulator/Settings
+	FIELD a blacklist Lsnoddasmannen/galimulator/Blacklist;
+	FIELD b galimPreferences Lcom/badlogic/gdx/Preferences;
+	FIELD c seenShips Lcom/badlogic/gdx/Preferences;
+	METHOD a initialize ()V
+	METHOD a hasShipUnlocked (Ljava/lang/String;)Z
+		ARG 0 shipName
+	METHOD a getFloat (Ljava/lang/String;F)F
+		ARG 0 key
+		ARG 1 value
+	METHOD a setString (Ljava/lang/String;Ljava/lang/String;)V
+		ARG 0 key
+		ARG 1 value
+	METHOD a getBoolean (Ljava/lang/String;Z)Z
+	METHOD a unlockActor (Lsnoddasmannen/galimulator/actors/Actor;)Z
+		ARG 0 actor
+	METHOD b flush ()V
+	METHOD b getString (Ljava/lang/String;)Ljava/lang/String;
+		ARG 0 key
+	METHOD b setBoolean (Ljava/lang/String;Z)V
+	CLASS EnumSettings EnumSettings
+		FIELD cachedValue cachedValue Ljava/lang/Object;
+		FIELD category category Ljava/lang/String;
+		FIELD defaultValue defaultValue Ljava/lang/Object;
+		FIELD name name Ljava/lang/String;
+		FIELD valueType valueType Lsnoddasmannen/galimulator/UserSettings$SettingType;
+		METHOD <init> (Ljava/lang/String;ILjava/lang/String;Lsnoddasmannen/galimulator/UserSettings$SettingType;Ljava/lang/Object;Ljava/lang/String;)V
+			ARG 3 name
+			ARG 4 valueType
+			ARG 5 defaultValue
+			ARG 6 category

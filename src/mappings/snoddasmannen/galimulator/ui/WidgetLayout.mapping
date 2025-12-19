@@ -1,0 +1,8 @@
+CLASS snoddasmannen/galimulator/ui/WidgetLayout snoddasmannen/galimulator/ui/WidgetLayout
+	METHOD a setCamera (Lcom/badlogic/gdx/graphics/Camera;)V
+	METHOD b onDispose ()V
+	METHOD get_e getMarginWidth ()I
+	METHOD getHeight getHeight ()I
+	METHOD getWidth getWidth ()I
+	METHOD recompute recompute ()V
+	METHOD setHorizontalMargin setHorizontalMargin (I)V

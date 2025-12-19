@@ -1,0 +1,13 @@
+CLASS snoddasmannen/galimulator/interface_10 snoddasmannen/galimulator/__UnusedInterface0
+	METHOD a __unusedMethod__onRestartGalaxy ()V
+	METHOD a __unknown5 (I)V
+		ARG 1 arg
+	METHOD a __unknown7 (Ljava/lang/String;)V
+		ARG 1 arg
+	METHOD a __unusedMethod__onEmpireDeath (Lsnoddasmannen/galimulator/Empire;)V
+		ARG 1 arg
+	METHOD b __unusedMethod__onGameOver ()V
+	METHOD c __unknown3 ()V
+	METHOD d __unknown4 ()V
+	METHOD e __unknown6 ()V
+	METHOD f __unknown8 ()V

@@ -1,0 +1,18 @@
+CLASS snoddasmannen/galimulator/EmploymentAgency snoddasmannen/galimulator/EmploymentAgency
+	METHOD a __unusedMethod__collectJobsFrom (Lsnoddasmannen/galimulator/Employer;)Ljava/util/List;
+	METHOD a collectMatchingJobs (Lsnoddasmannen/galimulator/Employer;Lsnoddasmannen/galimulator/Job$JobType;)Lsnoddasmannen/galimulator/Job;
+	METHOD a addJob (Lsnoddasmannen/galimulator/Job;)V
+	METHOD b forgetInstance ()V
+	METHOD b getPeopleAtLevel (I)Ljava/util/List;
+		ARG 1 level
+	METHOD b getJobsFromHelper (Lsnoddasmannen/galimulator/Employer;)Ljava/util/List;
+	METHOD b removeJob (Lsnoddasmannen/galimulator/Job;)V
+	METHOD c countRebels ()V
+	METHOD c addEmployer (Lsnoddasmannen/galimulator/Employer;)V
+	METHOD c removeUnreplenishingJob (Lsnoddasmannen/galimulator/Job;)V
+	METHOD d getEmployingFamily (Lsnoddasmannen/galimulator/Employer;)Lsnoddasmannen/galimulator/Family;
+	METHOD d createJobOpening (Lsnoddasmannen/galimulator/Job;)V
+	METHOD e clearPeoplePerLevel ()V
+	METHOD e removeJobHolder (Lsnoddasmannen/galimulator/Job;)V
+	METHOD f clearJobsPerLevel ()V
+	METHOD getInstance getInstance ()Lsnoddasmannen/galimulator/EmploymentAgency;

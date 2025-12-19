@@ -1,0 +1,5 @@
+CLASS snoddasmannen/galimulator/Debug snoddasmannen/galimulator/Debug
+	METHOD b endDebuggingSection (Ljava/lang/String;Z)I
+	METHOD endDebuggingSection endDebuggingSection (Ljava/lang/String;)I
+	METHOD startDebuggingSection startDebuggingSection (Ljava/lang/String;)V
+	METHOD startDebuggingSection startDebuggingSection (Ljava/lang/String;Z)V

@@ -1,0 +1,9 @@
+CLASS snoddasmannen/galimulator/effects/ArrowEffect snoddasmannen/galimulator/effects/ArrowEffect
+	FIELD a sourceItem Lsnoddasmannen/galimulator/Item;
+	FIELD b targetItem Lsnoddasmannen/galimulator/Item;
+	FIELD color color Lsnoddasmannen/galimulator/GalColor;
+	METHOD <init> (Lsnoddasmannen/galimulator/Item;Lsnoddasmannen/galimulator/Item;)V
+		ARG 1 from
+		ARG 2 to
+	METHOD a setColor (Lsnoddasmannen/galimulator/GalColor;)V
+		ARG 1 color
