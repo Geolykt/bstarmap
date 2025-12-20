@@ -1,0 +1,5 @@
+CLASS snoddasmannen/galimulator/interface_12 snoddasmannen/galimulator/FlagSymbol
+	METHOD getFixedH getFixedH ()I
+	METHOD getFixedW getFixedW ()I
+	METHOD getMustBeSquare getMustBeSquare ()Z
+	METHOD getTexture getTexture ()Lcom/badlogic/gdx/graphics/g2d/TextureRegion;

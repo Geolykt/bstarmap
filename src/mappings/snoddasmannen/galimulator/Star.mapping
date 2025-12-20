@@ -54,6 +54,7 @@ CLASS snoddasmannen/galimulator/Star snoddasmannen/galimulator/Star
 	METHOD c getStarlaneNeighbours (I)Ljava/util/Vector;
 		ARG 1 distance
 	METHOD d drawStarlanes ()V
+	METHOD getBeacon getBeacon ()Z
 	METHOD getCommodity getCommodity ()Lsnoddasmannen/galimulator/PreciousCommodity;
 	METHOD getDevelopment getDevelopment ()I
 	METHOD getLastMoved getLastMoved ()Lcom/badlogic/gdx/math/Vector2;

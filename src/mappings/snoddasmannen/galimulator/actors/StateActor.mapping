@@ -48,7 +48,9 @@ CLASS snoddasmannen/galimulator/actors/StateActor snoddasmannen/galimulator/acto
 		ARG 1 star
 	METHOD getDefaultState getDefaultState ()Lsnoddasmannen/galimulator/shipstates/State;
 	METHOD getFinalDestination getFinalDestination ()Lsnoddasmannen/galimulator/Star;
+	METHOD getFleet getFleet ()Lsnoddasmannen/galimulator/Fleet;
 	METHOD getFreeSpaceRange getFreeSpaceRange ()F
+	METHOD getGuide getGuide ()Lsnoddasmannen/galimulator/guides/Guide;
 	METHOD getLocation getLocation ()Lsnoddasmannen/galimulator/Star;
 	METHOD getMaxSpeed getMaxSpeed ()F
 	METHOD getOrbitDistance getOrbitDistance ()F
@@ -63,8 +65,10 @@ CLASS snoddasmannen/galimulator/actors/StateActor snoddasmannen/galimulator/acto
 	METHOD move move ()V
 	METHOD moveAroundActor moveAroundActor (Lsnoddasmannen/galimulator/actors/Actor;)V
 		ARG 1 actor
+	METHOD moveInFleet moveInFleet (Lsnoddasmannen/galimulator/Fleet;)V
 	METHOD moveInWideningCircles moveInWideningCircles ()V
 	METHOD moveOutOfGalaxy moveOutOfGalaxy ()V
+	METHOD moveTo moveTo (Lsnoddasmannen/galimulator/Star;)V
 	METHOD moveToAndOrbit moveToAndOrbit (Lsnoddasmannen/galimulator/Star;)V
 	METHOD moveUncontrollably moveUncontrollably (F)V
 	METHOD orbitCurrentStar orbitCurrentStar ()V

@@ -1,2 +1,3 @@
 CLASS snoddasmannen/galimulator/guides/Guide snoddasmannen/galimulator/guides/Guide
+	METHOD draw draw ()V
 	METHOD setPath setPath (Lsnoddasmannen/galimulator/Star;Lsnoddasmannen/galimulator/Star;Lsnoddasmannen/galimulator/Star;Lcom/badlogic/gdx/math/Vector2;)Z

@@ -6,3 +6,4 @@ CLASS snoddasmannen/galimulator/DeviceConfiguration snoddasmannen/galimulator/De
 	METHOD shipShadersEnabled shipShadersEnabled ()Z
 	METHOD sprawlByDefault sprawlByDefault ()Z
 	METHOD supportsPlay supportsPlay ()Z
+	METHOD useScreenResizing useScreenResizing ()Z

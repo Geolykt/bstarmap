@@ -1,0 +1,14 @@
+CLASS snoddasmannen/galimulator/EmpireState snoddasmannen/galimulator/EmpireState
+	FIELD description description Ljava/lang/String;
+	METHOD <init> (Ljava/lang/String;ILjava/lang/String;)V
+		ARG 3 description
+	METHOD a getRandomState ()Lsnoddasmannen/galimulator/EmpireState;
+		COMMENT Obtains a random non-blacklisted state.
+	METHOD a lookupState (Ljava/lang/String;)Lsnoddasmannen/galimulator/EmpireState;
+		ARG 0 stateName
+			COMMENT The state's name as per {@link Enum#name()}
+	METHOD a (Ljava/lang/String;Lsnoddasmannen/galimulator/EmpireState;)Z
+		ARG 1 state
+	METHOD a (Lsnoddasmannen/galimulator/EmpireState;)Z
+		ARG 0 state
+	METHOD getDescription getDescription ()Ljava/lang/String;

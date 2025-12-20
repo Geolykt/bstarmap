@@ -3,9 +3,14 @@ CLASS snoddasmannen/galimulator/Job snoddasmannen/galimulator/Job
 	METHOD b setAlias (Ljava/lang/String;)V
 	METHOD b setHolder (Lsnoddasmannen/galimulator/Person;)V
 	METHOD d removeHolder ()V
+	METHOD getCurrentHolder getCurrentHolder ()Lsnoddasmannen/galimulator/Person;
+	METHOD getEmployer getEmployer ()Lsnoddasmannen/galimulator/Employer;
+	METHOD getType getType ()Lsnoddasmannen/galimulator/Job$JobType;
 	METHOD h getJobLevel ()I
 	METHOD i getDisplayName ()Ljava/lang/String;
+	METHOD isVacated isVacated ()Z
 	METHOD j getJobBonus ()F
 	METHOD k isReplenishing ()Z
 	METHOD o isVacancyMarked ()Z
 	METHOD p markVacancy ()V
+	CLASS JobType JobType

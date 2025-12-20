@@ -1,1 +1,2 @@
 CLASS snoddasmannen/galimulator/Dialog snoddasmannen/galimulator/Dialog
+	METHOD isValid isValid ()Z

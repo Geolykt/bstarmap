@@ -1,0 +1,2 @@
+CLASS snoddasmannen/galimulator/MottoGenerator snoddasmannen/galimulator/MottoGenerator
+	METHOD generateMotto generateMotto ()Ljava/lang/String;

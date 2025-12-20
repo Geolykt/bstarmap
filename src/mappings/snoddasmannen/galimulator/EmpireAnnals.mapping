@@ -1,2 +1,6 @@
 CLASS snoddasmannen/galimulator/EmpireAnnals snoddasmannen/galimulator/EmpireAnnals
+	FIELD empireId empireId I
 	FIELD name name Ljava/lang/String;
+	FIELD nameIdentifier nameIdentifier Ljava/lang/String;
+	METHOD getEmpireId getEmpireId ()I
+	METHOD getName getName ()Ljava/lang/String;

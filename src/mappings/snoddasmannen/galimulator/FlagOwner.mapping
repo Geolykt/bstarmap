@@ -1,2 +1,4 @@
 CLASS snoddasmannen/galimulator/FlagOwner snoddasmannen/galimulator/FlagOwner
+	METHOD getFlagItems getFlagItems ()Ljava/util/Vector;
 	METHOD l getFlag ()V
+	METHOD m onMouseDown ()V

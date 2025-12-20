@@ -1,0 +1,9 @@
+CLASS snoddasmannen/galimulator/EmpireDescriptor snoddasmannen/galimulator/EmpireDescriptor
+	FIELD specials specials Ljava/util/ArrayList;
+	METHOD getColor getColor ()Lsnoddasmannen/galimulator/GalColor;
+	METHOD getGovernment getGovernment ()Lsnoddasmannen/galimulator/Government;
+	METHOD getId getId ()I
+	METHOD getName getName ()Ljava/lang/String;
+	METHOD getReligion getReligion ()Lsnoddasmannen/galimulator/Religion;
+	METHOD getState getState ()Lsnoddasmannen/galimulator/EmpireState;
+	METHOD getTechLevel getTechLevel ()I

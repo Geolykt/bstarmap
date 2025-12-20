@@ -1,4 +1,58 @@
 CLASS snoddasmannen/galimulator/FlagItem snoddasmannen/galimulator/FlagItem
+	FIELD border border Z
+	FIELD center center Z
+	FIELD color color Lsnoddasmannen/galimulator/GalColor;
+	FIELD height height I
+	FIELD rotation rotation F
+	FIELD serialVersionUID serialVersionUID J
+	FIELD symbol symbol Lsnoddasmannen/galimulator/FlagItem$BuiltinSymbols;
+	FIELD width width I
+	FIELD x x F
+	FIELD y y F
+	METHOD <init> (IIIIFZIILsnoddasmannen/galimulator/interface_12;Lsnoddasmannen/galimulator/GalColor;ZLsnoddasmannen/galimulator/FlagItem$BorderChoice;)V
+		ARG 1 x
+		ARG 2 y
+		ARG 3 width
+		ARG 4 height
+		ARG 5 rotation
+		ARG 6 center
+		ARG 7 maxWidth
+		ARG 8 maxHeight
+		ARG 9 symbol
+		ARG 10 color
+		ARG 11 fixed
+		ARG 12 border
+	METHOD draw draw (Lcom/badlogic/gdx/graphics/Camera;FFF)V
+		ARG 1 projection
+		ARG 2 scale
+		ARG 3 offsetX
+		ARG 4 offsetY
+	METHOD drawShadow drawShadow (Lcom/badlogic/gdx/graphics/Camera;FFFI)V
+		ARG 1 projection
+		ARG 2 scale
+		ARG 3 centerX
+		ARG 4 centerY
+		ARG 5 strength
+			COMMENT C-Style Enum for shadow color. 1 = Gray, 2 = Black.
+			COMMENT Also affects the size of the shadow.
+			COMMENT
+			COMMENT Does not draw anything if there is no border,
+			COMMENT nor does it draw anything for values other than those listed
+			COMMENT above.
+	CLASS BorderChoice BorderChoice
 	CLASS BuiltinSymbols BuiltinSymbols
+		FIELD fixedH fixedH I
+		FIELD fixedW fixedW I
+		FIELD mustBeSquare mustBeSquare Z
+		FIELD texture texture Lcom/badlogic/gdx/graphics/g2d/TextureRegion;
+		METHOD <init> (Ljava/lang/String;ILjava/lang/String;Z)V
+			COMMENT Symbol has no fixed width nor height.
+			ARG 3 texturePath
+			ARG 4 mustBeSquare
+		METHOD <init> (Ljava/lang/String;ILjava/lang/String;ZII)V
+			ARG 3 texturePath
+			ARG 4 mustBeSquare
+			ARG 5 fixedW
+			ARG 6 fixedH
 		METHOD a getRandomBasicSymbol ()Lsnoddasmannen/galimulator/FlagItem$BuiltinSymbols;
 		METHOD b getRandomBuiltin ()Lsnoddasmannen/galimulator/FlagItem$BuiltinSymbols;

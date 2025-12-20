@@ -1,4 +1,5 @@
 CLASS snoddasmannen/galimulator/Employer snoddasmannen/galimulator/Employer
+	METHOD getEmployerIcon getEmployerIcon ()Ljava/lang/String;
 	METHOD getHelper getHelper ()Lsnoddasmannen/galimulator/EmployerHelper;
 	METHOD getJobTypes getJobTypes ()Ljava/util/List;
 	METHOD getName getName ()Ljava/lang/String;

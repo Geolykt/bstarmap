@@ -7,12 +7,16 @@ CLASS snoddasmannen/galimulator/Fleet snoddasmannen/galimulator/Fleet
 	FIELD lowestSpeed lowestSpeed F
 	FIELD name name Ljava/lang/String;
 	FIELD owner owner Lsnoddasmannen/galimulator/Lazy$EmpireLazy;
+	FIELD serialVersionUID serialVersionUID J
 	FIELD ships ships Ljava/util/Vector;
 	FIELD stickyTimer stickyTimer I
 	FIELD strategy strategy Lsnoddasmannen/galimulator/Fleet$FleetState;
 	FIELD target target Lsnoddasmannen/galimulator/actors/Actor;
+	FIELD waypoint waypoint Lsnoddasmannen/galimulator/Star;
 	METHOD <init> (Lsnoddasmannen/galimulator/Empire;)V
 		ARG 1 owner
+	METHOD a enageEnemy (Lsnoddasmannen/galimulator/actors/Actor;)V
+		ARG 1 enemy
 	METHOD a addActor (Lsnoddasmannen/galimulator/actors/StateActor;)V
 		ARG 1 actor
 	METHOD a setFront (Lsnoddasmannen/galimulator/Empire;)V
@@ -26,6 +30,9 @@ CLASS snoddasmannen/galimulator/Fleet snoddasmannen/galimulator/Fleet
 		ARG 1 actor
 	METHOD b travelTo (Lsnoddasmannen/galimulator/Star;)V
 		ARG 1 finalDestination
+	METHOD c getFleetLocation ()Lsnoddasmannen/galimulator/Star;
+		COMMENT May have wierd behaviour when called on an empty fleet as the
+		COMMENT star with the uid "-1" is returned.
 	METHOD c getIdleState (Lsnoddasmannen/galimulator/actors/StateActor;)Lsnoddasmannen/galimulator/shipstates/State;
 		COMMENT Name tentative
 		ARG 1 actor
@@ -40,4 +47,6 @@ CLASS snoddasmannen/galimulator/Fleet snoddasmannen/galimulator/Fleet
 	METHOD getShips getShips ()Ljava/util/Vector;
 	METHOD getStrategy getStrategy ()Lsnoddasmannen/galimulator/Fleet$FleetState;
 	METHOD i getState ()Lsnoddasmannen/galimulator/shipstates/State;
+	METHOD l pathfindFleet ()V
+	METHOD m onArriveDestination ()V
 	CLASS FleetState FleetState

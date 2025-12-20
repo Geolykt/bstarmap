@@ -1,20 +1,78 @@
 CLASS snoddasmannen/galimulator/Person snoddasmannen/galimulator/Person
 	FIELD a rebelCount I
+	FIELD alive alive Z
 	FIELD b formatterSmaller Ljava/text/DecimalFormat;
+	FIELD birthMilliYear birthMilliYear I
 	FIELD c formatterLarge Ljava/text/DecimalFormat;
+	FIELD causeOfDeath causeOfDeath Ljava/lang/String;
+	FIELD childCount childCount I
+	FIELD children children Ljava/util/ArrayList;
+	FIELD conspiracy conspiracy Lsnoddasmannen/galimulator/conspiracies/Conspiracy;
+		COMMENT @deprecated Conspiracies have been removed from Galimulator for a while now. Effectively dead code.
+	FIELD cv cv Ljava/util/Vector;
 	FIELD d attributeValues [F
+	FIELD empireHeat empireHeat I
 	FIELD f __unusedField0 I
+	FIELD family family Lsnoddasmannen/galimulator/Family;
+	FIELD grandParent grandParent Lsnoddasmannen/galimulator/Lazy$PersonLazy;
+	FIELD h priorityFamily Lsnoddasmannen/galimulator/Family;
+		COMMENT The most recently created family by the user.
+		COMMENT This family will require priority treatment from the game when it comes to assigning
+		COMMENT new people to their families.
+	FIELD i priorityFamilyRemainingChildren I
+	FIELD id id I
+	FIELD isFollowed isFollowed Z
+	FIELD job job Lsnoddasmannen/galimulator/Job;
+	FIELD lastJobLevel lastJobLevel I
+	FIELD name name Ljava/lang/String;
+	FIELD naturalAttributes naturalAttributes [I
+	FIELD parent parent Lsnoddasmannen/galimulator/Lazy$PersonLazy;
+	FIELD parent2 parent2 Lsnoddasmannen/galimulator/Lazy$PersonLazy;
+	FIELD prestige prestige F
+	FIELD serialVersionUID serialVersionUID J
+	FIELD specials specials Ljava/util/Vector;
+	FIELD spouse spouse Lsnoddasmannen/galimulator/Lazy$PersonLazy;
+	METHOD <init> (Lsnoddasmannen/galimulator/Person;)V
+		ARG 1 parent
+	METHOD <init> (Lsnoddasmannen/galimulator/Person;Lsnoddasmannen/galimulator/Person;)V
+		COMMENT The parent with the highest fertility is the actual parent.
+		COMMENT Calls the single-parent constructor.
+		ARG 1 parentA
+		ARG 2 parentB
+	METHOD <init> (Lsnoddasmannen/galimulator/Person;Lsnoddasmannen/galimulator/Person;Z)V
+		COMMENT Constructor does not seem to be in use according to enigma.
+		COMMENT I find that rather strange.
+		COMMENT
+		COMMENT That being said, this kinda makes sense since apart from genealogy
+		COMMENT this is a 1:1 copy of the single-parent constructor with in mostly taking
+		COMMENT in account the first parent and ignoring the second for {@link PersonSpecial} inheritance.
+		COMMENT
+		COMMENT @deprecated Does not properly populate attributes
+		ARG 1 parentA
+		ARG 2 parentB
+		ARG 3 __unknown_argument
+			COMMENT Not used.
 	METHOD a addPrestige (F)V
 		ARG 1 prestige
 	METHOD a setName (Ljava/lang/String;)V
 		ARG 1 name
 	METHOD a setConspiracy (Lsnoddasmannen/galimulator/conspiracies/Conspiracy;)V
+		COMMENT @deprecated Conspiracies have been removed from Galimulator for a while now. Effectively dead code.
+		ARG 1 conspiracy
+	METHOD a setPriorityFamily (Lsnoddasmannen/galimulator/Family;I)V
+		COMMENT Set the family that will get priority when assigning newborn people their families.
+		ARG 0 family
+		ARG 1 targetChildCount
 	METHOD a setGrandparent (Lsnoddasmannen/galimulator/Lazy$PersonLazy;)V
 		ARG 1 grandparent
+	METHOD a addChild (Lsnoddasmannen/galimulator/Person;)V
+		ARG 1 child
 	METHOD a getNaturalAttributeValue (Lsnoddasmannen/galimulator/Person$PersonAttribute;)I
 		ARG 1 attribute
 	METHOD a hasSpecial (Lsnoddasmannen/galimulator/PersonSpecial;)Z
 		ARG 1 special
+	METHOD a setFollowed (Z)V
+		ARG 1 followed
 	METHOD b getDisplayPrestige ()Ljava/lang/String;
 	METHOD b kill (Ljava/lang/String;)V
 		ARG 1 cause
@@ -36,6 +94,8 @@ CLASS snoddasmannen/galimulator/Person snoddasmannen/galimulator/Person
 		ARG 1 attribute
 	METHOD c addSpecial (Lsnoddasmannen/galimulator/PersonSpecial;)Z
 		ARG 1 special
+	METHOD compareTo (Ljava/lang/Object;)I
+		ARG 1 other
 	METHOD d setParent2 (Lsnoddasmannen/galimulator/Person;)V
 		ARG 1 parent2
 	METHOD d getAttributeValue0 (Lsnoddasmannen/galimulator/Person$PersonAttribute;)F
@@ -45,10 +105,45 @@ CLASS snoddasmannen/galimulator/Person snoddasmannen/galimulator/Person
 	METHOD e getDisplayAge ()Ljava/lang/String;
 	METHOD f getAge ()I
 	METHOD get_cv getCV ()Ljava/util/Vector;
+	METHOD getBirthMilliYear getBirthMilliYear ()I
+	METHOD getCauseOfDeath getCauseOfDeath ()Ljava/lang/String;
+	METHOD getChildCount getChildCount ()I
+	METHOD getChildren getChildren ()Ljava/util/ArrayList;
+	METHOD getConspiracy getConspiracy ()Lsnoddasmannen/galimulator/conspiracies/Conspiracy;
+		COMMENT @deprecated Conspiracies have been removed from Galimulator for a while now. Effectively dead code.
+	METHOD getEmpireHeat getEmpireHeat ()I
 	METHOD getFamily getFamily ()Lsnoddasmannen/galimulator/Family;
+	METHOD getGrandParent getGrandParent ()Lsnoddasmannen/galimulator/Lazy$PersonLazy;
+	METHOD getIsFollowed getIsFollowed ()Z
 	METHOD getLastJobLevel getLastJobLevel ()I
+	METHOD getParent getParent ()Lsnoddasmannen/galimulator/Lazy$PersonLazy;
+	METHOD getPrestige getPrestige ()F
 	METHOD l hasName ()Z
 		COMMENT Don't ask what this method is supposed to do
 	METHOD q getDisplayName ()Ljava/lang/String;
 	METHOD u getRandomSpecial ()Lsnoddasmannen/galimulator/PersonSpecial;
 	METHOD y endCVChapter ()V
+	CLASS CVEntry CVEntry
+		FIELD employerIcon employerIcon Ljava/lang/String;
+		FIELD employerName employerName Ljava/lang/String;
+		FIELD endTime endTime I
+		FIELD jobLevel jobLevel I
+		FIELD jobName jobName Ljava/lang/String;
+		FIELD serialVersionUID serialVersionUID J
+		FIELD startTime startTime I
+		METHOD <init> (Lsnoddasmannen/galimulator/Person;Lsnoddasmannen/galimulator/Job;I)V
+			ARG 2 job
+			ARG 3 startTime
+		METHOD getEmployerIcon getEmployerIcon ()Ljava/lang/String;
+		METHOD getEmployerName getEmployerName ()Ljava/lang/String;
+		METHOD getJobName getJobName ()Ljava/lang/String;
+	CLASS PersonAttribute PersonAttribute
+		FIELD abbreviation abbreviation Ljava/lang/String;
+		FIELD defaultView defaultView Z
+		FIELD index index I
+		FIELD name name Ljava/lang/String;
+		METHOD <init> (Ljava/lang/String;IILjava/lang/String;Ljava/lang/String;Z)V
+			ARG 3 index
+			ARG 4 name
+			ARG 5 abbreviation
+			ARG 6 defaultView

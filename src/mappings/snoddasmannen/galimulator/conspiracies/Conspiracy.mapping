@@ -1,0 +1,3 @@
+CLASS snoddasmannen/galimulator/conspiracies/Conspiracy snoddasmannen/galimulator/conspiracies/Conspiracy
+	COMMENT @deprecated Conspiracies have been removed from Galimulator for a while now. Effectively dead code.
+	METHOD c removeMember (Lsnoddasmannen/galimulator/Person;)V

@@ -17,13 +17,16 @@ CLASS snoddasmannen/galimulator/actors/Actor snoddasmannen/galimulator/actors/Ac
 	METHOD getDistanceToActor getDistanceToActor (Lsnoddasmannen/galimulator/Item;)F
 	METHOD getLevel getLevel ()I
 	METHOD getName getName ()Ljava/lang/String;
+	METHOD getOrders getOrders ()Ljava/util/Vector;
 	METHOD getOwner getOwner ()Lsnoddasmannen/galimulator/Empire;
+	METHOD getSupportRange getSupportRange ()F
 	METHOD getTypeName getTypeName ()Ljava/lang/String;
 	METHOD getXPValue getXPValue ()I
 	METHOD hasLeftGalaxy hasLeftGalaxy ()Z
 	METHOD isBuildable isBuildable ()Z
 	METHOD isMonster isMonster ()Z
 	METHOD isSpaceOddity isSpaceOddity ()Z
+	METHOD isStateActor isStateActor ()Z
 	METHOD onDeath onDeath ()V
 	METHOD receiveFire receiveFire (IF)Z
 	METHOD setColor setColor (Lsnoddasmannen/galimulator/GalColor;)V
@@ -31,3 +34,9 @@ CLASS snoddasmannen/galimulator/actors/Actor snoddasmannen/galimulator/actors/Ac
 	METHOD setOwner setOwner (Lsnoddasmannen/galimulator/Empire;)V
 		ARG 1 owner
 	METHOD setUncoloredTextureName setUncoloredTextureName (Ljava/lang/String;)V
+	CLASS ActorDragManager ActorDragManager
+		FIELD actorEffect actorEffect Lsnoddasmannen/galimulator/effects/ActorSelectedEffect;
+		FIELD currentOrder currentOrder Lsnoddasmannen/galimulator/shiporders/Order;
+		FIELD selected selected Lsnoddasmannen/galimulator/Item;
+		FIELD selectedEffect selectedEffect Lsnoddasmannen/galimulator/effects/LocationSelectedEffect;
+		METHOD setCurrentOrder setCurrentOrder (Lsnoddasmannen/galimulator/shiporders/Order;)V

@@ -1,3 +1,4 @@
 CLASS snoddasmannen/galimulator/EmployerHelper snoddasmannen/galimulator/EmployerHelper
 	METHOD a addJob (Lsnoddasmannen/galimulator/Job;)V
 	METHOD b removeJob (Lsnoddasmannen/galimulator/Job;)V
+	METHOD getTopJob getTopJob ()Lsnoddasmannen/galimulator/Job;

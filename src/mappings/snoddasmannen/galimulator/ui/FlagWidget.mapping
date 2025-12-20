@@ -1,0 +1,29 @@
+CLASS snoddasmannen/galimulator/ui/class_30 snoddasmannen/galimulator/ui/FlagWidget
+	FIELD a flagOwner Lsnoddasmannen/galimulator/FlagOwner;
+	FIELD b height I
+	FIELD c width I
+	FIELD d defaultScale F
+	FIELD e defaultGradientShadow Z
+	METHOD <init> (Lsnoddasmannen/galimulator/FlagOwner;IIFZ)V
+		ARG 1 owner
+		ARG 2 with
+		ARG 3 height
+		ARG 4 defaultScale
+		ARG 5 defaultGradientShadow
+	METHOD a setDefaultScale (F)V
+		ARG 1 scale
+	METHOD a draw (FFFZ)V
+		ARG 1 scale
+		ARG 2 x
+		ARG 3 y
+		ARG 4 gradientShadow
+	METHOD a draw (FFFZLcom/badlogic/gdx/graphics/Camera;)V
+		ARG 1 x
+		ARG 2 y
+		ARG 3 scale
+		ARG 4 gradientShadow
+		ARG 5 projection
+	METHOD a draw (FFZ)V
+		ARG 1 x
+		ARG 2 y
+		ARG 3 gradientShadow

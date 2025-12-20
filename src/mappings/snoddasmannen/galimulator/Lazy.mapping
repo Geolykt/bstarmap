@@ -1,3 +1,52 @@
 CLASS snoddasmannen/galimulator/Lazy snoddasmannen/galimulator/Lazy
+	FIELD a value Lsnoddasmannen/galimulator/Identifiable;
+	FIELD id id I
+	FIELD serialVersionUID serialVersionUID J
+	METHOD <init> (I)V
+		ARG 1 uid
+	METHOD <init> (Lsnoddasmannen/galimulator/Identifiable;)V
+		ARG 1 value
+	METHOD a containsUID (ILjava/util/Iterator;)Z
+		ARG 0 uid
+		ARG 1 it
+	METHOD a setValue (Lsnoddasmannen/galimulator/Identifiable;)V
+		ARG 1 value
+	METHOD b get0 ()Lsnoddasmannen/galimulator/Identifiable;
+	METHOD b getLzay (ILjava/util/Iterator;)Lsnoddasmannen/galimulator/Lazy;
+		ARG 0 uid
+		ARG 1 lazyIt
+			COMMENT Iterator of {@link Lazy} instances.
+	METHOD c forget ()V
 	METHOD get get ()Lsnoddasmannen/galimulator/Identifiable;
+	METHOD get_id getUID ()I
+	CLASS ActorLazy ActorLazy
+		METHOD <init> (Lsnoddasmannen/galimulator/actors/Actor;)V
+			ARG 1 actor
+	CLASS CultureLazy CultureLazy
+		METHOD <init> (Lsnoddasmannen/galimulator/Culture;)V
+			ARG 1 culture
 	CLASS EmpireLazy EmpireLazy
+		METHOD <init> (Lsnoddasmannen/galimulator/Empire;)V
+			ARG 1 empire
+	CLASS FamilyLazy FamilyLazy
+		METHOD <init> (Lsnoddasmannen/galimulator/Family;)V
+			ARG 1 family
+	CLASS FlagWidgetLazy FlagWidgetLazy
+		FIELD owner owner Lsnoddasmannen/galimulator/FlagOwner;
+		METHOD <init> (Lsnoddasmannen/galimulator/FlagOwner;)V
+			ARG 1 owner
+	CLASS FleetLazy FleetLazy
+		METHOD <init> (Lsnoddasmannen/galimulator/Fleet;)V
+			ARG 1 fleet
+	CLASS PersonLazy PersonLazy
+		FIELD family family Lsnoddasmannen/galimulator/Lazy$FamilyLazy;
+		METHOD <init> (Lsnoddasmannen/galimulator/Person;)V
+			ARG 1 person
+		METHOD f lookupAlt ()Lsnoddasmannen/galimulator/Person;
+			COMMENT Alternative lookup that uses the family register instead of the job agency
+			COMMENT in order to track down a person.
+			COMMENT
+			COMMENT The family defined by the {@link #family} field is used for the lookup.
+	CLASS StarLazy StarLazy
+		METHOD <init> (Lsnoddasmannen/galimulator/Star;)V
+			ARG 1 star

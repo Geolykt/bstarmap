@@ -1,2 +1,3 @@
 CLASS snoddasmannen/galimulator/relationships/DiploymacyActor snoddasmannen/galimulator/relationships/DiploymacyActor
 	METHOD getName getName ()Ljava/lang/String;
+	METHOD getRelManager getRelManager ()Lsnoddasmannen/galimulator/relationships/RelManager;

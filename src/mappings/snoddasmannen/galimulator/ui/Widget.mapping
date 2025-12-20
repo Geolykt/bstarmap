@@ -51,6 +51,7 @@ CLASS snoddasmannen/galimulator/ui/Widget snoddasmannen/galimulator/ui/Widget
 	METHOD drawChildren drawChildren ()V
 	METHOD get_m toastMessage ()Ljava/lang/String;
 	METHOD get_n getWidgetId ()Lsnoddasmannen/galimulator/ui/Widget$WIDGET_ID;
+	METHOD getChildWidgets getChildWidgets ()Ljava/util/Vector;
 	METHOD getHeaderTitle getHeaderTitle ()Ljava/lang/String;
 	METHOD getHeight getHeight ()I
 	METHOD getInnerWidth getInnerWidth ()I
@@ -83,4 +84,6 @@ CLASS snoddasmannen/galimulator/ui/Widget snoddasmannen/galimulator/ui/Widget
 	METHOD u getChildCount ()I
 	METHOD z updateScroll ()V
 	CLASS WIDGET_ALIGNMENT WidgetAlignment
+	CLASS WIDGET_ID WIDGET_ID
 	CLASS WIDGET_MESSAGE WIDGET_MESSAGE
+	CLASS WIDGET_POSITIONING WIDGET_POSITIONING

@@ -1,2 +1,6 @@
 CLASS snoddasmannen/galimulator/EmpireSpecial snoddasmannen/galimulator/EmpireSpecial
 	METHOD a getTechBonusMultiplier ()F
+	METHOD b getIndustryBonusMultiplier ()F
+	METHOD c getStabilityBonusMultiplier ()F
+	METHOD d getPeacefulBonusMultiplier ()F
+	METHOD getAbbreviation getAbbreviation ()Ljava/lang/String;

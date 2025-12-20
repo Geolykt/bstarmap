@@ -1,4 +1,5 @@
 CLASS snoddasmannen/namegenerator/NameGenerator snoddasmannen/namegenerator/NameGenerator
 	METHOD generateRandomIdentifier generateRandomIdentifier ()Ljava/lang/String;
+	METHOD generateRandomName generateRandomName (Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;
 	METHOD generateRandomShipName generateRandomShipName ()Ljava/lang/String;
 	METHOD getRandomCuteName getRandomCuteName ()Ljava/lang/String;

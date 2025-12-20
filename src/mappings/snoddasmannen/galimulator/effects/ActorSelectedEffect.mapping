@@ -1,0 +1,16 @@
+CLASS snoddasmannen/galimulator/effects/ActorSelectedEffect snoddasmannen/galimulator/effects/ActorSelectedEffect
+	FIELD actor actor Lsnoddasmannen/galimulator/actors/Actor;
+	FIELD alive alive Z
+	FIELD drawCircle drawCircle Z
+	FIELD text text Ljava/lang/String;
+	FIELD textSize textSize I
+	METHOD <init> (Lsnoddasmannen/galimulator/actors/Actor;Ljava/lang/String;Z)V
+		ARG 1 actor
+		ARG 2 text
+		ARG 3 drawCircle
+	METHOD a setText (Ljava/lang/String;)V
+		ARG 1 text
+	METHOD a setActor (Lsnoddasmannen/galimulator/actors/Actor;)V
+		ARG 1 actor
+	METHOD a setAlive (Z)V
+		ARG 1 alive

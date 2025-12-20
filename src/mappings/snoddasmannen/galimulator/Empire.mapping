@@ -1,29 +1,84 @@
 CLASS snoddasmannen/galimulator/Empire snoddasmannen/galimulator/Empire
+	FIELD a centerOfMass Lcom/badlogic/gdx/math/Vector2;
+		COMMENT The position of the star closest to the center of mass of
+		COMMENT this empire. Further, this star must be owned by this empire.
+		COMMENT
+		COMMENT The value of this field is computed by {@link #computeCenterOfMass()},
+		COMMENT and thus is updated once every 100 ticks.
+		COMMENT
+		COMMENT Only set if the Empire is sufficently large enough,
+		COMMENT that is current 10 stars or more.
+		COMMENT
+		COMMENT Due to semantics, this field may not exactly pair well with moving
+		COMMENT galaxies.
+	FIELD achievements achievements Ljava/util/Vector;
 	FIELD agents agents Ljava/util/Vector;
 	FIELD alliance alliance Lsnoddasmannen/galimulator/Alliance;
+	FIELD annals annals Ljava/util/ArrayList;
+	FIELD b countryballTexture Lcom/badlogic/gdx/graphics/g2d/TextureRegion;
 	FIELD beacons beacons Ljava/util/ArrayList;
+	FIELD birthMilliYear birthMilliYear I
+	FIELD capitalId capitalId I
 	FIELD color color Lsnoddasmannen/galimulator/GalColor;
+	FIELD contactTime contactTime Ljava/util/Hashtable;
+	FIELD countryballs countryballs Ljava/util/ArrayList;
+	FIELD darkerColor darkerColor Lsnoddasmannen/galimulator/GalColor;
+	FIELD deathYear deathYear I
+	FIELD emperorLog emperorLog Ljava/util/ArrayList;
+	FIELD extension extension Lsnoddasmannen/galimulator/EmpireExtension;
 	FIELD factions factions Ljava/util/ArrayList;
+	FIELD flagItems flagItems Ljava/util/Vector;
 	FIELD flagship flagship Lsnoddasmannen/galimulator/actors/Flagship;
+	FIELD flagWidget flagWidget Lsnoddasmannen/galimulator/Lazy$FlagWidgetLazy;
 	FIELD fleets fleets Ljava/util/ArrayList;
+	FIELD government government Lsnoddasmannen/galimulator/Government;
+	FIELD helper helper Lsnoddasmannen/galimulator/EmployerHelper;
 	FIELD id id I
+	FIELD internalSessionRandom internalSessionRandom Ljava/util/Random;
+	FIELD j transientWealth F
+	FIELD lastBuiltArtifact lastBuiltArtifact Lsnoddasmannen/galimulator/artifacts/Artifact;
+	FIELD lastResearchedYear lastResearchedYear I
+	FIELD lastStateChange lastStateChange I
 	FIELD m inboundDiplomaticAction Lsnoddasmannen/galimulator/diplomacy/class_1;
 	FIELD master master Lsnoddasmannen/galimulator/Lazy$EmpireLazy;
+	FIELD motto motto Ljava/lang/String;
+	FIELD myAnnal myAnnal Lsnoddasmannen/galimulator/EmpireAnnals;
 	FIELD n lastInboundDiplomaticAction I
 	FIELD name name Ljava/lang/String;
 	FIELD nameIdentifier nameIdentifier Ljava/lang/String;
 		COMMENT Note: This field may be null if the name identifier wasn't already generated.
 		COMMENT
 		COMMENT Use the appropriate getter method instead: {@link #getNameIdentifier()}
+	FIELD peaceAgreements2 peaceAgreements2 Ljava/util/ArrayList;
+	FIELD recentlyLostStars recentlyLostStars Ljava/util/Deque;
+	FIELD religion religion Lsnoddasmannen/galimulator/Religion;
+	FIELD relManager relManager Lsnoddasmannen/galimulator/relationships/RelManager;
 	FIELD rendezvous rendezvous Lsnoddasmannen/galimulator/Star;
+	FIELD rootAncestor rootAncestor I
+	FIELD semiOpaqueColor semiOpaqueColor Lsnoddasmannen/galimulator/GalColor;
 	FIELD specials specials Ljava/util/ArrayList;
+	FIELD specialsAttackBonus specialsAttackBonus Ljava/lang/Float;
+	FIELD specialsDefenseBonus specialsDefenseBonus Ljava/lang/Float;
+	FIELD specialsIndustryBonus specialsIndustryBonus Ljava/lang/Float;
+	FIELD specialsPeacefulBonus specialsPeacefulBonus Ljava/lang/Float;
+	FIELD specialsStabilityBonus specialsStabilityBonus Ljava/lang/Float;
+	FIELD specialsTechBonus specialsTechBonus Ljava/lang/Float;
 	FIELD starCount starCount I
+	FIELD starRecord starRecord I
+	FIELD state state Lsnoddasmannen/galimulator/EmpireState;
+	FIELD techLevel techLevel I
+	FIELD vassals vassals Ljava/util/ArrayList;
+	METHOD <init> (Lsnoddasmannen/galimulator/EmpireDescriptor;)V
+		ARG 1 descriptor
 	METHOD <init> (Lsnoddasmannen/galimulator/GalColor;Ljava/lang/String;Lsnoddasmannen/galimulator/Government;Lsnoddasmannen/galimulator/Empire;Ljava/lang/String;)V
 		ARG 1 color
 		ARG 2 name
 		ARG 3 government
 		ARG 4 empire
 		ARG 5 nameIdentifier
+	METHOD a getClosestBeacon (FF)Lsnoddasmannen/galimulator/Star;
+		ARG 1 x
+		ARG 2 y
 	METHOD a setName (Ljava/lang/String;)V
 		ARG 1 name
 	METHOD a (Ljava/util/List;Ljava/lang/String;)Z
@@ -34,12 +89,23 @@ CLASS snoddasmannen/galimulator/Empire snoddasmannen/galimulator/Empire
 	METHOD a declareWar (Lsnoddasmannen/galimulator/Empire;Z)V
 		ARG 2 notifyPlayer
 	METHOD a awardAchivement (Lsnoddasmannen/galimulator/EmpireAchievement$EmpireAchievementType;)V
+	METHOD a setExtension (Lsnoddasmannen/galimulator/EmpireExtension;)V
+		ARG 1 extension
 	METHOD a hasSpecial (Lsnoddasmannen/galimulator/EmpireSpecial;)Z
 		ARG 1 special
 	METHOD a setState (Lsnoddasmannen/galimulator/EmpireState;)V
 	METHOD a registerFaction (Lsnoddasmannen/galimulator/factions/Faction;)V
+		ARG 1 faction
 	METHOD a addFleet (Lsnoddasmannen/galimulator/Fleet;)V
 		ARG 1 fleet
+	METHOD a setColor (Lsnoddasmannen/galimulator/GalColor;)V
+		ARG 1 color
+	METHOD a setGovernment (Lsnoddasmannen/galimulator/Government;)V
+		ARG 1 gov
+	METHOD a addTemporaryTelModifier (Lsnoddasmannen/galimulator/relationships/TemporaryRelMod;)V
+		ARG 1 modifier
+	METHOD a setReligion (Lsnoddasmannen/galimulator/Religion;)V
+		ARG 1 religion
 	METHOD a setRendezvous (Lsnoddasmannen/galimulator/Star;)V
 		COMMENT Set a star where all of this empire's actors will move to.
 		COMMENT Use is questionable at best.
@@ -47,41 +113,105 @@ CLASS snoddasmannen/galimulator/Empire snoddasmannen/galimulator/Empire
 	METHOD aa researchAdvance ()V
 	METHOD ab degenerate ()V
 	METHOD ad getResearchMultiplier ()F
+	METHOD addBeacon addBeacon (Lsnoddasmannen/galimulator/Star;)V
+		ARG 1 beacon
+	METHOD addTransientWealth addTransientWealth (F)V
+		ARG 1 wealth
 	METHOD aE getTechBonous ()F
+	METHOD aF getIndustryBonus ()F
+	METHOD aG getStabilityBonus ()F
 	METHOD ah canDegenerate ()Z
+	METHOD aH getPeacefulBonus ()F
 	METHOD ai getAliveTime ()I
 	METHOD ak isJoiningAlliance ()Z
+	METHOD aL getDisplaySpecials ()Ljava/lang/String;
+	METHOD aM getAchievements ()Ljava/util/Vector;
+	METHOD aQ validateBeacons ()V
+		COMMENT Remove all stars in the internal list of beacons stored by this empire
+		COMMENT that are not actually beacons as per {@link Star#getBeacon()}
+	METHOD aR updateEmperorLog ()V
+		COMMENT Called when a new emperor is chosen.
 	METHOD aT killEmpire ()V
-	METHOD aY getTechBonusEagerly ()F
+	METHOD aY getTechBonus0 ()F
 	METHOD az danceForJoy ()V
+	METHOD aZ getIndustryBonus0 ()F
 	METHOD b getCivilianShipTexture ()Lcom/badlogic/gdx/graphics/g2d/TextureRegion;
 		COMMENT Texture is dependent on tech level
 	METHOD b setTechLevel (I)V
 	METHOD b removeActor (Lsnoddasmannen/galimulator/actors/StateActor;)V
 		ARG 1 actor
+	METHOD b removeSpecial (Lsnoddasmannen/galimulator/EmpireSpecial;)V
+		ARG 1 special
 	METHOD b (Lsnoddasmannen/galimulator/Government;)Ljava/lang/String;
 		ARG 0 government
+	METHOD b hasFleetAt (Lsnoddasmannen/galimulator/Star;)Z
+		ARG 1 star
 	METHOD b looseStar (Lsnoddasmannen/galimulator/Star;Lsnoddasmannen/galimulator/Empire;)V
 		ARG 1 lostStar
 		ARG 2 enemy
 	METHOD B acknowledgeInboundDiplomaticAction ()V
+	METHOD ba getStabilityBonus0 ()F
+	METHOD bb getPeacefulBonus0 ()F
+	METHOD bc resetSpecialsBonuses ()V
+	METHOD bd computeCenterOfMass ()V
+		COMMENT Populates the {@link #centerOfMass} field.
+		COMMENT This method is called every 100 ticks.
 	METHOD c c (Lsnoddasmannen/galimulator/Empire;)F
 		ARG 1 enemy
+	METHOD c addSpecial (Lsnoddasmannen/galimulator/EmpireSpecial;)V
+		COMMENT May silently fail if the special is blacklisted.
+		ARG 1 special
+	METHOD compareTo (Ljava/lang/Object;)I
+		ARG 1 other
+	METHOD g isBeacon (Lsnoddasmannen/galimulator/Star;)Z
+		ARG 1 star
+	METHOD get_a getCenterOfMass ()Lcom/badlogic/gdx/math/Vector2;
+		COMMENT The position of the star closest to the center of mass of
+		COMMENT this empire. Further, this star must be owned by this empire.
+		COMMENT
+		COMMENT The value returned by this method is computed through {@link #computeCenterOfMass()},
+		COMMENT and thus is updated once every 100 ticks. Calling this method
+		COMMENT does not recompute the value.
+		COMMENT
+		COMMENT Only set if the Empire is sufficently large enough,
+		COMMENT that is current 10 stars or more. Otherwise, {@code null} is returned.
+		COMMENT
+		COMMENT Due to semantics, the value may not exactly pair well with moving
+		COMMENT galaxies.
+	METHOD get_l getBeacons ()Ljava/util/ArrayList;
 	METHOD get_m getCurrentInboundDiplomaticAction ()Lsnoddasmannen/galimulator/diplomacy/class_1;
 	METHOD get_n getLastInboundDiplomaticActionTime ()I
 	METHOD getAgents getAgents ()Ljava/util/Vector;
 	METHOD getAlliance getAlliance ()Lsnoddasmannen/galimulator/Alliance;
+	METHOD getAnnals getAnnals ()Ljava/util/ArrayList;
 	METHOD getCapital getCapital ()Lsnoddasmannen/galimulator/Star;
 	METHOD getColor getColor ()Lsnoddasmannen/galimulator/GalColor;
 	METHOD getDisplayName getDisplayName ()Ljava/lang/String;
+	METHOD getEmperorLog getEmperorLog ()Ljava/util/ArrayList;
 	METHOD getExtension getExtension ()Lsnoddasmannen/galimulator/EmpireExtension;
+	METHOD getFactions getFactions ()Ljava/util/ArrayList;
 	METHOD getFlagship getFlagship ()Lsnoddasmannen/galimulator/actors/Flagship;
+	METHOD getFleets getFleets ()Ljava/util/ArrayList;
+	METHOD getGovernment getGovernment ()Lsnoddasmannen/galimulator/Government;
+	METHOD getMaster getMaster ()Lsnoddasmannen/galimulator/Empire;
+	METHOD getMotto getMotto ()Ljava/lang/String;
 	METHOD getMyAnnal getMyAnnal ()Lsnoddasmannen/galimulator/EmpireAnnals;
+	METHOD getRelations getRelations (Lsnoddasmannen/galimulator/Empire;)Ljava/lang/String;
+		ARG 1 toEmpire
 	METHOD getReligion getReligion ()Lsnoddasmannen/galimulator/Religion;
 	METHOD getRendezvous getRendezvous ()Lsnoddasmannen/galimulator/Star;
+	METHOD getRootAncestor getRootAncestor ()I
+	METHOD getSpecials getSpecials ()Ljava/util/ArrayList;
 	METHOD getStarCount getStarCount ()I
 	METHOD getTechLevel getTechLevel ()I
+	METHOD getWealthDecayFactor getWealthDecayFactor ()F
 	METHOD h isAutomaticallyBuildingShips ()Z
+	METHOD h (Lsnoddasmannen/galimulator/Star;)Z
+		ARG 0 star
+	METHOD hasContact hasContact (Lsnoddasmannen/galimulator/Empire;)Z
+		ARG 1 toContact
+	METHOD I getSubjugatedNatives ()Ljava/util/ArrayList;
+	METHOD isAllied isAllied (Lsnoddasmannen/galimulator/Empire;)Z
 	METHOD isAtPeace isAtPeace (Lsnoddasmannen/galimulator/Empire;)Z
 	METHOD j getRandomBeaconStar ()Lsnoddasmannen/galimulator/Star;
 	METHOD J nextEmpireId ()I
@@ -91,11 +221,26 @@ CLASS snoddasmannen/galimulator/Empire snoddasmannen/galimulator/Empire
 	METHOD p canAbsorb (Lsnoddasmannen/galimulator/Empire;)Z
 	METHOD P getNameIdentifier ()Ljava/lang/String;
 		COMMENT Lazily generates the name identifier if not already set.
+	METHOD q getFlagWidget ()Lsnoddasmannen/galimulator/ui/class_30;
+	METHOD r getCountryballTexture ()Lcom/badlogic/gdx/graphics/g2d/TextureRegion;
 	METHOD r mergeEmpire (Lsnoddasmannen/galimulator/Empire;)V
 		ARG 1 mergeSource
+	METHOD removeBeacon removeBeacon (Lsnoddasmannen/galimulator/Star;)V
+		ARG 1 beacon
 	METHOD resetSpecials resetSpecials ()V
 	METHOD setAlliance setAlliance (Lsnoddasmannen/galimulator/Alliance;)V
 		ARG 1 alliance
+	METHOD setMotto setMotto (Ljava/lang/String;)V
+		ARG 1 motto
 	METHOD tickEmpire tickEmpire ()V
 	METHOD x getEnemyEmpires ()Ljava/util/List;
 	METHOD Y canResearch ()Z
+	CLASS EmpireDynastyLog EmpireDynastyLog
+		FIELD color color Lsnoddasmannen/galimulator/GalColor;
+		FIELD emperorName emperorName Ljava/lang/String;
+		FIELD serialVersionUID serialVersionUID J
+		FIELD startTime startTime I
+		METHOD <init> (Lsnoddasmannen/galimulator/Empire;Ljava/lang/String;Lsnoddasmannen/galimulator/GalColor;I)V
+			ARG 2 emperorName
+			ARG 3 color
+			ARG 4 startTime
