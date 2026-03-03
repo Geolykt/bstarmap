@@ -1,0 +1,10 @@
+CLASS snoddasmannen/galimulator/ppclass_41 snoddasmannen/galimulator/StarDistancePair
+	FIELD a starA Lsnoddasmannen/galimulator/Star;
+	FIELD b starB Lsnoddasmannen/galimulator/Star;
+	FIELD c distance F
+	METHOD <init> (Lsnoddasmannen/galimulator/Star;Lsnoddasmannen/galimulator/Star;F)V
+		ARG 1 starA
+		ARG 2 starB
+		ARG 3 distance
+	METHOD compareTo (Ljava/lang/Object;)I
+		ARG 1 other

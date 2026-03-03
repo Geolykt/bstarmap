@@ -26,11 +26,13 @@ CLASS snoddasmannen/galimulator/Empire snoddasmannen/galimulator/Empire
 	FIELD deathYear deathYear I
 	FIELD emperorLog emperorLog Ljava/util/ArrayList;
 	FIELD extension extension Lsnoddasmannen/galimulator/EmpireExtension;
+	FIELD f capitalCache Lsnoddasmannen/galimulator/Star;
 	FIELD factions factions Ljava/util/ArrayList;
 	FIELD flagItems flagItems Ljava/util/Vector;
 	FIELD flagship flagship Lsnoddasmannen/galimulator/actors/Flagship;
 	FIELD flagWidget flagWidget Lsnoddasmannen/galimulator/Lazy$FlagWidgetLazy;
 	FIELD fleets fleets Ljava/util/ArrayList;
+	FIELD g headerquarterCache Lsnoddasmannen/galimulator/Star;
 	FIELD government government Lsnoddasmannen/galimulator/Government;
 	FIELD helper helper Lsnoddasmannen/galimulator/EmployerHelper;
 	FIELD id id I
@@ -86,6 +88,7 @@ CLASS snoddasmannen/galimulator/Empire snoddasmannen/galimulator/Empire
 	METHOD a addActor (Lsnoddasmannen/galimulator/actors/StateActor;)V
 		ARG 1 actor
 	METHOD a setInboundDiplomaticAction (Lsnoddasmannen/galimulator/diplomacy/class_1;)V
+		ARG 1 action
 	METHOD a declareWar (Lsnoddasmannen/galimulator/Empire;Z)V
 		ARG 2 notifyPlayer
 	METHOD a awardAchivement (Lsnoddasmannen/galimulator/EmpireAchievement$EmpireAchievementType;)V
@@ -131,6 +134,7 @@ CLASS snoddasmannen/galimulator/Empire snoddasmannen/galimulator/Empire
 		COMMENT that are not actually beacons as per {@link Star#getBeacon()}
 	METHOD aR updateEmperorLog ()V
 		COMMENT Called when a new emperor is chosen.
+	METHOD aS getHeadquarter0 ()Lsnoddasmannen/galimulator/Star;
 	METHOD aT killEmpire ()V
 	METHOD aY getTechBonus0 ()F
 	METHOD az danceForJoy ()V
@@ -184,9 +188,12 @@ CLASS snoddasmannen/galimulator/Empire snoddasmannen/galimulator/Empire
 	METHOD getAgents getAgents ()Ljava/util/Vector;
 	METHOD getAlliance getAlliance ()Lsnoddasmannen/galimulator/Alliance;
 	METHOD getAnnals getAnnals ()Ljava/util/ArrayList;
+	METHOD getBirthMilliYear getBirthMilliYear ()I
 	METHOD getCapital getCapital ()Lsnoddasmannen/galimulator/Star;
+		COMMENT Note: The capital {@link Star} of an {@link Empire} might not necessarily be within the Empire in question.
 	METHOD getColor getColor ()Lsnoddasmannen/galimulator/GalColor;
 	METHOD getDarkerColor getDarkerColor ()Lsnoddasmannen/galimulator/GalColor;
+	METHOD getDeathYear getDeathYear ()I
 	METHOD getDisplayName getDisplayName ()Ljava/lang/String;
 	METHOD getEmperorLog getEmperorLog ()Ljava/util/ArrayList;
 	METHOD getExtension getExtension ()Lsnoddasmannen/galimulator/EmpireExtension;
@@ -230,11 +237,13 @@ CLASS snoddasmannen/galimulator/Empire snoddasmannen/galimulator/Empire
 	METHOD removeBeacon removeBeacon (Lsnoddasmannen/galimulator/Star;)V
 		ARG 1 beacon
 	METHOD resetSpecials resetSpecials ()V
+	METHOD S isNotDegenerating ()Z
 	METHOD setAlliance setAlliance (Lsnoddasmannen/galimulator/Alliance;)V
 		ARG 1 alliance
 	METHOD setMotto setMotto (Ljava/lang/String;)V
 		ARG 1 motto
 	METHOD tickEmpire tickEmpire ()V
+	METHOD U getHeadquarter ()Lsnoddasmannen/galimulator/Star;
 	METHOD x getEnemyEmpires ()Ljava/util/List;
 	METHOD Y canResearch ()Z
 	CLASS EmpireDynastyLog EmpireDynastyLog

@@ -114,6 +114,12 @@ CLASS snoddasmannen/galimulator/Space snoddasmannen/galimulator/Space
 	METHOD a has (Ljava/util/ArrayList;Lsnoddasmannen/galimulator/Star;)V
 		ARG 0 stars
 		ARG 1 star
+	METHOD a getNearestStar (Ljava/util/Vector;FF)Lsnoddasmannen/galimulator/Star;
+		COMMENT Returns the star in the {@code starList} vector that is the nearest to the provided
+		COMMENT {@code x}/{@code y} coordinates. A return value of {@code null} implies an empty list.
+		ARG 0 starList
+		ARG 1 x
+		ARG 2 y
 	METHOD a createInlineDialog (Ljava/util/Vector;Lsnoddasmannen/galimulator/ui/FlowLayout$FlowDirection;Lsnoddasmannen/galimulator/ui/Widget$WIDGET_ID;)V
 		ARG 0 dialogElement
 		ARG 1 flowDirection
@@ -126,6 +132,9 @@ CLASS snoddasmannen/galimulator/Space snoddasmannen/galimulator/Space
 		ARG 2 y
 		ARG 3 active
 	METHOD a registerAlliance (Lsnoddasmannen/galimulator/Alliance;)V
+		ARG 0 alliance
+	METHOD a registerArtifact (Lsnoddasmannen/galimulator/artifacts/Artifact;)V
+		ARG 0 artifact
 	METHOD a removeCancellableAuxiliaryListener (Lsnoddasmannen/galimulator/AuxiliaryListener;)V
 		ARG 0 listener
 	METHOD a addCancellableAuxiliaryListener (Lsnoddasmannen/galimulator/AuxiliaryListener;Ljava/lang/String;)V
@@ -148,6 +157,9 @@ CLASS snoddasmannen/galimulator/Space snoddasmannen/galimulator/Space
 		ARG 0 player
 	METHOD a set_ai (Lsnoddasmannen/galimulator/PlayServiceStatus;)V
 		ARG 0 arg
+	METHOD a postQuest (Lsnoddasmannen/galimulator/Quest;)V
+		COMMENT Post a quest onto the bulletin log and register the quest in the list of all quests.
+		ARG 0 quest
 	METHOD a __nopMethod0 (Lsnoddasmannen/galimulator/RewardData;)V
 		ARG 0 arg
 	METHOD a openGalaxyPreviewWidget (Lsnoddasmannen/galimulator/StarGenerator;)Lsnoddasmannen/galimulator/ui/GalaxyPreviewWidget;
@@ -168,6 +180,7 @@ CLASS snoddasmannen/galimulator/Space snoddasmannen/galimulator/Space
 	METHOD ad showTutorialSelection ()V
 	METHOD aD __nopMethod1 ()V
 	METHOD addActor addActor (Lsnoddasmannen/galimulator/actors/Actor;)Lsnoddasmannen/galimulator/actors/Actor;
+		ARG 0 actor
 	METHOD addAuxiliaryListener addAuxiliaryListener (Lsnoddasmannen/galimulator/AuxiliaryListener;)V
 		ARG 0 listener
 	METHOD addUnbufferedWidget addUnbufferedWidget (Lsnoddasmannen/galimulator/ui/Widget;)V
@@ -213,8 +226,12 @@ CLASS snoddasmannen/galimulator/Space snoddasmannen/galimulator/Space
 		ARG 0 clazz
 	METHOD b (Ljava/util/ArrayList;Lsnoddasmannen/galimulator/Star;)Z
 		ARG 1 star
+	METHOD b unregisterActor (Lsnoddasmannen/galimulator/actors/Actor;)V
+		ARG 0 actor
 	METHOD b unregisterAlliance (Lsnoddasmannen/galimulator/Alliance;)V
+		ARG 0 alliance
 	METHOD b unregisterArtifact (Lsnoddasmannen/galimulator/artifacts/Artifact;)V
+		ARG 0 artifact
 	METHOD b (Lsnoddasmannen/galimulator/corporation/Corporation;)V
 		COMMENT @deprecated Corporations seem to be dead code of an age long byegone.
 		ARG 0 corporation
@@ -222,7 +239,10 @@ CLASS snoddasmannen/galimulator/Space snoddasmannen/galimulator/Space
 		ARG 0 culture
 	METHOD b addFamily (Lsnoddasmannen/galimulator/Family;)V
 		ARG 0 family
+	METHOD b removeDisplayedItem (Lsnoddasmannen/galimulator/Item;)V
+		ARG 0 item
 	METHOD b unregisterQuest (Lsnoddasmannen/galimulator/Quest;)V
+		ARG 0 quest
 	METHOD b __unusedMethod__setReward (Lsnoddasmannen/galimulator/RewardData;)V
 		COMMENT This method is unused as it is related to the feature where you can unlock actors
 		COMMENT by watching an advert, which only exists on Android releases of galimulator. As such,
@@ -261,6 +281,9 @@ CLASS snoddasmannen/galimulator/Space snoddasmannen/galimulator/Space
 		ARG 0 text
 	METHOD d (Lsnoddasmannen/galimulator/actors/Actor;)V
 		ARG 0 actor
+	METHOD d registerSleeperEmpire (Lsnoddasmannen/galimulator/Empire;)V
+		COMMENT Does nothing if called with the neutral empire.
+		ARG 0 empire
 	METHOD d (Lsnoddasmannen/galimulator/Empire;Lsnoddasmannen/galimulator/Star;)Z
 		ARG 1 star
 	METHOD d addDisruption (Lsnoddasmannen/galimulator/Star;)V
@@ -392,6 +415,7 @@ CLASS snoddasmannen/galimulator/Space snoddasmannen/galimulator/Space
 	METHOD showDialog showDialog (Lsnoddasmannen/galimulator/Dialog;ZLsnoddasmannen/galimulator/ui/Widget$WIDGET_ID;Z)V
 	METHOD showGalaxyCreationScreen showGalaxyCreationScreen ()V
 	METHOD showItem showItem (Lsnoddasmannen/galimulator/Item;)V
+		ARG 0 item
 	METHOD showOnlineScenarioBrowser showOnlineScenarioBrowser ()V
 	METHOD showToast showToast (Ljava/lang/String;)V
 		ARG 0 toast
@@ -404,6 +428,7 @@ CLASS snoddasmannen/galimulator/Space snoddasmannen/galimulator/Space
 	METHOD T showArtifactListWidget ()V
 	METHOD tick tick ()I
 	METHOD u reopenUIWidgets ()V
+	METHOD x clearDisplayedItems ()V
 	METHOD X showStepButton ()V
 	METHOD y getTranscendedEmpiresListDialog ()Lsnoddasmannen/galimulator/Dialog;
 	METHOD z getSleeperListDialog ()Lsnoddasmannen/galimulator/Dialog;

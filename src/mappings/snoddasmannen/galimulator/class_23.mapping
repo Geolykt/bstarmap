@@ -1,0 +1,23 @@
+CLASS snoddasmannen/galimulator/class_23 snoddasmannen/galimulator/class_23
+	COMMENT This is some noise algorithm. Idk which one at this moment though.
+	FIELD a SIMPLEX_CONSTANT_G2_MUL_M1 D
+		COMMENT The negative of the simplex {@code G2} constant.
+		COMMENT
+		COMMENT <p>As such, this constant is defined as {@code -G2 = (Math.sqrt(3.0)-3.0)/6.0}.
+		COMMENT
+		COMMENT <p>Beware of constant inlining. This constant will not be used directly due to inlining.
+	FIELD b SIMPLEX_CONSTANT_F2 D
+		COMMENT The simplex {@code F2} constant.
+		COMMENT
+		COMMENT <p>As such, this constant is defined as {@code F2 = 0.5*(sqrt(3.0)-1.0)}.
+		COMMENT
+		COMMENT <p>Beware of constant inlining. This constant will not be used directly due to inlining.
+	METHOD <init> (J)V
+		ARG 1 seed
+	METHOD a fastFloor (D)I
+		ARG 0 x
+	METHOD a modifiedSimplex (DD)D
+		COMMENT Judging from the used constants, this seems to be a modified simplex noise implementation.
+		COMMENT However, the used reference codebase hasn't yet been determined.
+		ARG 1 x
+		ARG 3 y

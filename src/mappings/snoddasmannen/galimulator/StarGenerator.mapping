@@ -1,1 +1,9 @@
 CLASS snoddasmannen/galimulator/StarGenerator snoddasmannen/galimulator/StarGenerator
+	METHOD generateStar generateStar ()Lsnoddasmannen/galimulator/Star;
+	METHOD getBackgroundTexture getBackgroundTexture ()Lcom/badlogic/gdx/graphics/Texture;
+	METHOD getEngravingText getEngravingText ()Ljava/lang/String;
+	METHOD getMaxX getMaxX ()F
+	METHOD getMaxY getMaxY ()F
+	METHOD hasMovingStars hasMovingStars ()Z
+	METHOD name name ()Ljava/lang/String;
+	METHOD prepareGenerator prepareGenerator ()V

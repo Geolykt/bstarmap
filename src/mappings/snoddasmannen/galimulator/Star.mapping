@@ -1,10 +1,12 @@
 CLASS snoddasmannen/galimulator/Star snoddasmannen/galimulator/Star
 	FIELD artifactId artifactId I
+		COMMENT May be 0 to indicate that no artifact is located at this star.
 	FIELD b starlaneVertices Ljava/util/HashMap;
 	FIELD beacon beacon Z
 	FIELD commodity commodity Lsnoddasmannen/galimulator/PreciousCommodity;
 	FIELD cultureLazy cultureLazy Lsnoddasmannen/galimulator/Lazy$CultureLazy;
 	FIELD development development I
+	FIELD distanceOverride distanceOverride F
 	FIELD faction faction Lsnoddasmannen/galimulator/factions/Faction;
 	FIELD faith faith Lsnoddasmannen/galimulator/Religion;
 	FIELD globalSizeFactor globalSizeFactor F
@@ -20,6 +22,12 @@ CLASS snoddasmannen/galimulator/Star snoddasmannen/galimulator/Star
 	FIELD n artifact Lsnoddasmannen/galimulator/artifacts/Artifact;
 	FIELD name name Ljava/lang/String;
 	FIELD neighbours neighbours Ljava/util/Vector;
+	FIELD o starConnectionMeta Ljava/util/ArrayList;
+		COMMENT Used only as metadata for the standard connection method. It is cleared after use.
+		COMMENT
+		COMMENT <p>It is questionable why this field even exists in the Star class.
+		COMMENT
+		COMMENT @deprecated Not of use most of the time.
 	FIELD orbitingActors orbitingActors Ljava/util/Set;
 	FIELD ownerEmpire ownerEmpire Lsnoddasmannen/galimulator/Empire;
 	FIELD ownerid ownerid I
@@ -29,6 +37,7 @@ CLASS snoddasmannen/galimulator/Star snoddasmannen/galimulator/Star
 	FIELD pathNudge pathNudge Lcom/badlogic/gdx/math/Vector2;
 	FIELD q jobTypes Ljava/util/List;
 	FIELD r coordinateVector Lcom/badlogic/gdx/math/Vector2;
+	FIELD sizeFactor sizeFactor F
 	FIELD sprawlLevel sprawlLevel F
 	FIELD sprawls sprawls Ljava/util/ArrayList;
 	FIELD starNative starNative Lsnoddasmannen/galimulator/Native;
@@ -38,6 +47,7 @@ CLASS snoddasmannen/galimulator/Star snoddasmannen/galimulator/Star
 	FIELD x x D
 	FIELD y y D
 	METHOD a move (DD)V
+		COMMENT Adds the x/y components to the current coordinates. Note: Does not updated the internal libGDX location vector.
 		ARG 1 x
 		ARG 3 y
 	METHOD a addWealth (F)V
@@ -52,11 +62,17 @@ CLASS snoddasmannen/galimulator/Star snoddasmannen/galimulator/Star
 		ARG 2 y
 	METHOD a setName (Ljava/lang/String;)V
 		ARG 1 name
+	METHOD a setStarConnectionMeta (Ljava/util/ArrayList;)V
+		COMMENT Used only as metadata for the standard connection method. It is cleared after use.
+		ARG 1 meta
 	METHOD a calculateVoronoiVertices (Ljava/util/List;)V
 		ARG 1 voronoiEdges
 	METHOD a getStarlaneNeighbours0 (Ljava/util/Vector;I)V
 		ARG 1 accumulator
 		ARG 2 distance
+	METHOD a setArtifact (Lsnoddasmannen/galimulator/artifacts/Artifact;)V
+		ARG 1 artifact
+			COMMENT The artifact that should now be present on this star, {@code null} if no artifact should be present.
 	METHOD a setCulture (Lsnoddasmannen/galimulator/Culture;)V
 		ARG 1 culture
 	METHOD a setFaction (Lsnoddasmannen/galimulator/factions/Faction;)V
@@ -67,6 +83,13 @@ CLASS snoddasmannen/galimulator/Star snoddasmannen/galimulator/Star
 		ARG 1 starNative
 	METHOD a setFaith (Lsnoddasmannen/galimulator/Religion;)V
 		ARG 1 primaryFaith
+	METHOD a isOnNetwork (Lsnoddasmannen/galimulator/Star;I)Z
+		COMMENT Ignores disruption status.
+		COMMENT A depth smaller or equal to 0 will result in all stars in the network to be queried.
+		COMMENT
+		COMMENT @deprecated You can probably code this method yourself and be faster performance-wise
+		ARG 1 targetStar
+		ARG 2 networkDepth
 	METHOD a distanceBetweenSq (Lsnoddasmannen/galimulator/Star;Lsnoddasmannen/galimulator/Star;)F
 		ARG 0 starA
 		ARG 1 starB
@@ -88,6 +111,13 @@ CLASS snoddasmannen/galimulator/Star snoddasmannen/galimulator/Star
 		ARG 2 y
 	METHOD b (I)V
 		ARG 1 hopDistance
+	METHOD b getNumStarsNear0 (Ljava/util/Vector;I)I
+		COMMENT Ignores disruption status.
+		COMMENT A depth smaller than 0 will result in all stars in the network to be queried.
+		COMMENT
+		COMMENT @deprecated You can probably code this method yourself and be faster performance-wise
+		ARG 1 visitedStars
+		ARG 2 depth
 	METHOD b setMinorityFaith (Lsnoddasmannen/galimulator/Religion;)V
 		ARG 1 faith
 	METHOD b distanceBetween (Lsnoddasmannen/galimulator/Star;Lsnoddasmannen/galimulator/Star;)D
@@ -98,12 +128,24 @@ CLASS snoddasmannen/galimulator/Star snoddasmannen/galimulator/Star
 	METHOD c getStarlaneNeighbours (I)Ljava/util/Vector;
 		ARG 1 distance
 	METHOD compareTo compareTo (Ljava/lang/Object;)I
+		COMMENT Comparator behaviour is based on the star's id.
 		ARG 1 other
 	METHOD connect connect (Lsnoddasmannen/galimulator/Star;)V
 		ARG 1 star
 	METHOD d drawStarlanes ()V
 	METHOD d addSprawlLevel (F)V
 		ARG 1 increment
+	METHOD d hasDirectRouteTo (Lsnoddasmannen/galimulator/Empire;)Z
+		COMMENT This method returns {@code true} if there is no direct route to the given empire from this star. If two or more
+		COMMENT starlane hops are required to reach a star, then it is equivalent to there being no direct connection. Similarly, if all
+		COMMENT connections are disrupted, then it is equivalent to there being no route.
+		COMMENT
+		COMMENT <p>If the target empire is {@code null}, then this method will check whether there is a route to any other empire
+		COMMENT except for the star's owning empire (this includes the neutral empire!).
+		COMMENT
+		COMMENT @see  Space#isDisrupted(Star)
+		ARG 1 targetEmpire
+			COMMENT The target empire, {@code null} for any empire (including the neutral empire but excluding the owner empire)
 	METHOD d isNeighbour (Lsnoddasmannen/galimulator/Star;)Z
 		COMMENT Note: Ignores disruptions.
 		ARG 1 star
@@ -112,6 +154,8 @@ CLASS snoddasmannen/galimulator/Star snoddasmannen/galimulator/Star
 	METHOD E drawSprawl ()V
 		COMMENT Does not draw sprawl buddies.
 	METHOD F drawSprawlBuddies ()V
+	METHOD get_o getStarConnectionMeta ()Ljava/util/ArrayList;
+		COMMENT Used only as metadata for the standard connection method. It is cleared after use.
 	METHOD get_s getHeat ()F
 	METHOD getArtifact getArtifact ()Lsnoddasmannen/galimulator/artifacts/Artifact;
 	METHOD getBeacon getBeacon ()Z
@@ -129,7 +173,14 @@ CLASS snoddasmannen/galimulator/Star snoddasmannen/galimulator/Star
 	METHOD getStarNative getStarNative ()Lsnoddasmannen/galimulator/Native;
 	METHOD getWealth getWealth ()F
 	METHOD h clearBorderVerticesCache (Lsnoddasmannen/galimulator/Star;)V
+		ARG 1 __unused_Arg
+	METHOD H getExclusionDiameter ()F
+		COMMENT Obtains the diameter of the exclusion box centered around this star in which no other stars may spawn.
+		COMMENT <b>Note that this is only valid during star population. Especially moving galaxies will invalidate that requirement.</b>
 	METHOD i moveStar ()V
+	METHOD I getExclusionBox ()Lcom/badlogic/gdx/math/Rectangle;
+		COMMENT Obtains the exclusion box centered around this star in which no other stars may spawn.
+		COMMENT <b>Note that this is only valid during star population. Especially moving galaxies will invalidate that requirement.</b>
 	METHOD incrementHeat incrementHeat ()V
 	METHOD isCapital isCapital ()Z
 	METHOD k getActiveConnections ()Ljava/util/Vector;
@@ -137,9 +188,17 @@ CLASS snoddasmannen/galimulator/Star snoddasmannen/galimulator/Star
 	METHOD l getForeignCultureConnections ()Ljava/util/Vector;
 		COMMENT Obtains the stars which are the starlane neighbours of this stars and also have a different culture.
 		COMMENT If this star is disrupted, an empty vector will be returned instead.
+	METHOD m getDirectOwnerRoutes ()Ljava/util/Vector;
+		COMMENT Returns a vector of {@link Star}s that includes all undisrupted neighbouring stars that are owned
+		COMMENT by the same {@link #getOwningEmpire()}
 	METHOD M getCulture ()Lsnoddasmannen/galimulator/Culture;
+	METHOD n getNumStarsOnNetwork ()I
+		COMMENT Get amount of stars in the network connected to this star, ignoring disruption status.
+		COMMENT
+		COMMENT @deprecated You can probably code this method yourself and be faster performance-wise
 	METHOD o isDeveloped ()Z
 	METHOD onHostileTakeover onHostileTakeover (Lsnoddasmannen/galimulator/Empire;)V
+	METHOD r removeArtifact ()V
 	METHOD readObject readObject (Ljava/io/ObjectInputStream;)V
 		ARG 1 in
 	METHOD reduceWealthFactor reduceWealthFactor (F)V
@@ -148,6 +207,7 @@ CLASS snoddasmannen/galimulator/Star snoddasmannen/galimulator/Star
 	METHOD refreshBeaconState refreshBeaconState ()V
 	METHOD removeSprawl removeSprawl ()V
 	METHOD renderRegion renderRegion ()V
+	METHOD s clearStarConnectionMeta ()V
 	METHOD setBeacon setBeacon (Z)V
 		ARG 1 beacon
 	METHOD setDevelopment setDevelopment (I)V
@@ -157,4 +217,11 @@ CLASS snoddasmannen/galimulator/Star snoddasmannen/galimulator/Star
 		ARG 1 development
 	METHOD tick tick ()V
 	METHOD y drawStarBorders ()V
+	CLASS Local0 Local0
+		FIELD a this$0 Lsnoddasmannen/galimulator/Star;
+		METHOD <init> (Lsnoddasmannen/galimulator/Star;Lsnoddasmannen/galimulator/Star;)V
+			ARG 2 this$0
 	CLASS PolygonType PolygonType
+		FIELD texture texture Ljava/lang/String;
+		METHOD <init> (Ljava/lang/String;ILjava/lang/String;)V
+			ARG 3 texture

@@ -1,0 +1,5 @@
+CLASS snoddasmannen/galimulator/ProceduralStarGenerator snoddasmannen/galimulator/ProceduralStarGenerator
+	FIELD xMax xMax F
+	FIELD yMax yMax F
+	CLASS 21 21
+		FIELD noise noise Lsnoddasmannen/galimulator/class_23;

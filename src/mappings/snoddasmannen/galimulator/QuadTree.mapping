@@ -42,6 +42,7 @@ CLASS snoddasmannen/galimulator/QuadTree snoddasmannen/galimulator/QuadTree
 	METHOD buildPairs buildPairs ()V
 	METHOD c drawQuadTreeBoundingBox ()V
 	METHOD c hasStarsWithin (Lcom/badlogic/gdx/math/Rectangle;)Z
+		ARG 1 aabb
 	METHOD c getNearestStar (Lsnoddasmannen/galimulator/QuadTree;)Lsnoddasmannen/galimulator/Star;
 		ARG 1 to
 	METHOD e getStoredStars ()Ljava/util/Vector;

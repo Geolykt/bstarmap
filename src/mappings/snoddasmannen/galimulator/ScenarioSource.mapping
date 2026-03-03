@@ -1,1 +1,9 @@
 CLASS snoddasmannen/galimulator/interface_6 snoddasmannen/galimulator/ScenarioSource
+	METHOD a openConfigurationScreen ()V
+	METHOD getAlliances getAlliances (Lsnoddasmannen/galimulator/MapData;)Ljava/util/Vector;
+		ARG 1 mapData
+	METHOD getEmpires getEmpires (Lsnoddasmannen/galimulator/MapData;)Ljava/util/Vector;
+		ARG 1 data
+	METHOD getName getName ()Ljava/lang/String;
+	METHOD getRecommendedMap getRecommendedMap ()Lsnoddasmannen/galimulator/MapData;
+	METHOD injectScenario injectScenario ()V

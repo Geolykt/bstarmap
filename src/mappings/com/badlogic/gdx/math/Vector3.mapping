@@ -1,0 +1,3 @@
+CLASS com/badlogic/gdx/math/Vector3 com/badlogic/gdx/math/Vector3
+	FIELD x x F
+	FIELD y y F

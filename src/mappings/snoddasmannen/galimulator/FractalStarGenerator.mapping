@@ -1,0 +1,31 @@
+CLASS snoddasmannen/galimulator/FractalStarGenerator snoddasmannen/galimulator/FractalStarGenerator
+	FIELD aspectRatio aspectRatio Lsnoddasmannen/galimulator/FractalStarGenerator$AspectRatio;
+	FIELD b isGeneratingLand Z
+	FIELD drawLand drawLand Z
+	FIELD f backgroundTexture Lcom/badlogic/gdx/graphics/Texture;
+	FIELD landGenerator landGenerator Lsnoddasmannen/galimulator/FractalStarGenerator$LandGenerator;
+	FIELD seedString seedString Ljava/lang/String;
+	METHOD a (IIZ)V
+		ARG 1 x
+		ARG 2 y
+	METHOD generateOffset generateOffset ()V
+	METHOD generatePerlin generatePerlin ()V
+	METHOD generateSimplex generateSimplex ()V
+	METHOD p getAspectRatio ()F
+		COMMENT The aspect ratio {@code r} is defined as {@code r = MaxX / MaxY}
+	METHOD t generateHybrid ()V
+	CLASS AspectRatio AspectRatio
+		FIELD r r F
+		METHOD <init> (Ljava/lang/String;IF)V
+			ARG 3 ratio
+		METHOD a lookup (Ljava/lang/String;)Lsnoddasmannen/galimulator/FractalStarGenerator$AspectRatio;
+			ARG 0 name
+	CLASS LandGenerator LandGenerator
+		METHOD a isAllowingFreeAspectRatio ()Z
+			COMMENT Returns {@code false} if the aspect ratio must be 1.
+			COMMENT Note: All implementations return {@code true} here. This method is likely a historical development
+			COMMENT quirk and as such might not be accurate today.
+		METHOD a lookup (Ljava/lang/String;)Lsnoddasmannen/galimulator/FractalStarGenerator$LandGenerator;
+			ARG 0 name
+		METHOD a generateTerrain (Lsnoddasmannen/galimulator/FractalStarGenerator;)V
+			ARG 1 generator

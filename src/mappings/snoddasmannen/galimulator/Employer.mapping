@@ -3,6 +3,8 @@ CLASS snoddasmannen/galimulator/Employer snoddasmannen/galimulator/Employer
 	METHOD getEmployerIcon getEmployerIcon ()Ljava/lang/String;
 	METHOD getEmployerType getEmployerType ()Lsnoddasmannen/galimulator/Employer$Type;
 	METHOD getHelper getHelper ()Lsnoddasmannen/galimulator/EmployerHelper;
+	METHOD getJobEmpire getJobEmpire ()Lsnoddasmannen/galimulator/Empire;
+	METHOD getJobLocation getJobLocation ()Lsnoddasmannen/galimulator/Star;
 	METHOD getJobTypes getJobTypes ()Ljava/util/List;
 	METHOD getMeritingAttribute getMeritingAttribute ()Lsnoddasmannen/galimulator/Person$PersonAttribute;
 	METHOD getName getName ()Ljava/lang/String;
