@@ -3,3 +3,5 @@ CLASS snoddasmannen/galimulator/War snoddasmannen/galimulator/War
 	FIELD e2 e2 Lsnoddasmannen/galimulator/Lazy$EmpireLazy;
 	FIELD lastAction lastAction I
 	METHOD g onAction ()V
+	METHOD isActive isActive ()Z
+	METHOD tick tick ()V

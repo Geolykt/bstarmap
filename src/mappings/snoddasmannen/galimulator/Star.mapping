@@ -1,25 +1,45 @@
 CLASS snoddasmannen/galimulator/Star snoddasmannen/galimulator/Star
+	FIELD artifactId artifactId I
 	FIELD b starlaneVertices Ljava/util/HashMap;
+	FIELD beacon beacon Z
 	FIELD commodity commodity Lsnoddasmannen/galimulator/PreciousCommodity;
+	FIELD cultureLazy cultureLazy Lsnoddasmannen/galimulator/Lazy$CultureLazy;
 	FIELD development development I
+	FIELD faction faction Lsnoddasmannen/galimulator/factions/Faction;
+	FIELD faith faith Lsnoddasmannen/galimulator/Religion;
 	FIELD globalSizeFactor globalSizeFactor F
 	FIELD h disrupted Z
+	FIELD heat heat F
 	FIELD i cachedBorderVertices Z
 	FIELD id id I
 	FIELD intLanes intLanes Ljava/util/Vector;
+	FIELD l I
+		COMMENT Most likely a debug value.
 	FIELD lastMoved lastMoved Lcom/badlogic/gdx/math/Vector2;
+	FIELD minorityFaith minorityFaith Lsnoddasmannen/galimulator/Religion;
+	FIELD n artifact Lsnoddasmannen/galimulator/artifacts/Artifact;
 	FIELD name name Ljava/lang/String;
 	FIELD neighbours neighbours Ljava/util/Vector;
+	FIELD orbitingActors orbitingActors Ljava/util/Set;
 	FIELD ownerEmpire ownerEmpire Lsnoddasmannen/galimulator/Empire;
 	FIELD ownerid ownerid I
 	FIELD path path Lsnoddasmannen/galimulator/StarPath;
 	FIELD pathAngle pathAngle F
 	FIELD pathAngleVelocity pathAngleVelocity F
 	FIELD pathNudge pathNudge Lcom/badlogic/gdx/math/Vector2;
+	FIELD q jobTypes Ljava/util/List;
+	FIELD r coordinateVector Lcom/badlogic/gdx/math/Vector2;
+	FIELD sprawlLevel sprawlLevel F
+	FIELD sprawls sprawls Ljava/util/ArrayList;
+	FIELD starNative starNative Lsnoddasmannen/galimulator/Native;
+	FIELD starRenderingRegion starRenderingRegion Lcom/badlogic/gdx/graphics/g2d/PolygonSprite;
 	FIELD t starRegionVertices [F
 	FIELD wealth wealth F
 	FIELD x x D
 	FIELD y y D
+	METHOD a move (DD)V
+		ARG 1 x
+		ARG 3 y
 	METHOD a addWealth (F)V
 		COMMENT Add a fixed wealth amount ontop of the current wealth of this star.
 		COMMENT Capped at 11.0F
@@ -38,7 +58,18 @@ CLASS snoddasmannen/galimulator/Star snoddasmannen/galimulator/Star
 		ARG 1 accumulator
 		ARG 2 distance
 	METHOD a setCulture (Lsnoddasmannen/galimulator/Culture;)V
+		ARG 1 culture
 	METHOD a setFaction (Lsnoddasmannen/galimulator/factions/Faction;)V
+		ARG 1 faction
+	METHOD a distanceTo (Lsnoddasmannen/galimulator/Item;)D
+		ARG 1 item
+	METHOD a setStarNative (Lsnoddasmannen/galimulator/Native;)V
+		ARG 1 starNative
+	METHOD a setFaith (Lsnoddasmannen/galimulator/Religion;)V
+		ARG 1 primaryFaith
+	METHOD a distanceBetweenSq (Lsnoddasmannen/galimulator/Star;Lsnoddasmannen/galimulator/Star;)F
+		ARG 0 starA
+		ARG 1 starB
 	METHOD a setStarRegionTexture (Lsnoddasmannen/galimulator/Star$PolygonType;)V
 		ARG 1 texture
 	METHOD a setPath (Lsnoddasmannen/galimulator/StarPath;F)V
@@ -46,38 +77,84 @@ CLASS snoddasmannen/galimulator/Star snoddasmannen/galimulator/Star
 		ARG 2 basePathAngleVelocity
 			COMMENT Actual velocity is this value multiplied by a random value between 2e-4 and 4e-4
 	METHOD A clearBorderVerticesCache ()V
+	METHOD addDevelopment addDevelopment (I)V
+		ARG 1 development
+			COMMENT Note: Development is capped at 14400, though Galimulator does not correctly clamp that value. As such incrementing it to a value over that might result in unspecified behaviour, especially when mods come into play.
 	METHOD addOrbitingActor addOrbitingActor (Lsnoddasmannen/galimulator/actors/StateActor;)V
+		ARG 1 actor
+	METHOD addSprawl addSprawl ()V
 	METHOD b distanceToSq (FF)F
 		ARG 1 x
 		ARG 2 y
+	METHOD b (I)V
+		ARG 1 hopDistance
+	METHOD b setMinorityFaith (Lsnoddasmannen/galimulator/Religion;)V
+		ARG 1 faith
 	METHOD b distanceBetween (Lsnoddasmannen/galimulator/Star;Lsnoddasmannen/galimulator/Star;)D
+		ARG 0 starA
+		ARG 1 starB
+	METHOD c setPathAngleVelocity (F)V
+		ARG 1 velocity
 	METHOD c getStarlaneNeighbours (I)Ljava/util/Vector;
 		ARG 1 distance
+	METHOD compareTo compareTo (Ljava/lang/Object;)I
+		ARG 1 other
+	METHOD connect connect (Lsnoddasmannen/galimulator/Star;)V
+		ARG 1 star
 	METHOD d drawStarlanes ()V
+	METHOD d addSprawlLevel (F)V
+		ARG 1 increment
+	METHOD d isNeighbour (Lsnoddasmannen/galimulator/Star;)Z
+		COMMENT Note: Ignores disruptions.
+		ARG 1 star
+	METHOD disconnect disconnect (Lsnoddasmannen/galimulator/Star;)V
+		ARG 1 star
+	METHOD E drawSprawl ()V
+		COMMENT Does not draw sprawl buddies.
+	METHOD F drawSprawlBuddies ()V
+	METHOD get_s getHeat ()F
+	METHOD getArtifact getArtifact ()Lsnoddasmannen/galimulator/artifacts/Artifact;
 	METHOD getBeacon getBeacon ()Z
 	METHOD getCommodity getCommodity ()Lsnoddasmannen/galimulator/PreciousCommodity;
 	METHOD getDevelopment getDevelopment ()I
+	METHOD getFaction getFaction ()Lsnoddasmannen/galimulator/factions/Faction;
+	METHOD getFaith getFaith ()Lsnoddasmannen/galimulator/Religion;
+	METHOD getForeignConnections getForeignConnections (Z)Ljava/util/Vector;
 	METHOD getLastMoved getLastMoved ()Lcom/badlogic/gdx/math/Vector2;
+	METHOD getMinorityFaith getMinorityFaith ()Lsnoddasmannen/galimulator/Religion;
 	METHOD getOwningEmpire getOwningEmpire ()Lsnoddasmannen/galimulator/Empire;
 	METHOD getPath getPath ()Lsnoddasmannen/galimulator/StarPath;
 	METHOD getPathAngleVelocity getPathAngleVelocity ()F
+	METHOD getSprawls getSprawls ()Ljava/util/ArrayList;
 	METHOD getStarNative getStarNative ()Lsnoddasmannen/galimulator/Native;
 	METHOD getWealth getWealth ()F
 	METHOD h clearBorderVerticesCache (Lsnoddasmannen/galimulator/Star;)V
 	METHOD i moveStar ()V
+	METHOD incrementHeat incrementHeat ()V
 	METHOD isCapital isCapital ()Z
+	METHOD k getActiveConnections ()Ljava/util/Vector;
+		COMMENT If this Star itself is disrupted, then the returned collection is empty.
 	METHOD l getForeignCultureConnections ()Ljava/util/Vector;
 		COMMENT Obtains the stars which are the starlane neighbours of this stars and also have a different culture.
 		COMMENT If this star is disrupted, an empty vector will be returned instead.
 	METHOD M getCulture ()Lsnoddasmannen/galimulator/Culture;
 	METHOD o isDeveloped ()Z
+	METHOD onHostileTakeover onHostileTakeover (Lsnoddasmannen/galimulator/Empire;)V
+	METHOD readObject readObject (Ljava/io/ObjectInputStream;)V
+		ARG 1 in
 	METHOD reduceWealthFactor reduceWealthFactor (F)V
 		ARG 1 value
 			COMMENT Between 0 (wealth untouched) and 1 (remove all wealth)
+	METHOD refreshBeaconState refreshBeaconState ()V
+	METHOD removeSprawl removeSprawl ()V
+	METHOD renderRegion renderRegion ()V
+	METHOD setBeacon setBeacon (Z)V
+		ARG 1 beacon
 	METHOD setDevelopment setDevelopment (I)V
 		COMMENT Set the development.
 		COMMENT
 		COMMENT Note: A development greater than 1440 makes little sense, see {@link #isDeveloped()}.
 		ARG 1 development
+	METHOD tick tick ()V
 	METHOD y drawStarBorders ()V
 	CLASS PolygonType PolygonType

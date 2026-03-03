@@ -1,0 +1,5 @@
+CLASS snoddasmannen/galimulator/ui/localclass_194 snoddasmannen/galimulator/ui/SidebarWidget
+	FIELD a this$0 Lsnoddasmannen/galimulator/ui/localclass_189;
+	METHOD <init> (Lsnoddasmannen/galimulator/ui/localclass_189;Ljava/lang/Object;)V
+		ARG 1 this$0
+		ARG 2 text

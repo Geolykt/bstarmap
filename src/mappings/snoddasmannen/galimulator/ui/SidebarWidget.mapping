@@ -1,5 +1,9 @@
 CLASS snoddasmannen/galimulator/ui/SidebarWidget snoddasmannen/galimulator/ui/SidebarWidget
+	FIELD a showStepButton Z
 	METHOD K cycleGameSpeeds ()V
 	METHOD n getSpeedButtonIcon ()Ljava/lang/String;
 	METHOD openGameControl openGameControl ()V
 		COMMENT Also known as the escape/main menu widget that shows up when pressing escape.
+		COMMENT
+		COMMENT Note: The contents of this method have been reimplemented by SLAPI.
+	METHOD reinitElements reinitElements ()V

@@ -1,0 +1,5 @@
+CLASS snoddasmannen/galimulator/interface_5 snoddasmannen/galimulator/OnlineScenarioLoadListener
+	METHOD onError onError (Lcom/badlogic/gdx/utils/SerializationException;)V
+		ARG 1 ex
+	METHOD onLoaded onLoaded (Ljava/util/Vector;)V
+		ARG 1 scenarios

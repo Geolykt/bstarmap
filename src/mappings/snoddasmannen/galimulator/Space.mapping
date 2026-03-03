@@ -7,6 +7,7 @@ CLASS snoddasmannen/galimulator/Space snoddasmannen/galimulator/Space
 	FIELD actors actors Ljava/util/Vector;
 	FIELD actorSpawnPredicates actorSpawnPredicates Ljava/util/ArrayList;
 	FIELD aE __unusedField0 Lsnoddasmannen/galimulator/RewardData;
+	FIELD af inWelcomeWidget Z
 	FIELD aF __nopField__provideRewards Z
 		COMMENT Always false.
 	FIELD aG __unusedField__reward Lsnoddasmannen/galimulator/RewardData;
@@ -47,9 +48,11 @@ CLASS snoddasmannen/galimulator/Space snoddasmannen/galimulator/Space
 	FIELD r cultures Ljava/util/ArrayList;
 	FIELD s sleeperEmpires Ljava/util/ArrayList;
 	FIELD sandboxUsed sandboxUsed Z
+	FIELD saveStackdepth saveStackdepth I
 	FIELD starCount starCount F
 	FIELD stars stars Ljava/util/Vector;
 	FIELD starsQuadTree starsQuadTree Lsnoddasmannen/galimulator/QuadTree;
+	FIELD tickCount tickCount I
 	FIELD v followedPeople Ljava/util/Vector;
 	FIELD vanity vanity Lsnoddasmannen/galimulator/VanityHolder;
 	FIELD w __unusedField0 Ljava/util/Vector;
@@ -58,6 +61,14 @@ CLASS snoddasmannen/galimulator/Space snoddasmannen/galimulator/Space
 	FIELD x auxiliaryListeners Ljava/util/Vector;
 	FIELD Y newActors Ljava/util/Vector;
 	FIELD Z unbufferedToastWidget Lsnoddasmannen/galimulator/ui/InformationWidget;
+	METHOD a hugeExplosion (DDD)V
+		COMMENT Trigger a huge explosion that forcefully strips system ownership and deals heavy damage
+		COMMENT to actors, if it doesn't evaporate them outright.
+		ARG 0 x
+		ARG 2 y
+		ARG 4 distance
+	METHOD a (DDDLsnoddasmannen/galimulator/actors/Actor;)Z
+		ARG 6 actor
 	METHOD a getStarsWithin (FFF)Ljava/util/Vector;
 		COMMENT Obtains all stars within a square denoted by the parameters centerX and centerY. The square has a radius
 		COMMENT (that is the minimal distance from center to an edge of the square) of squareRadius.
@@ -68,6 +79,11 @@ CLASS snoddasmannen/galimulator/Space snoddasmannen/galimulator/Space
 		ARG 0 x
 		ARG 1 y
 		ARG 2 outputStarCount
+	METHOD a collectHostileActors (FFLsnoddasmannen/galimulator/actors/Actor;F)Ljava/util/ArrayList;
+		ARG 0 x
+		ARG 1 y
+		ARG 2 witness
+		ARG 3 maxDistanceSq
 	METHOD a findNearestEnemy (FFLsnoddasmannen/galimulator/Empire;FLjava/util/Vector;)Lsnoddasmannen/galimulator/actors/Actor;
 		ARG 0 x
 		ARG 1 y
@@ -98,6 +114,10 @@ CLASS snoddasmannen/galimulator/Space snoddasmannen/galimulator/Space
 	METHOD a has (Ljava/util/ArrayList;Lsnoddasmannen/galimulator/Star;)V
 		ARG 0 stars
 		ARG 1 star
+	METHOD a createInlineDialog (Ljava/util/Vector;Lsnoddasmannen/galimulator/ui/FlowLayout$FlowDirection;Lsnoddasmannen/galimulator/ui/Widget$WIDGET_ID;)V
+		ARG 0 dialogElement
+		ARG 1 flowDirection
+		ARG 2 widgetId
 	METHOD a getTotem (Lsnoddasmannen/galimulator/actors/Totem$TotemType;)Lsnoddasmannen/galimulator/actors/Totem;
 		ARG 0 totem
 	METHOD a setTotem (Lsnoddasmannen/galimulator/actors/Totem$TotemType;FFZ)V
@@ -112,14 +132,20 @@ CLASS snoddasmannen/galimulator/Space snoddasmannen/galimulator/Space
 		ARG 0 listener
 		ARG 1 listenerDescription
 	METHOD a registerCorporation (Lsnoddasmannen/galimulator/corporation/Corporation;)V
+		ARG 0 corporation
 	METHOD a registerCulture (Lsnoddasmannen/galimulator/Culture;)V
+		ARG 0 culture
 	METHOD a canControlEmpireShips (Lsnoddasmannen/galimulator/Empire;)Z
 		COMMENT Potentially broken. Beware
 	METHOD a (Lsnoddasmannen/galimulator/Empire;Lsnoddasmannen/galimulator/War;)Z
 		ARG 1 war
+	METHOD a registerEmpireFrom (Lsnoddasmannen/galimulator/EmpireDescriptor;)Lsnoddasmannen/galimulator/Empire;
+		ARG 0 descriptor
+	METHOD a showFamilyDetail (Lsnoddasmannen/galimulator/Family;)V
 	METHOD a __unusedMethod0 (Lsnoddasmannen/galimulator/interface_10;)V
 		ARG 0 arg0
 	METHOD a showPlayerStatusWidget (Lsnoddasmannen/galimulator/Player;)V
+		ARG 0 player
 	METHOD a set_ai (Lsnoddasmannen/galimulator/PlayServiceStatus;)V
 		ARG 0 arg
 	METHOD a __nopMethod0 (Lsnoddasmannen/galimulator/RewardData;)V
@@ -136,6 +162,7 @@ CLASS snoddasmannen/galimulator/Space snoddasmannen/galimulator/Space
 		ARG 3 closeWidgets
 	METHOD a __unusedMethod__setProvideRewards (Z)V
 		ARG 0 provideRewards
+	METHOD A hasSleeperEmpires ()Z
 	METHOD aA __nopMethod2 ()V
 	METHOD aB __nopMethod0 ()V
 	METHOD ad showTutorialSelection ()V
@@ -144,7 +171,9 @@ CLASS snoddasmannen/galimulator/Space snoddasmannen/galimulator/Space
 	METHOD addAuxiliaryListener addAuxiliaryListener (Lsnoddasmannen/galimulator/AuxiliaryListener;)V
 		ARG 0 listener
 	METHOD addUnbufferedWidget addUnbufferedWidget (Lsnoddasmannen/galimulator/ui/Widget;)V
+		ARG 0 widget
 	METHOD aE deactivateTotems ()V
+	METHOD af openNewDynastyWidget ()V
 	METHOD ag toggleUIVisibility ()V
 	METHOD aI getGalaxyTypeSelectionDialog ()Lsnoddasmannen/galimulator/Dialog;
 	METHOD aJ getSelectableMaps ()Ljava/util/List;
@@ -176,9 +205,21 @@ CLASS snoddasmannen/galimulator/Space snoddasmannen/galimulator/Space
 		ARG 0 actorId
 	METHOD b clamp (Lcom/badlogic/gdx/math/Vector2;)Z
 		ARG 0 position
+	METHOD b showUniqueWidget (Ljava/lang/Class;)V
+		COMMENT Ensures uniqueness, though for all intents and purposes it is
+		COMMENT identical to {@link #showWidget(Class)} for non-persistent widgets.
+		COMMENT
+		COMMENT For persistent widgets, it does not show the widget if it is already visible.
+		ARG 0 clazz
+	METHOD b (Ljava/util/ArrayList;Lsnoddasmannen/galimulator/Star;)Z
+		ARG 1 star
 	METHOD b unregisterAlliance (Lsnoddasmannen/galimulator/Alliance;)V
 	METHOD b unregisterArtifact (Lsnoddasmannen/galimulator/artifacts/Artifact;)V
+	METHOD b (Lsnoddasmannen/galimulator/corporation/Corporation;)V
+		COMMENT @deprecated Corporations seem to be dead code of an age long byegone.
+		ARG 0 corporation
 	METHOD b unregisterCulture (Lsnoddasmannen/galimulator/Culture;)V
+		ARG 0 culture
 	METHOD b addFamily (Lsnoddasmannen/galimulator/Family;)V
 		ARG 0 family
 	METHOD b unregisterQuest (Lsnoddasmannen/galimulator/Quest;)V
@@ -211,29 +252,38 @@ CLASS snoddasmannen/galimulator/Space snoddasmannen/galimulator/Space
 		ARG 0 keepWidgetManipulationLock
 	METHOD C closeLastWidget ()Z
 	METHOD closeNonPersistentWidgets closeNonPersistentWidgets ()V
+	METHOD closeWidget closeWidget (Lsnoddasmannen/galimulator/ui/Widget;)V
+		ARG 0 widget
 	METHOD connectStars connectStars (Lsnoddasmannen/galimulator/Star;Lsnoddasmannen/galimulator/Star;)V
 	METHOD d lookupFleet (I)Lsnoddasmannen/galimulator/Fleet;
 		ARG 0 fleetId
 	METHOD d postBulletin (Ljava/lang/String;)V
 		ARG 0 text
+	METHOD d (Lsnoddasmannen/galimulator/actors/Actor;)V
+		ARG 0 actor
 	METHOD d (Lsnoddasmannen/galimulator/Empire;Lsnoddasmannen/galimulator/Star;)Z
 		ARG 1 star
 	METHOD d addDisruption (Lsnoddasmannen/galimulator/Star;)V
 		ARG 0 star
 	METHOD d focusWidget (Lsnoddasmannen/galimulator/ui/Widget;)V
 		COMMENT Note: Only works for Widgets added unbuffered or BufferedWidgetWrappers.
+		ARG 0 widget
 	METHOD D tickPausedItems ()I
 		COMMENT Returns 0 if no items exist/are to be displayed, 1 otherwise.
 	METHOD draw draw (Lsnoddasmannen/galimulator/rendersystem/RenderCache;)V
 	METHOD e getSaveNames ()Ljava/util/Vector;
 	METHOD e lookupEmpire (I)Lsnoddasmannen/galimulator/Empire;
 		ARG 0 empireId
+	METHOD e registerEmpire (Lsnoddasmannen/galimulator/Empire;)V
+		ARG 0 empire
 	METHOD e removeDisruption (Lsnoddasmannen/galimulator/Star;)V
 		ARG 0 star
 	METHOD f getHighestXPActor ()Lsnoddasmannen/galimulator/actors/Actor;
 	METHOD f lookupArtifact (I)Lsnoddasmannen/galimulator/artifacts/Artifact;
 		ARG 0 artifactId
 	METHOD f onEmpireDeath (Lsnoddasmannen/galimulator/Empire;)V
+	METHOD f setInWelcomeWidget (Z)V
+		COMMENT Might also have something to do with the tutorial, idk.
 	METHOD F getRandomStar ()Lsnoddasmannen/galimulator/Star;
 	METHOD findNearestActor findNearestEnemy (FFLsnoddasmannen/galimulator/Empire;F)Lsnoddasmannen/galimulator/actors/Actor;
 		ARG 0 x
@@ -252,13 +302,22 @@ CLASS snoddasmannen/galimulator/Space snoddasmannen/galimulator/Space
 		ARG 0 empire
 	METHOD g togglePaused (Z)V
 		ARG 0 resumeAtFullSpeed
+	METHOD G generateEmpireColor ()Lsnoddasmannen/galimulator/GalColor;
 	METHOD generateGalaxy generateGalaxy (ILsnoddasmannen/galimulator/MapData;)V
 		ARG 0 starCount
 		ARG 1 mapMeta
 	METHOD get_aE get__UnusedField0 ()Lsnoddasmannen/galimulator/RewardData;
+	METHOD get_af isInWelcomeWidget ()Z
+		COMMENT This state forbids many click interactions, and may also stop drawing certain widgets.
+		COMMENT
+		COMMENT <p>This may also have somethign to do with the tutorial, but at first
+		COMMENT glance this is hard to guess. That being said, it is mostly only
+		COMMENT true while the welcome widget is active.
 	METHOD get_aF __nopMethod__isProvidingRewards ()Z
 		COMMENT Always returns false.
 	METHOD get_ag isSlowMode ()Z
+	METHOD get_ai getPlayServiceStatus ()Lsnoddasmannen/galimulator/PlayServiceStatus;
+		COMMENT Most likely irrelevant on desktop.
 	METHOD get_aJ getStepTargetYear ()I
 	METHOD get_r getCultures ()Ljava/util/ArrayList;
 	METHOD get_x getAuxiliaryListeners ()Ljava/util/Vector;
@@ -306,7 +365,16 @@ CLASS snoddasmannen/galimulator/Space snoddasmannen/galimulator/Space
 		ARG 0 arg
 	METHOD l getPeopleAtJobLevel (I)Ljava/util/Vector;
 		ARG 0 jobLevel
+	METHOD M showGenealogyWidget ()V
+	METHOD N showHistomapWidget ()V
 	METHOD naiveRestoreQuadtree naiveRestoreQuadtree ()V
+	METHOD O showReligionListWidget ()V
+	METHOD openActiveWarList openActiveWarList ()V
+	METHOD openInputDialog openInputDialog (Lcom/badlogic/gdx/Input$TextInputListener;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)V
+		ARG 0 listener
+		ARG 1 headerTitle
+		ARG 2 hint1
+		ARG 3 hint2
 	METHOD openOptionChooser openOptionChooser (Ljava/lang/String;Ljava/lang/String;Ljava/util/List;ILsnoddasmannen/galimulator/ui/Widget$WIDGET_ID;Z)Lsnoddasmannen/galimulator/ui/OptionChooserWidget;
 	METHOD postBulletin postBulletin (Lsnoddasmannen/galimulator/AbstractBulletin;)V
 		ARG 0 bulletin
@@ -315,21 +383,30 @@ CLASS snoddasmannen/galimulator/Space snoddasmannen/galimulator/Space
 	METHOD removeAuxiliaryListener removeAuxiliaryListener (Lsnoddasmannen/galimulator/AuxiliaryListener;)V
 		ARG 0 listener
 	METHOD restoreQuadtree restoreQuadtree ()V
+	METHOD saveAsync saveAsync (Ljava/lang/String;Ljava/lang/String;)V
 	METHOD setBackgroundTaskDescription setBackgroundTaskDescription (Ljava/lang/String;)V
 		ARG 0 taskDescription
 	METHOD setPaused setPaused (Z)V
 		ARG 0 paused
 	METHOD setupBackgroundEffects setupBackgroundEffects ()V
 	METHOD showDialog showDialog (Lsnoddasmannen/galimulator/Dialog;ZLsnoddasmannen/galimulator/ui/Widget$WIDGET_ID;Z)V
+	METHOD showGalaxyCreationScreen showGalaxyCreationScreen ()V
 	METHOD showItem showItem (Lsnoddasmannen/galimulator/Item;)V
+	METHOD showOnlineScenarioBrowser showOnlineScenarioBrowser ()V
 	METHOD showToast showToast (Ljava/lang/String;)V
 		ARG 0 toast
 	METHOD showWidget showWidget (Ljava/lang/Class;)V
 		ARG 0 widgetClass
+	METHOD showWidget showWidget (Lsnoddasmannen/galimulator/ui/Widget;)V
+		ARG 0 widget
 	METHOD spawnActor spawnActor (Lsnoddasmannen/galimulator/Star;)Lsnoddasmannen/galimulator/actors/Actor;
 		ARG 0 location
+	METHOD T showArtifactListWidget ()V
+	METHOD tick tick ()I
 	METHOD u reopenUIWidgets ()V
 	METHOD X showStepButton ()V
+	METHOD y getTranscendedEmpiresListDialog ()Lsnoddasmannen/galimulator/Dialog;
+	METHOD z getSleeperListDialog ()Lsnoddasmannen/galimulator/Dialog;
 	METHOD Z openWarRoom ()V
 	CLASS ActorSpawningPredicate ActorSpawningPredicate
 		FIELD actorFactory actorFactory Lsnoddasmannen/galimulator/actors/StateActorCreator;

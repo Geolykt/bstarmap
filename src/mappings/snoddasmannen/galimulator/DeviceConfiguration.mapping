@@ -1,9 +1,31 @@
 CLASS snoddasmannen/galimulator/DeviceConfiguration snoddasmannen/galimulator/DeviceConfiguration
+	FIELD configuration configuration Lsnoddasmannen/galimulator/DeviceConfiguration;
+	METHOD asyncUnfocusSave asyncUnfocusSave ()Z
+	METHOD displayAds displayAds ()Z
+	METHOD getClipboard getClipboard ()Lcom/badlogic/gdx/utils/Clipboard;
 	METHOD getConfiguration getConfiguration ()Lsnoddasmannen/galimulator/DeviceConfiguration;
+	METHOD getDeviceId getDeviceId ()Ljava/lang/String;
+	METHOD getLabelItemFont getLabelItemFont ()Lsnoddasmannen/galimulator/GalFX$FONT_TYPE;
+	METHOD getLocale getLocale ()Ljava/util/Locale;
+	METHOD getMaxStars getMaxStars ()I
 	METHOD getMinHeight getMinHeight ()I
+	METHOD getRatingLink getRatingLink ()Ljava/lang/String;
+	METHOD getScreenHeight getScreenHeight ()I
+	METHOD getScreenWidth getScreenWidth ()I
+	METHOD getShortcuts getShortcuts ()Ljava/util/List;
+	METHOD hasDisk hasDisk ()Z
+	METHOD hasIAPSupport hasIAPSupport ()Z
+	METHOD hasKeyboard hasKeyboard ()Z
+	METHOD insaneGalaxySizesByDefault insaneGalaxySizesByDefault ()Z
+	METHOD promotePCVersion promotePCVersion ()Z
 	METHOD recalculateScreen recalculateScreen ()V
 	METHOD requiresUnlocking requiresUnlocking ()Z
+	METHOD setConfiguration setConfiguration (Lsnoddasmannen/galimulator/DeviceConfiguration;)V
+		ARG 0 config
 	METHOD shipShadersEnabled shipShadersEnabled ()Z
 	METHOD sprawlByDefault sprawlByDefault ()Z
 	METHOD supportsPlay supportsPlay ()Z
+	METHOD supportsResolutionSetting supportsResolutionSetting ()Z
+	METHOD useNativeKeyboard useNativeKeyboard ()Z
 	METHOD useScreenResizing useScreenResizing ()Z
+	METHOD useXStream useXStream ()Z

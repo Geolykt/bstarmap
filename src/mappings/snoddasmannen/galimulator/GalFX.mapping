@@ -67,7 +67,7 @@ CLASS snoddasmannen/galimulator/GalFX snoddasmannen/galimulator/GalFX
 	FIELD W button3Ninepatch Lcom/badlogic/gdx/graphics/g2d/NinePatch;
 	FIELD x textureRegionCache Ljava/util/HashMap;
 	FIELD y atlasMap Ljava/util/HashMap;
-	FIELD Y followedActor Lsnoddasmannen/galimulator/actors/Actor;
+	FIELD Y followActor3D Lsnoddasmannen/galimulator/actors/Actor;
 	FIELD Z boardRotation F
 	METHOD a drawVertices ([F)V
 		COMMENT Draw a set of vertices using the main {@link SpriteBatch}.
@@ -93,6 +93,15 @@ CLASS snoddasmannen/galimulator/GalFX snoddasmannen/galimulator/GalFX
 		ARG 6 y2
 		ARG 8 lineThickness
 		ARG 9 lineColor
+	METHOD a drawLine (DDDDLsnoddasmannen/galimulator/GalColor;)V
+		COMMENT Draws a line using vertices.
+		COMMENT
+		COMMENT Warning: Unspecified camera. Make sure you are in the correct environment beforehand!
+		ARG 0 x1
+		ARG 2 y1
+		ARG 4 x2
+		ARG 6 y2
+		ARG 8 lineColor
 	METHOD a drawGradientCircle (DDDLsnoddasmannen/galimulator/GalColor;Lcom/badlogic/gdx/graphics/Camera;)V
 		ARG 0 xCenter
 		ARG 2 yMin
@@ -100,6 +109,14 @@ CLASS snoddasmannen/galimulator/GalFX snoddasmannen/galimulator/GalFX
 		ARG 4 radius
 		ARG 6 color
 		ARG 7 projector
+	METHOD a drawCircle (DDDLsnoddasmannen/galimulator/GalColor;ZZ)V
+		COMMENT Note: A filled circle is also flower power aware. A hollow one is not though.
+		ARG 0 x
+		ARG 2 y
+		ARG 4 scale
+		ARG 6 color
+		ARG 7 fill
+		ARG 8 thinCircle
 	METHOD a drawCircle (DDDLsnoddasmannen/galimulator/GalColor;ZZLcom/badlogic/gdx/graphics/Camera;)V
 		COMMENT Likely unintended behaviour: Setting the fill parameter to {@value true} causes
 		COMMENT the draw call to be "swallowed" when the gift of vision is applied. This effect
@@ -147,6 +164,17 @@ CLASS snoddasmannen/galimulator/GalFX snoddasmannen/galimulator/GalFX
 	METHOD a drawPolygon (Lcom/badlogic/gdx/graphics/g2d/PolygonSprite;)V
 	METHOD a setCurrentShader (Lcom/badlogic/gdx/graphics/glutils/ShaderProgram;)V
 		ARG 0 shader
+	METHOD a drawTexture (Lcom/badlogic/gdx/graphics/Texture;DDDDDLsnoddasmannen/galimulator/GalColor;ZLcom/badlogic/gdx/graphics/Camera;)V
+		ARG 0 texture
+		ARG 1 x
+		ARG 3 y
+		ARG 5 width
+		ARG 7 height
+		ARG 9 rotationRad
+			COMMENT Rotation in radians.
+		ARG 11 color
+		ARG 12 center
+		ARG 13 projection
 	METHOD a fetchTexture (Ljava/lang/String;)Lcom/badlogic/gdx/graphics/Texture;
 		COMMENT Note: SLAPI overwrites the implementation of this method as it is not compatible with LWJGL3 due to the way this method determines the current thread.
 		ARG 0 pathname
@@ -160,6 +188,8 @@ CLASS snoddasmannen/galimulator/GalFX snoddasmannen/galimulator/GalFX
 	METHOD a layoutFor (Ljava/lang/String;Lsnoddasmannen/galimulator/GalFX$FONT_TYPE;)Lcom/badlogic/gdx/graphics/g2d/GlyphLayout;
 		ARG 0 text
 		ARG 1 font
+	METHOD a followActor3D (Lsnoddasmannen/galimulator/actors/Actor;)V
+		ARG 0 actor
 	METHOD a getPercievedLuminocity (Lsnoddasmannen/galimulator/GalColor;)F
 		COMMENT The human brain and eye is better at distinguishing some colors over others due to the eye being more
 		COMMENT sensitive to some colors, while being less sensitive to others; henceforth some trivial math needs to be
@@ -225,9 +255,14 @@ CLASS snoddasmannen/galimulator/GalFX snoddasmannen/galimulator/GalFX
 		COMMENT Expects no wrapping; Lines denoted through "\\n"
 		ARG 0 text
 		ARG 1 font
-	METHOD b followActor (Lsnoddasmannen/galimulator/actors/Actor;)V
+	METHOD b cameraFollowActor3D (Lsnoddasmannen/galimulator/actors/Actor;)V
+		COMMENT Adjust the camera to look directly at the given actor, creating a 3D look & feel.
+		ARG 0 actor
 	METHOD b setKeepScreenOn (Z)V
 		ARG 0 keepScreenOn
+	METHOD c rotateBoardCamera (F)V
+		ARG 0 rotationDeg
+			COMMENT Angle in degrees
 	METHOD c getBitmapFont (Lsnoddasmannen/galimulator/GalFX$FONT_TYPE;)Lcom/badlogic/gdx/graphics/g2d/BitmapFont;
 		ARG 0 font
 	METHOD c setFullscreen (Z)V
@@ -333,7 +368,10 @@ CLASS snoddasmannen/galimulator/GalFX snoddasmannen/galimulator/GalFX
 		ARG 13 projector
 	METHOD e getDesiredZoom ()F
 	METHOD f initialize ()V
+	METHOD f setFlowerPower (Z)V
+		ARG 0 flowerPower
 	METHOD G getDesiredResolutionWidth ()I
+	METHOD get_A isBigTextByDefault ()Z
 	METHOD get_ab getPlanetShader ()Lcom/badlogic/gdx/graphics/glutils/ShaderProgram;
 	METHOD get_ac getPremultipliedAlphaShader ()Lcom/badlogic/gdx/graphics/glutils/ShaderProgram;
 	METHOD get_ad getShipLightingShader ()Lcom/badlogic/gdx/graphics/glutils/ShaderProgram;
@@ -342,6 +380,7 @@ CLASS snoddasmannen/galimulator/GalFX snoddasmannen/galimulator/GalFX
 	METHOD get_F getGameAtlas ()Lcom/badlogic/gdx/graphics/g2d/TextureAtlas;
 	METHOD get_m getBoardCamera ()Lcom/badlogic/gdx/graphics/OrthographicCamera;
 	METHOD get_t getScreenCamera ()Lcom/badlogic/gdx/graphics/OrthographicCamera;
+	METHOD get_Y getFollowedActor3D ()Lsnoddasmannen/galimulator/actors/Actor;
 	METHOD getScreenHeight getScreenHeight ()I
 	METHOD getScreenWidth getScreenWidth ()F
 	METHOD getTextureRegion getTextureRegion (Ljava/lang/String;)Lcom/badlogic/gdx/graphics/g2d/TextureRegion;
@@ -357,16 +396,24 @@ CLASS snoddasmannen/galimulator/GalFX snoddasmannen/galimulator/GalFX
 		COMMENT Toggle fullscreen after the current frame was rendered.
 	METHOD p toggleFullscreen ()V
 		COMMENT Note: You might want to use {@link #toggleFullscreenLater()} to potentially avoid bugs (I haven't tested what happens if you just call this method directly though)
+	METHOD P getDefaultTextWidth ()I
 	METHOD projectBoardToScreen projectBoardToScreen (Lcom/badlogic/gdx/math/Vector3;)V
 		ARG 0 boardCoordinates
 	METHOD T getPlatformScreenSize ()Lsnoddasmannen/galimulator/ScreenSize;
+	METHOD u getBackbufferDensityY ()F
 	METHOD unprojectScreenToBoard unprojectScreenToBoard (FF)Lcom/badlogic/gdx/math/Vector3;
 		ARG 0 screenX
 		ARG 1 screenY
 	METHOD unprojectScreenToWidget unprojectScreenToWidget (Lcom/badlogic/gdx/math/Vector3;)V
 		ARG 0 screenToWidget
+	METHOD v getBackbufferDensityX ()F
 	METHOD w startSpriteDrawing ()V
 	METHOD x endSpriteDrawing ()V
 	METHOD y startPolygonDrawing ()V
 	METHOD z endPolygonDrawing ()V
-	CLASS FONT_TYPE Font
+	CLASS FONT_TYPE FONT_TYPE
+	CLASS NINEPATCH NINEPATCH
+		FIELD nine nine Lcom/badlogic/gdx/graphics/g2d/NinePatch;
+		METHOD <init> (Ljava/lang/String;ILcom/badlogic/gdx/graphics/g2d/NinePatch;)V
+			ARG 3 nine
+		METHOD getNine getNine ()Lcom/badlogic/gdx/graphics/g2d/NinePatch;

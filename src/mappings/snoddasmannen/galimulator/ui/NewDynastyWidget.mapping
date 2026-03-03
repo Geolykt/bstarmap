@@ -1,0 +1,3 @@
+CLASS snoddasmannen/galimulator/ui/NewDynastyWidget snoddasmannen/galimulator/ui/NewDynastyWidget
+	FIELD a createdFamily Lsnoddasmannen/galimulator/Family;
+	METHOD refreshLayout0 refreshLayout0 ()V

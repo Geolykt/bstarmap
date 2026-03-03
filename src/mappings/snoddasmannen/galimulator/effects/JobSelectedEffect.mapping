@@ -1,0 +1,6 @@
+CLASS snoddasmannen/galimulator/effects/JobSelectedEffect snoddasmannen/galimulator/effects/JobSelectedEffect
+	FIELD job job Lsnoddasmannen/galimulator/Job;
+	METHOD <init> (Lsnoddasmannen/galimulator/Job;)V
+		ARG 1 job
+	METHOD a setJob (Lsnoddasmannen/galimulator/Job;)V
+		ARG 1 job

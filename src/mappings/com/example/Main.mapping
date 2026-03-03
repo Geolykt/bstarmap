@@ -1,0 +1,6 @@
+CLASS com/example/Main com/example/Main
+	FIELD application application Lcom/badlogic/gdx/backends/lwjgl/LwjglApplication;
+	FIELD shortcuts shortcuts Ljava/util/List;
+	METHOD main main ([Ljava/lang/String;)V
+		ARG 0 arr
+	METHOD setupShortcuts setupShortcuts ()V

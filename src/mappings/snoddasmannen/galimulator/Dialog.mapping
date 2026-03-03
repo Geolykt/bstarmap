@@ -1,2 +1,7 @@
 CLASS snoddasmannen/galimulator/Dialog snoddasmannen/galimulator/Dialog
+	METHOD getInspectorWidth getInspectorWidth ()I
+	METHOD getItems getItems ()Ljava/util/ArrayList;
+	METHOD getTitle getTitle ()Ljava/lang/String;
+	METHOD getTitlebarColor getTitlebarColor ()Lsnoddasmannen/galimulator/GalColor;
+	METHOD isAlive isAlive ()Z
 	METHOD isValid isValid ()Z

@@ -1,0 +1,19 @@
+CLASS snoddasmannen/galimulator/ui/OnlineScenariosWidget snoddasmannen/galimulator/ui/OnlineScenariosWidget
+	FIELD d scenarioServer Ljava/lang/String;
+	FIELD j filters Ljava/util/Vector;
+	CLASS ScenarioFilter ScenarioFilter
+		FIELD dirty dirty Z
+		FIELD name name Ljava/lang/String;
+		FIELD setting setting Ljava/lang/Object;
+		METHOD <init> (Ljava/lang/String;ILjava/lang/String;)V
+			ARG 3 name
+		METHOD a configure ()V
+		METHOD a removeMismatching (Ljava/util/Vector;)V
+			COMMENT Remove all elements from the provided vector that do not match this filter.
+			ARG 1 vector
+		METHOD a matches (Lsnoddasmannen/galimulator/MapData$MapMetadata;)Z
+			ARG 1 mapMeta
+		METHOD getDirty getDirty ()Z
+		METHOD getName getName ()Ljava/lang/String;
+		METHOD getSetting getSetting ()Ljava/lang/Object;
+	CLASS State State

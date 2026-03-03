@@ -1,2 +1,5 @@
 CLASS snoddasmannen/galimulator/Religion snoddasmannen/galimulator/Religion
+	METHOD activity activity ()V
 	METHOD getColor getColor ()Lsnoddasmannen/galimulator/GalColor;
+	METHOD getHalfAlphaColor getHalfAlphaColor ()Lsnoddasmannen/galimulator/GalColor;
+	METHOD getRandomReligion getRandomReligion ()Lsnoddasmannen/galimulator/Religion;

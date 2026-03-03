@@ -1,6 +1,12 @@
 CLASS snoddasmannen/galimulator/Employer snoddasmannen/galimulator/Employer
+	METHOD getCoordinates getCoordinates ()Lcom/badlogic/gdx/math/Vector2;
 	METHOD getEmployerIcon getEmployerIcon ()Ljava/lang/String;
+	METHOD getEmployerType getEmployerType ()Lsnoddasmannen/galimulator/Employer$Type;
 	METHOD getHelper getHelper ()Lsnoddasmannen/galimulator/EmployerHelper;
 	METHOD getJobTypes getJobTypes ()Ljava/util/List;
+	METHOD getMeritingAttribute getMeritingAttribute ()Lsnoddasmannen/galimulator/Person$PersonAttribute;
 	METHOD getName getName ()Ljava/lang/String;
+	METHOD getPrototypeJobs getPrototypeJobs ()Ljava/util/List;
 	METHOD isAlive isAlive ()Z
+	METHOD managerMalfunction managerMalfunction ()Z
+	CLASS Type Type

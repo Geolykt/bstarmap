@@ -1,4 +1,5 @@
 CLASS snoddasmannen/galimulator/GalimulatorGestureListener snoddasmannen/galimulator/GalimulatorGestureListener
+	FIELD c selectedActorEffect Lsnoddasmannen/galimulator/effects/ActorSelectedEffect;
 	FIELD d lastClickedOnWidget Z
 	FIELD e selectedActor Lsnoddasmannen/galimulator/actors/Actor;
 	FIELD f draggingSelectedActor Z

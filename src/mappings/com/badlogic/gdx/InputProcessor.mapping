@@ -1,0 +1,5 @@
+CLASS com/badlogic/gdx/InputProcessor com/badlogic/gdx/InputProcessor
+	METHOD keyDown (I)Z
+		ARG 1 keycode
+	METHOD keyTyped (C)Z
+		ARG 1 character

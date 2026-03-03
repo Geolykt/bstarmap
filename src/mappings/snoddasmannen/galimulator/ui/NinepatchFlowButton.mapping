@@ -1,0 +1,24 @@
+CLASS snoddasmannen/galimulator/ui/class_46 snoddasmannen/galimulator/ui/NinepatchFlowButton
+	COMMENT Well, I say its a ninepatch button, but the ninepatch is pretty much hardcoded.
+	COMMENT
+	COMMENT This class is pretty much identical to {@link FlowButtonWidget}, except for the
+	COMMENT case that width and height aren't necessarily hardcoded.
+	FIELD a width I
+	FIELD b height I
+	FIELD c text Ljava/lang/String;
+	FIELD d nine Lcom/badlogic/gdx/graphics/g2d/NinePatch;
+		COMMENT Note: Hardcoded to the BUTTON3 ninepatch. Further, it is unused in this class, and only used in specific subclasses.
+	FIELD e tint Lsnoddasmannen/galimulator/GalColor;
+	METHOD <init> (Ljava/lang/Object;)V
+		ARG 1 text
+			COMMENT Converted to a {@link String} using {@link Object#toString()}. Does not update dynamically.
+	METHOD <init> (Ljava/lang/Object;Lsnoddasmannen/galimulator/GalColor;)V
+		ARG 1 text
+			COMMENT Converted to a String using {@link Objeect#toString()}. Does not update dynamically.
+		ARG 2 tint
+	METHOD <init> (Ljava/lang/Object;Lsnoddasmannen/galimulator/GalColor;II)V
+		ARG 1 text
+			COMMENT Converted to a {@link String} using {@link Object#toString()}. Does not update dynamically.
+		ARG 2 tint
+		ARG 3 widdth
+		ARG 4 height

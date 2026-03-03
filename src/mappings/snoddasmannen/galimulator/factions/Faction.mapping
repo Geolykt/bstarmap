@@ -4,3 +4,4 @@ CLASS snoddasmannen/galimulator/factions/Faction snoddasmannen/galimulator/facti
 	METHOD c onRemoveStar (Lsnoddasmannen/galimulator/Star;)V
 	METHOD e onKill ()V
 	METHOD e tickFactionStar (Lsnoddasmannen/galimulator/Star;)V
+	METHOD getColor getColor ()Lsnoddasmannen/galimulator/GalColor;

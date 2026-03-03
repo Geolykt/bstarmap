@@ -1,0 +1,12 @@
+CLASS snoddasmannen/galimulator/ui/TextInputDialogWidget snoddasmannen/galimulator/ui/TextInputDialogWidget
+	FIELD a contentLiength I
+	FIELD b inputListener Lcom/badlogic/gdx/Input$TextInputListener;
+	FIELD c textContent Ljava/lang/String;
+	METHOD <init> (Ljava/lang/String;Lcom/badlogic/gdx/Input$TextInputListener;Ljava/lang/String;Ljava/lang/String;)V
+		ARG 1 headerTitle
+		ARG 2 listener
+		ARG 3 hint1
+		ARG 4 hint2
+	METHOD get_c getTextContent ()Ljava/lang/String;
+	METHOD l onEnter ()V
+	METHOD n onCancel ()V

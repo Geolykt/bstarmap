@@ -1,2 +1,3 @@
 CLASS snoddasmannen/galimulator/Culture snoddasmannen/galimulator/Culture
 	METHOD a culturalClash (Lsnoddasmannen/galimulator/Culture;Lsnoddasmannen/galimulator/Culture;)Lsnoddasmannen/galimulator/Culture;
+	METHOD getColor getColor ()Lsnoddasmannen/galimulator/GalColor;

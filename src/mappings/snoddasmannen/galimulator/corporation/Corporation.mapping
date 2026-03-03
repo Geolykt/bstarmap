@@ -1,2 +1,3 @@
 CLASS snoddasmannen/galimulator/corporation/Corporation snoddasmannen/galimulator/corporation/Corporation
+	COMMENT @deprecated Corporations seem to be dead code of an age long byegone.
 	METHOD a tick ()V

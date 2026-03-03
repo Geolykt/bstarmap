@@ -3,3 +3,6 @@ CLASS com/badlogic/gdx/input/GestureDetector com/badlogic/gdx/input/GestureDetec
 		METHOD tap (FFII)Z
 			ARG 1 screenX
 			ARG 2 screenY
+		METHOD touchDown (FFII)Z
+			ARG 1 screenX
+			ARG 2 screenY

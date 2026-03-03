@@ -1,3 +1,6 @@
 CLASS snoddasmannen/galimulator/MapData snoddasmannen/galimulator/MapData
 	FIELD governments governments Ljava/util/ArrayList;
+	METHOD debugEnabled debugEnabled ()Z
 	METHOD hasMovingStars hasMovingStars ()Z
+	CLASS MapMetadata MapMetadata
+		FIELD description description Ljava/lang/String;

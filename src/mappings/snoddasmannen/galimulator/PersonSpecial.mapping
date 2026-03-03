@@ -14,3 +14,4 @@ CLASS snoddasmannen/galimulator/PersonSpecial snoddasmannen/galimulator/PersonSp
 	METHOD d canObtainOnBirth ()Z
 	METHOD f getDisplayName ()Ljava/lang/String;
 	METHOD get_tr getIcon ()Lcom/badlogic/gdx/graphics/g2d/TextureRegion;
+	METHOD getDescription getDescription ()Ljava/lang/String;

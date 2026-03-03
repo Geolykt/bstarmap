@@ -4,5 +4,6 @@ CLASS snoddasmannen/galimulator/ui/WidgetLayout snoddasmannen/galimulator/ui/Wid
 	METHOD get_e getMarginWidth ()I
 	METHOD getHeight getHeight ()I
 	METHOD getWidth getWidth ()I
+	METHOD newline newline ()V
 	METHOD recompute recompute ()V
 	METHOD setHorizontalMargin setHorizontalMargin (I)V

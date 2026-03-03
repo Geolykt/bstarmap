@@ -1,17 +1,48 @@
 CLASS snoddasmannen/galimulator/Family snoddasmannen/galimulator/Family
+	FIELD a MAX_MEMBERS I
+		COMMENT @deprecated beware of constant inlining done by javac (this field is useless!).
+	FIELD amountOfHighest amountOfHighest I
+	FIELD c flagWidget Lsnoddasmannen/galimulator/ui/class_30;
 	FIELD col1 col1 Lsnoddasmannen/galimulator/GalColor;
+	FIELD col2 col2 Lsnoddasmannen/galimulator/GalColor;
+	FIELD col3 col3 Lsnoddasmannen/galimulator/GalColor;
+	FIELD followed followed Z
+	FIELD highestPosition highestPosition I
+	FIELD historicalMembers historicalMembers Ljava/util/ArrayList;
+	FIELD id id I
+	FIELD items items Ljava/util/Vector;
+	FIELD languageId languageId I
+	FIELD logHistoricalMembers logHistoricalMembers Z
+	FIELD members members Ljava/util/List;
+	FIELD name name Ljava/lang/String;
+	FIELD prestige prestige I
+	FIELD serialVersionUID serialVersionUID J
 	METHOD a countJobLevel (I)V
 		ARG 1 position
 	METHOD a setName (Ljava/lang/String;)V
 		ARG 1 name
 	METHOD a addChild (Lsnoddasmannen/galimulator/Person;)V
+		ARG 1 person
 	METHOD a setLogHistoricalMembers (Z)V
 		ARG 1 log
 	METHOD b generateFirstName ()Ljava/lang/String;
 	METHOD b lookupPerson (I)Lsnoddasmannen/galimulator/Person;
+		ARG 1 memberUID
 	METHOD b rememberMember (Lsnoddasmannen/galimulator/Person;)V
 		ARG 1 member
 	METHOD b setFollowed (Z)V
 		ARG 1 followed
 	METHOD c generateFamilyColors ()V
+	METHOD e updatePrestige ()V
 	METHOD f getMemberCount ()I
+	METHOD getAmountOfHighest getAmountOfHighest ()I
+	METHOD getFollowed getFollowed ()Z
+	METHOD getHighestPosition getHighestPosition ()I
+	METHOD getHistoricalMembers getHistoricalMembers ()Ljava/util/ArrayList;
+	METHOD getLogHistoricalMembers getLogHistoricalMembers ()Z
+	METHOD getMembers getMembers ()Ljava/util/List;
+	METHOD getName getName ()Ljava/lang/String;
+	METHOD getPrestige getPrestige ()I
+	METHOD i randomFamilyName ()Ljava/lang/String;
+	METHOD j getFlagWidget ()Lsnoddasmannen/galimulator/ui/class_30;
+	METHOD k getDisplayName ()Ljava/lang/String;

@@ -1,0 +1,13 @@
+CLASS snoddasmannen/galimulator/ui/class_38 snoddasmannen/galimulator/ui/TextureButtonWidget
+	COMMENT Note: Not recommended for actual use. Incurrs unnecessary drawcalls due to switching between textures.
+	FIELD a width I
+	FIELD b texture Lcom/badlogic/gdx/graphics/Texture;
+	FIELD c height I
+	METHOD <init> (Ljava/lang/String;II)V
+		ARG 1 texturePath
+		ARG 2 width
+		ARG 3 height
+			COMMENT A height of -1 will automatically choose a height based on the aspect ratio of the texture and the button's width.
+	METHOD a onClick (FF)V
+		ARG 1 x
+		ARG 2 y

@@ -1,14 +1,19 @@
 CLASS snoddasmannen/galimulator/Galemulator snoddasmannen/galimulator/Galemulator
+	FIELD a __unusued__fpsLogger Lcom/badlogic/gdx/graphics/FPSLogger;
 	FIELD c rendercacheCollectorThread Ljava/lang/Thread;
 	FIELD e version Ljava/lang/String;
+	FIELD f galimGestsureListener Lsnoddasmannen/galimulator/GalimulatorGestureListener;
 	FIELD g timelapseModifier I
 	FIELD h panicMessage Ljava/lang/String;
+	FIELD i nextScreenshotId I
 	FIELD mouseMoveId mouseMoveId I
 	METHOD a panic (Ljava/lang/Throwable;)V
 		COMMENT Method that handles a game crash.
 		COMMENT
 		COMMENT Well, it more or less just indirectly halts the main rendering thread to display the stackrace of the exception passed and that's it.
 		ARG 1 exception
+	METHOD b screenshot ()V
+		COMMENT Dumps a screenshot of the current framebuffer to disk.
 	METHOD c getVersion ()Ljava/lang/String;
 	METHOD getTimelapseModifier getTimelapseModifier ()I
 	METHOD setTimelapseModifier setTimelapseModifier (I)V

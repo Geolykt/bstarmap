@@ -1,0 +1,25 @@
+CLASS snoddasmannen/galimulator/rendersystem/TextureRenderItem snoddasmannen/galimulator/rendersystem/TextureRenderItem
+	FIELD a region Lcom/badlogic/gdx/graphics/g2d/TextureRegion;
+	FIELD d x D
+	FIELD e y D
+	FIELD f width D
+	FIELD g height D
+	FIELD h rotation D
+	FIELD i color Lsnoddasmannen/galimulator/GalColor;
+	FIELD j center Z
+	FIELD k textureSwaps I
+		COMMENT Amount of texture swaps induced by this class.
+	FIELD l currentTexture Lcom/badlogic/gdx/graphics/Texture;
+	FIELD m __unused__0 Ljava/util/HashMap;
+	METHOD <init> (Lcom/badlogic/gdx/graphics/g2d/TextureRegion;DDDDDLsnoddasmannen/galimulator/GalColor;ZLcom/badlogic/gdx/graphics/Camera;)V
+		ARG 1 region
+		ARG 2 x
+		ARG 4 yCenter
+		ARG 6 width
+		ARG 8 height
+		ARG 10 rotation
+			COMMENT Rotation is seemingly in radians
+		ARG 12 color
+		ARG 13 centerX
+			COMMENT Note: Has no effect on the y coordinate, which is always centered.
+		ARG 14 projection

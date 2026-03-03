@@ -1,0 +1,2 @@
+CLASS snoddasmannen/galimulator/ui/OptionChooserWidget snoddasmannen/galimulator/ui/OptionChooserWidget
+	METHOD registerSelectionListener registerSelectionListener (Lsnoddasmannen/galimulator/ui/OptionSelectionListener;)V

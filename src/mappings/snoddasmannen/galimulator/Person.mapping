@@ -105,6 +105,7 @@ CLASS snoddasmannen/galimulator/Person snoddasmannen/galimulator/Person
 	METHOD e getDisplayAge ()Ljava/lang/String;
 	METHOD f getAge ()I
 	METHOD get_cv getCV ()Ljava/util/Vector;
+	METHOD getAlive getAlive ()Z
 	METHOD getBirthMilliYear getBirthMilliYear ()I
 	METHOD getCauseOfDeath getCauseOfDeath ()Ljava/lang/String;
 	METHOD getChildCount getChildCount ()I
@@ -115,6 +116,7 @@ CLASS snoddasmannen/galimulator/Person snoddasmannen/galimulator/Person
 	METHOD getFamily getFamily ()Lsnoddasmannen/galimulator/Family;
 	METHOD getGrandParent getGrandParent ()Lsnoddasmannen/galimulator/Lazy$PersonLazy;
 	METHOD getIsFollowed getIsFollowed ()Z
+	METHOD getJob getJob ()Lsnoddasmannen/galimulator/Job;
 	METHOD getLastJobLevel getLastJobLevel ()I
 	METHOD getParent getParent ()Lsnoddasmannen/galimulator/Lazy$PersonLazy;
 	METHOD getPrestige getPrestige ()F

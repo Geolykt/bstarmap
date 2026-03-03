@@ -6,6 +6,7 @@ CLASS snoddasmannen/galimulator/actors/Actor snoddasmannen/galimulator/actors/Ac
 	FIELD type type Lsnoddasmannen/galimulator/ActorType;
 	FIELD width width F
 	FIELD xp xp I
+	METHOD avoidFollowingRotation avoidFollowingRotation ()Z
 	METHOD fireAtActor fireAtActor (Lsnoddasmannen/galimulator/actors/Actor;)V
 		ARG 1 actor
 	METHOD fireAtAngle fireAtAngle (F)V
@@ -15,6 +16,7 @@ CLASS snoddasmannen/galimulator/actors/Actor snoddasmannen/galimulator/actors/Ac
 	METHOD getDecorativeColor getDecorativeColor ()Lsnoddasmannen/galimulator/GalColor;
 	METHOD getDescription getDescription ()Ljava/lang/String;
 	METHOD getDistanceToActor getDistanceToActor (Lsnoddasmannen/galimulator/Item;)F
+	METHOD getDistanceToPoint getDistanceToPoint (FF)F
 	METHOD getLevel getLevel ()I
 	METHOD getName getName ()Ljava/lang/String;
 	METHOD getOrders getOrders ()Ljava/util/Vector;
@@ -23,10 +25,15 @@ CLASS snoddasmannen/galimulator/actors/Actor snoddasmannen/galimulator/actors/Ac
 	METHOD getTypeName getTypeName ()Ljava/lang/String;
 	METHOD getXPValue getXPValue ()I
 	METHOD hasLeftGalaxy hasLeftGalaxy ()Z
+	METHOD insertAtBottom insertAtBottom ()Z
 	METHOD isBuildable isBuildable ()Z
+	METHOD isHostile isHostile (Lsnoddasmannen/galimulator/actors/Actor;)Z
+	METHOD isHostile isHostile (Lsnoddasmannen/galimulator/Empire;)Z
 	METHOD isMonster isMonster ()Z
 	METHOD isSpaceOddity isSpaceOddity ()Z
 	METHOD isStateActor isStateActor ()Z
+	METHOD isSubordinateOf isSubordinateOf (Lsnoddasmannen/galimulator/actors/Actor;)Z
+	METHOD isUntouchable isUntouchable ()Z
 	METHOD onDeath onDeath ()V
 	METHOD receiveFire receiveFire (IF)Z
 	METHOD setColor setColor (Lsnoddasmannen/galimulator/GalColor;)V

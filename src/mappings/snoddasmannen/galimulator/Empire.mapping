@@ -186,6 +186,7 @@ CLASS snoddasmannen/galimulator/Empire snoddasmannen/galimulator/Empire
 	METHOD getAnnals getAnnals ()Ljava/util/ArrayList;
 	METHOD getCapital getCapital ()Lsnoddasmannen/galimulator/Star;
 	METHOD getColor getColor ()Lsnoddasmannen/galimulator/GalColor;
+	METHOD getDarkerColor getDarkerColor ()Lsnoddasmannen/galimulator/GalColor;
 	METHOD getDisplayName getDisplayName ()Ljava/lang/String;
 	METHOD getEmperorLog getEmperorLog ()Ljava/util/ArrayList;
 	METHOD getExtension getExtension ()Lsnoddasmannen/galimulator/EmpireExtension;
@@ -218,6 +219,7 @@ CLASS snoddasmannen/galimulator/Empire snoddasmannen/galimulator/Empire
 		COMMENT Really just an RNG call. That being said, modded versions might try to optimize this.
 	METHOD l isYearningForPeace (Lsnoddasmannen/galimulator/Empire;)Z
 	METHOD o canBeAbsorbed (Lsnoddasmannen/galimulator/Empire;)Z
+	METHOD O getSemiOpaqueColor ()Lsnoddasmannen/galimulator/GalColor;
 	METHOD p canAbsorb (Lsnoddasmannen/galimulator/Empire;)Z
 	METHOD P getNameIdentifier ()Ljava/lang/String;
 		COMMENT Lazily generates the name identifier if not already set.

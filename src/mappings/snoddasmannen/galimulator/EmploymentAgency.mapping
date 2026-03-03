@@ -22,3 +22,4 @@ CLASS snoddasmannen/galimulator/EmploymentAgency snoddasmannen/galimulator/Emplo
 	METHOD e removeJobHolder (Lsnoddasmannen/galimulator/Job;)V
 	METHOD f clearJobsPerLevel ()V
 	METHOD getInstance getInstance ()Lsnoddasmannen/galimulator/EmploymentAgency;
+	METHOD tick tick ()V

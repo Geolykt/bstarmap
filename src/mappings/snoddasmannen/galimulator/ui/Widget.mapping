@@ -13,6 +13,8 @@ CLASS snoddasmannen/galimulator/ui/Widget snoddasmannen/galimulator/ui/Widget
 	FIELD s dirty Z
 	FIELD t verticalScroll F
 	FIELD v __unusedField0 I
+	METHOD a onKeyDown (C)V
+		ARG 1 character
 	METHOD a setX (D)V
 		ARG 1 x
 	METHOD a onWidgetPan (FFFF)V
@@ -29,6 +31,8 @@ CLASS snoddasmannen/galimulator/ui/Widget snoddasmannen/galimulator/ui/Widget
 		ARG 1 reciever
 	METHOD a setFocus (Z)V
 		ARG 1 focused
+	METHOD a_ onKeyDown (I)V
+		ARG 1 scancode
 	METHOD addChild addChild (Lsnoddasmannen/galimulator/ui/Widget;)Lsnoddasmannen/galimulator/ui/Widget;
 	METHOD b setY (D)V
 		ARG 1 y
@@ -49,6 +53,8 @@ CLASS snoddasmannen/galimulator/ui/Widget snoddasmannen/galimulator/ui/Widget
 	METHOD drawBackground drawBackground (Lsnoddasmannen/galimulator/GalColor;)V
 		ARG 1 color
 	METHOD drawChildren drawChildren ()V
+	METHOD drawDefaultBackground drawDefaultBackground ()V
+	METHOD drawHeader drawHeader ()V
 	METHOD get_m toastMessage ()Ljava/lang/String;
 	METHOD get_n getWidgetId ()Lsnoddasmannen/galimulator/ui/Widget$WIDGET_ID;
 	METHOD getChildWidgets getChildWidgets ()Ljava/util/Vector;
@@ -68,6 +74,7 @@ CLASS snoddasmannen/galimulator/ui/Widget snoddasmannen/galimulator/ui/Widget
 		ARG 1 x
 		ARG 2 y
 	METHOD isPersistent isPersistent ()Z
+	METHOD l_ isAsyncCapable ()Z
 	METHOD mouseDown mouseDown (DD)V
 		ARG 1 x
 		ARG 3 y

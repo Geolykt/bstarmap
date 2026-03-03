@@ -1,0 +1,3 @@
+CLASS snoddasmannen/galimulator/Scenario snoddasmannen/galimulator/Scenario
+	METHOD loadOnlineScenarios loadOnlineScenarios (Lsnoddasmannen/galimulator/interface_5;)V
+		ARG 0 listener

@@ -1,0 +1,6 @@
+CLASS snoddasmannen/galimulator/ui/FlowButtonWidget snoddasmannen/galimulator/ui/FlowButtonWidget
+	COMMENT For cases where a custom width and height is desired, use {@link NinepatchFlowButton}
+	METHOD a drawButton (Ljava/lang/String;Lsnoddasmannen/galimulator/GalColor;)V
+		ARG 1 text
+		ARG 2 tint
+	METHOD b onClick ()V

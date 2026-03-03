@@ -11,6 +11,7 @@ CLASS snoddasmannen/galimulator/rendersystem/RenderCache snoddasmannen/galimulat
 	FIELD f __unusedField0 Lsnoddasmannen/galimulator/rendersystem/ppclass_0;
 	FIELD h cullingCamera Lcom/badlogic/gdx/graphics/OrthographicCamera;
 	FIELD i currentCamera Lcom/badlogic/gdx/graphics/OrthographicCamera;
+	FIELD j __unused__culledItemsCount I
 	FIELD k drawingThreadId J
 	FIELD m cullSizeFactor F
 	METHOD a renderAll ()V

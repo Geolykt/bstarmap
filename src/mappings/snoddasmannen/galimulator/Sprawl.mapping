@@ -1,0 +1,26 @@
+CLASS snoddasmannen/galimulator/Sprawl snoddasmannen/galimulator/Sprawl
+	FIELD alive alive Z
+	FIELD buddy buddy Lsnoddasmannen/galimulator/Sprawl;
+	FIELD color color Lsnoddasmannen/galimulator/GalColor;
+	FIELD home home Lsnoddasmannen/galimulator/Lazy$StarLazy;
+	FIELD orbitAngle orbitAngle F
+	FIELD orbitDistance orbitDistance F
+	FIELD orbitSpeed orbitSpeed F
+	FIELD position position Lcom/badlogic/gdx/math/Vector2;
+	FIELD positionValidYear positionValidYear I
+	FIELD rotation rotation F
+	FIELD type type Lsnoddasmannen/galimulator/Sprawl$SprawlType;
+	METHOD a drawBuddy ()V
+	METHOD a setBuddy (Lsnoddasmannen/galimulator/Sprawl;)V
+		ARG 1 sprawl
+	METHOD b hasBuddy ()Z
+	METHOD setAlive setAlive (Z)V
+		ARG 1 alive
+	CLASS SprawlType SprawlType
+		METHOD a tick ()V
+		METHOD a render (FFLsnoddasmannen/galimulator/GalColor;FLsnoddasmannen/galimulator/Sprawl;)V
+			ARG 1 x
+			ARG 2 y
+			ARG 3 color
+			ARG 4 rotation
+			ARG 5 sprawl
