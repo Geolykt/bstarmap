@@ -92,6 +92,7 @@ CLASS snoddasmannen/galimulator/Empire snoddasmannen/galimulator/Empire
 	METHOD a declareWar (Lsnoddasmannen/galimulator/Empire;Z)V
 		ARG 2 notifyPlayer
 	METHOD a awardAchivement (Lsnoddasmannen/galimulator/EmpireAchievement$EmpireAchievementType;)V
+		ARG 1 achievement
 	METHOD a setExtension (Lsnoddasmannen/galimulator/EmpireExtension;)V
 		ARG 1 extension
 	METHOD a hasSpecial (Lsnoddasmannen/galimulator/EmpireSpecial;)Z
@@ -160,11 +161,12 @@ CLASS snoddasmannen/galimulator/Empire snoddasmannen/galimulator/Empire
 	METHOD bd computeCenterOfMass ()V
 		COMMENT Populates the {@link #centerOfMass} field.
 		COMMENT This method is called every 100 ticks.
-	METHOD c c (Lsnoddasmannen/galimulator/Empire;)F
+	METHOD c (Lsnoddasmannen/galimulator/Empire;)F
 		ARG 1 enemy
 	METHOD c addSpecial (Lsnoddasmannen/galimulator/EmpireSpecial;)V
 		COMMENT May silently fail if the special is blacklisted.
 		ARG 1 special
+	METHOD canAttack canAttack (Lsnoddasmannen/galimulator/Star;Lsnoddasmannen/galimulator/Star;)Z
 	METHOD compareTo (Ljava/lang/Object;)I
 		ARG 1 other
 	METHOD g isBeacon (Lsnoddasmannen/galimulator/Star;)Z
@@ -192,6 +194,7 @@ CLASS snoddasmannen/galimulator/Empire snoddasmannen/galimulator/Empire
 	METHOD getCapital getCapital ()Lsnoddasmannen/galimulator/Star;
 		COMMENT Note: The capital {@link Star} of an {@link Empire} might not necessarily be within the Empire in question.
 	METHOD getColor getColor ()Lsnoddasmannen/galimulator/GalColor;
+	METHOD getCombatPower getCombatPower (Lsnoddasmannen/galimulator/Star;Lsnoddasmannen/galimulator/Star;Z)I
 	METHOD getDarkerColor getDarkerColor ()Lsnoddasmannen/galimulator/GalColor;
 	METHOD getDeathYear getDeathYear ()I
 	METHOD getDisplayName getDisplayName ()Ljava/lang/String;
@@ -221,6 +224,11 @@ CLASS snoddasmannen/galimulator/Empire snoddasmannen/galimulator/Empire
 	METHOD I getSubjugatedNatives ()Ljava/util/ArrayList;
 	METHOD isAllied isAllied (Lsnoddasmannen/galimulator/Empire;)Z
 	METHOD isAtPeace isAtPeace (Lsnoddasmannen/galimulator/Empire;)Z
+	METHOD isNotDegenerating isNotRegressing ()Z
+		COMMENT Note: In spstarmap this method is called isNotDegenerating. However, bstarmap already has
+		COMMENT {@link #isNotDegenerating()}.
+		COMMENT
+		COMMENT An empire is regressing if it is degenerating, in AWBA, or rioting.
 	METHOD j getRandomBeaconStar ()Lsnoddasmannen/galimulator/Star;
 	METHOD J nextEmpireId ()I
 		COMMENT Really just an RNG call. That being said, modded versions might try to optimize this.
@@ -238,13 +246,19 @@ CLASS snoddasmannen/galimulator/Empire snoddasmannen/galimulator/Empire
 		ARG 1 beacon
 	METHOD resetSpecials resetSpecials ()V
 	METHOD S isNotDegenerating ()Z
+		COMMENT Note: The method isNotDegenerating in spStarmap is actually {@link #isNoRegressing()} in bstarmap. This method has a different name due to naming semantics differing.
+		COMMENT
+		COMMENT @return {@code false} if this empire is in the {@link EmpireState#DEGENERATING} state, {@code true} otherwise.
 	METHOD setAlliance setAlliance (Lsnoddasmannen/galimulator/Alliance;)V
 		ARG 1 alliance
 	METHOD setMotto setMotto (Ljava/lang/String;)V
 		ARG 1 motto
+	METHOD T getAbbreviation ()Ljava/lang/String;
+		COMMENT Used in the name of certain projectiles (e.g. missiles)
 	METHOD tickEmpire tickEmpire ()V
 	METHOD U getHeadquarter ()Lsnoddasmannen/galimulator/Star;
 	METHOD x getEnemyEmpires ()Ljava/util/List;
+	METHOD y getDiplomacyDialog ()Lsnoddasmannen/galimulator/Dialog;
 	METHOD Y canResearch ()Z
 	CLASS EmpireDynastyLog EmpireDynastyLog
 		FIELD color color Lsnoddasmannen/galimulator/GalColor;
