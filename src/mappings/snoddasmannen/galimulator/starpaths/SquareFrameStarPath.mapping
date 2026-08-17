@@ -1,0 +1,7 @@
+CLASS snoddasmannen/galimulator/starpaths/SquareFrameStarPath snoddasmannen/galimulator/starpaths/SquareFrameStarPath
+	METHOD <init> (F)V
+		ARG 1 fudge
+	METHOD b modulo (FF)F
+		COMMENT I don't think there is a good reason to use this method, but oh well.
+		ARG 1 x
+		ARG 2 y

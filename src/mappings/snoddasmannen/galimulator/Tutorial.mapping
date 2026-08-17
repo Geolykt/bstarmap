@@ -1,0 +1,4 @@
+CLASS snoddasmannen/galimulator/Tutorial snoddasmannen/galimulator/Tutorial
+	FIELD currentIndex currentIndex I
+	FIELD nodes nodes Ljava/util/List;
+	FIELD tutorialName tutorialName Ljava/lang/String;

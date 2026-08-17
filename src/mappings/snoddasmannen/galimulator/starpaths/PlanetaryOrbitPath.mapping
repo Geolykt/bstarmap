@@ -1,0 +1,9 @@
+CLASS snoddasmannen/galimulator/starpaths/PlanetaryOrbitPath snoddasmannen/galimulator/starpaths/PlanetaryOrbitPath
+	FIELD innerA innerA F
+	FIELD innerAngularSpeed innerAngularSpeed F
+	FIELD innerR innerR F
+	FIELD orbitalR orbitalR F
+	METHOD <init> (FFF)V
+		ARG 1 orbitalRadius
+		ARG 2 innerRadius
+		ARG 3 innerAngle

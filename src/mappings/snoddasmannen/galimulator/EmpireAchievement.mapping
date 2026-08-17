@@ -1,1 +1,2 @@
 CLASS snoddasmannen/galimulator/EmpireAchievement snoddasmannen/galimulator/EmpireAchievement
+	CLASS EmpireAchievementType EmpireAchievementType

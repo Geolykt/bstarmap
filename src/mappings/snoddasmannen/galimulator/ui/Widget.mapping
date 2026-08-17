@@ -22,7 +22,8 @@ CLASS snoddasmannen/galimulator/ui/Widget snoddasmannen/galimulator/ui/Widget
 		ARG 2 deltaY
 		ARG 3 pointerX
 		ARG 4 pointerY
-	METHOD a setCamera (Lcom/badlogic/gdx/graphics/Camera;)V
+	METHOD a setWidgetCamera (Lcom/badlogic/gdx/graphics/Camera;)V
+		ARG 1 camera
 	METHOD a setWidgetId (Lsnoddasmannen/galimulator/ui/Widget$WIDGET_ID;)V
 		ARG 1 id
 	METHOD a setLayout (Lsnoddasmannen/galimulator/ui/WidgetLayout;)V
@@ -42,6 +43,13 @@ CLASS snoddasmannen/galimulator/ui/Widget snoddasmannen/galimulator/ui/Widget
 		ARG 1 reciever
 	METHOD c setToastMessage (Ljava/lang/String;)V
 		ARG 1 message
+	METHOD C pauseUntilClosed ()V
+		COMMENT Pause the game, resuming the application once this widget is closed.
+		COMMENT
+		COMMENT The player can still resume the game whilst the widget is open.
+		COMMENT If the game is already paused, then the game will stay paused when the widget is closed.
+		COMMENT
+		COMMENT This method is usually invoked when waiting for user input.
 	METHOD clearChildren clearChildren ()V
 	METHOD considerRelayout considerRelayout ()V
 	METHOD containsPoint containsPoint (Lcom/badlogic/gdx/math/Vector2;)Z
@@ -57,6 +65,7 @@ CLASS snoddasmannen/galimulator/ui/Widget snoddasmannen/galimulator/ui/Widget
 	METHOD drawHeader drawHeader ()V
 	METHOD get_m toastMessage ()Ljava/lang/String;
 	METHOD get_n getWidgetId ()Lsnoddasmannen/galimulator/ui/Widget$WIDGET_ID;
+	METHOD getCamera getCamera ()Lcom/badlogic/gdx/graphics/Camera;
 	METHOD getChildWidgets getChildWidgets ()Ljava/util/Vector;
 	METHOD getHeaderTitle getHeaderTitle ()Ljava/lang/String;
 	METHOD getHeight getHeight ()I

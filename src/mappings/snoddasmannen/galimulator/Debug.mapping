@@ -1,5 +1,11 @@
 CLASS snoddasmannen/galimulator/Debug snoddasmannen/galimulator/Debug
+	FIELD c category Lsnoddasmannen/galimulator/Debug$LogCategory;
+	METHOD a (Ljava/lang/String;ZLsnoddasmannen/galimulator/Debug$LogCategory;)V
+		ARG 2 category
+	METHOD a setCategory (Lsnoddasmannen/galimulator/Debug$LogCategory;)V
+		ARG 0 category
 	METHOD b endDebuggingSection (Ljava/lang/String;Z)I
 	METHOD endDebuggingSection endDebuggingSection (Ljava/lang/String;)I
 	METHOD startDebuggingSection startDebuggingSection (Ljava/lang/String;)V
 	METHOD startDebuggingSection startDebuggingSection (Ljava/lang/String;Z)V
+	CLASS LogCategory LogCategory

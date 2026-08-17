@@ -1,6 +1,11 @@
 CLASS snoddasmannen/galimulator/MapData snoddasmannen/galimulator/MapData
 	FIELD governments governments Ljava/util/ArrayList;
 	METHOD debugEnabled debugEnabled ()Z
+	METHOD getEmpires getEmpires ()Ljava/util/Vector;
+	METHOD getGenerator getGenerator ()Lsnoddasmannen/galimulator/StarGenerator;
+	METHOD getRandomGovernment getRandomGovernment ()Lsnoddasmannen/galimulator/Government;
+	METHOD getScenarioSource getScenarioSource ()Lsnoddasmannen/galimulator/interface_6;
 	METHOD hasMovingStars hasMovingStars ()Z
+	METHOD setQuickmap setQuickmap (Z)V
 	CLASS MapMetadata MapMetadata
 		FIELD description description Ljava/lang/String;

@@ -1,5 +1,7 @@
 CLASS snoddasmannen/galimulator/Space snoddasmannen/galimulator/Space
 	FIELD aa bufferedToastWidget Lsnoddasmannen/galimulator/ui/BufferedWidgetWrapper;
+	FIELD aA voronoiGraphEdges Ljava/util/List;
+		COMMENT This is a {@code List<GraphEdge>}
 	FIELD ab monsterSpawnerRandom Ljava/util/Random;
 	FIELD aB __unusedField1 Z
 	FIELD aC __unusedField0 Z
@@ -10,13 +12,16 @@ CLASS snoddasmannen/galimulator/Space snoddasmannen/galimulator/Space
 	FIELD af inWelcomeWidget Z
 	FIELD aF __nopField__provideRewards Z
 		COMMENT Always false.
+	FIELD ag slowMode Z
 	FIELD aG __unusedField__reward Lsnoddasmannen/galimulator/RewardData;
 		COMMENT This method is unused as it is related to the feature where you can unlock actors
 		COMMENT by watching an advert, which only exists on Android releases of galimulator. As such,
 		COMMENT this functionality is unused on desktop releases of the game.
+	FIELD ai googlePlayServiceStatus Lsnoddasmannen/galimulator/PlayServiceStatus;
 	FIELD aI cancellableListener Lsnoddasmannen/galimulator/AuxiliaryListener;
 	FIELD aJ stepTarget I
 	FIELD alliances alliances Ljava/util/Vector;
+	FIELD an transcendedEmpireNames Ljava/util/ArrayList;
 	FIELD artifacts artifacts Ljava/util/Vector;
 	FIELD aspectRatio aspectRatio F
 	FIELD at __unusedField2 Z
@@ -38,12 +43,17 @@ CLASS snoddasmannen/galimulator/Space snoddasmannen/galimulator/Space
 	FIELD j shownItems Ljava/util/ArrayList;
 	FIELD l totems Ljava/util/Vector;
 	FIELD M backgroundTaskProgress Ljava/lang/String;
+	FIELD MAIN_TICK_LOOP_LOCK MAIN_TICK_LOOP_LOCK Ljava/util/concurrent/Semaphore;
+	FIELD mapData mapData Lsnoddasmannen/galimulator/MapData;
+	FIELD maxXCache maxXCache F
+	FIELD maxYCache maxYCache F
 	FIELD milliYear milliYear I
 	FIELD neutralEmpire neutralEmpire Lsnoddasmannen/galimulator/Empire;
 	FIELD openedWidgets openedWidgets Ljava/util/Vector;
 	FIELD p families Ljava/util/Vector;
 	FIELD paused paused Z
 	FIELD persons persons Ljava/util/Vector;
+	FIELD player player Lsnoddasmannen/galimulator/Player;
 	FIELD quests quests Ljava/util/Vector;
 	FIELD r cultures Ljava/util/ArrayList;
 	FIELD s sleeperEmpires Ljava/util/ArrayList;
@@ -53,6 +63,7 @@ CLASS snoddasmannen/galimulator/Space snoddasmannen/galimulator/Space
 	FIELD stars stars Ljava/util/Vector;
 	FIELD starsQuadTree starsQuadTree Lsnoddasmannen/galimulator/QuadTree;
 	FIELD tickCount tickCount I
+	FIELD transcended transcended I
 	FIELD v followedPeople Ljava/util/Vector;
 	FIELD vanity vanity Lsnoddasmannen/galimulator/VanityHolder;
 	FIELD w __unusedField0 Ljava/util/Vector;
@@ -177,6 +188,8 @@ CLASS snoddasmannen/galimulator/Space snoddasmannen/galimulator/Space
 	METHOD A hasSleeperEmpires ()Z
 	METHOD aA __nopMethod2 ()V
 	METHOD aB __nopMethod0 ()V
+	METHOD aC clearAllBorderVertices ()V
+		COMMENT Calls {@link Star#clearBorderVerticesCache()} for every registered star.
 	METHOD ad showTutorialSelection ()V
 	METHOD aD __nopMethod1 ()V
 	METHOD addActor addActor (Lsnoddasmannen/galimulator/actors/Actor;)Lsnoddasmannen/galimulator/actors/Actor;
@@ -197,6 +210,10 @@ CLASS snoddasmannen/galimulator/Space snoddasmannen/galimulator/Space
 	METHOD aO getFamilies ()Ljava/util/Vector;
 	METHOD ap __unusedMethod1 ()V
 	METHOD aP sortFamilies ()V
+	METHOD ar disconnectAllStars ()V
+		COMMENT Clears all currently active connections.
+		COMMENT
+		COMMENT Inactive connections (i.e. disrupted) might be kept alive, though that is most likely a bug.
 	METHOD as makeWebbedStarlanes ()V
 	METHOD av spawnSpaceOddity ()V
 		COMMENT Will not spawn any space oddities or monsters if a space oddity already exists.
@@ -237,10 +254,16 @@ CLASS snoddasmannen/galimulator/Space snoddasmannen/galimulator/Space
 		ARG 0 corporation
 	METHOD b unregisterCulture (Lsnoddasmannen/galimulator/Culture;)V
 		ARG 0 culture
+	METHOD b addTranscendedEmpire (Lsnoddasmannen/galimulator/Empire;)V
+		ARG 0 transcendedEmpire
+	METHOD b (Lsnoddasmannen/galimulator/EmpireDescriptor;)V
+		ARG 0 descriptor
 	METHOD b addFamily (Lsnoddasmannen/galimulator/Family;)V
 		ARG 0 family
 	METHOD b removeDisplayedItem (Lsnoddasmannen/galimulator/Item;)V
 		ARG 0 item
+	METHOD b __access$setPlayer (Lsnoddasmannen/galimulator/Player;)Lsnoddasmannen/galimulator/Player;
+		ARG 0 player
 	METHOD b unregisterQuest (Lsnoddasmannen/galimulator/Quest;)V
 		ARG 0 quest
 	METHOD b __unusedMethod__setReward (Lsnoddasmannen/galimulator/RewardData;)V
@@ -249,6 +272,7 @@ CLASS snoddasmannen/galimulator/Space snoddasmannen/galimulator/Space
 		COMMENT this functionality is unused on desktop releases of the game.
 	METHOD b setHalfStepping (Z)V
 		COMMENT Whether to move at "half" speed, i.e. by omitting every second logical simulation tick.
+		ARG 0 slowMode
 	METHOD bb ensureConnectedStarsConnected ()V
 		COMMENT Connect stars that are connected according to their {@link Star#intLanes}.
 		COMMENT This will likely be called while loading a savegame. Not of relevance in other scenarios.
@@ -264,6 +288,9 @@ CLASS snoddasmannen/galimulator/Space snoddasmannen/galimulator/Space
 		ARG 1 newMapMeta
 	METHOD c createPerson (Lcom/badlogic/gdx/math/Vector2;)Lsnoddasmannen/galimulator/Person;
 		ARG 0 birthPosition
+	METHOD c setPlayerEmpire (Lsnoddasmannen/galimulator/Empire;)V
+		ARG 0 empire
+			COMMENT May be null to exit empire mode.
 	METHOD c removeFamily (Lsnoddasmannen/galimulator/Family;)V
 		ARG 0 family
 	METHOD c isDisrupted (Lsnoddasmannen/galimulator/Star;)Z
@@ -293,6 +320,7 @@ CLASS snoddasmannen/galimulator/Space snoddasmannen/galimulator/Space
 		ARG 0 widget
 	METHOD D tickPausedItems ()I
 		COMMENT Returns 0 if no items exist/are to be displayed, 1 otherwise.
+	METHOD disconnectStars disconnectStars (Lsnoddasmannen/galimulator/Star;Lsnoddasmannen/galimulator/Star;)V
 	METHOD draw draw (Lsnoddasmannen/galimulator/rendersystem/RenderCache;)V
 	METHOD e getSaveNames ()Ljava/util/Vector;
 	METHOD e lookupEmpire (I)Lsnoddasmannen/galimulator/Empire;
@@ -339,9 +367,11 @@ CLASS snoddasmannen/galimulator/Space snoddasmannen/galimulator/Space
 	METHOD get_aF __nopMethod__isProvidingRewards ()Z
 		COMMENT Always returns false.
 	METHOD get_ag isSlowMode ()Z
+		COMMENT Whether to move at "half" speed, i.e. by omitting every second logical simulation tick.
 	METHOD get_ai getPlayServiceStatus ()Lsnoddasmannen/galimulator/PlayServiceStatus;
 		COMMENT Most likely irrelevant on desktop.
 	METHOD get_aJ getStepTargetYear ()I
+	METHOD get_an __access$getTranscendedEmpireNames ()Ljava/util/ArrayList;
 	METHOD get_r getCultures ()Ljava/util/ArrayList;
 	METHOD get_x getAuxiliaryListeners ()Ljava/util/Vector;
 	METHOD getMainTickLoopLock getMainTickLoopLock ()Ljava/util/concurrent/Semaphore;
@@ -357,6 +387,7 @@ CLASS snoddasmannen/galimulator/Space snoddasmannen/galimulator/Space
 	METHOD getPersons getPersons ()Ljava/util/Vector;
 	METHOD getPlayer getPlayer ()Lsnoddasmannen/galimulator/Player;
 	METHOD getStateActorCreators getStateActorCreators ()Ljava/util/List;
+	METHOD getTranscended getTranscended ()I
 	METHOD h canSpawnEmpires ()Z
 	METHOD h stepMilliYears (I)V
 	METHOD h setBackgroundTaskProgress (Ljava/lang/String;)V
@@ -388,10 +419,14 @@ CLASS snoddasmannen/galimulator/Space snoddasmannen/galimulator/Space
 		ARG 0 arg
 	METHOD l getPeopleAtJobLevel (I)Ljava/util/Vector;
 		ARG 0 jobLevel
+	METHOD loadAsync loadAsync (Ljava/lang/String;)V
+	METHOD loadState loadState (Ljava/lang/String;)Z
+		COMMENT Load a savegame synchronously.
 	METHOD M showGenealogyWidget ()V
 	METHOD N showHistomapWidget ()V
 	METHOD naiveRestoreQuadtree naiveRestoreQuadtree ()V
 	METHOD O showReligionListWidget ()V
+	METHOD onTakeStarFrom onTakeStarFrom (Lsnoddasmannen/galimulator/Empire;Lsnoddasmannen/galimulator/Empire;)V
 	METHOD openActiveWarList openActiveWarList ()V
 	METHOD openInputDialog openInputDialog (Lcom/badlogic/gdx/Input$TextInputListener;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)V
 		ARG 0 listener
@@ -407,6 +442,7 @@ CLASS snoddasmannen/galimulator/Space snoddasmannen/galimulator/Space
 		ARG 0 listener
 	METHOD restoreQuadtree restoreQuadtree ()V
 	METHOD saveAsync saveAsync (Ljava/lang/String;Ljava/lang/String;)V
+	METHOD saveSync saveSync (Ljava/lang/String;Ljava/lang/String;)V
 	METHOD setBackgroundTaskDescription setBackgroundTaskDescription (Ljava/lang/String;)V
 		ARG 0 taskDescription
 	METHOD setPaused setPaused (Z)V
@@ -417,6 +453,7 @@ CLASS snoddasmannen/galimulator/Space snoddasmannen/galimulator/Space
 	METHOD showItem showItem (Lsnoddasmannen/galimulator/Item;)V
 		ARG 0 item
 	METHOD showOnlineScenarioBrowser showOnlineScenarioBrowser ()V
+	METHOD showScreenSizeResetHint showScreenSizeResetHint ()V
 	METHOD showToast showToast (Ljava/lang/String;)V
 		ARG 0 toast
 	METHOD showWidget showWidget (Ljava/lang/Class;)V
@@ -425,6 +462,9 @@ CLASS snoddasmannen/galimulator/Space snoddasmannen/galimulator/Space
 		ARG 0 widget
 	METHOD spawnActor spawnActor (Lsnoddasmannen/galimulator/Star;)Lsnoddasmannen/galimulator/actors/Actor;
 		ARG 0 location
+	METHOD t reinitializeTotems ()V
+		COMMENT This discard all previous totems, potentially leaving ghost references to the old totem instances around.
+		COMMENT As such, this method can cause memory leaks and should only be called when gerating a new map.
 	METHOD T showArtifactListWidget ()V
 	METHOD tick tick ()I
 	METHOD u reopenUIWidgets ()V

@@ -1,2 +1,4 @@
 CLASS snoddasmannen/galimulator/ui/OptionChooserWidget snoddasmannen/galimulator/ui/OptionChooserWidget
+	FIELD b optionListeners Ljava/util/Vector;
 	METHOD registerSelectionListener registerSelectionListener (Lsnoddasmannen/galimulator/ui/OptionSelectionListener;)V
+		ARG 1 listener

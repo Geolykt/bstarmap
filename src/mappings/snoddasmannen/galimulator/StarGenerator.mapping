@@ -7,3 +7,4 @@ CLASS snoddasmannen/galimulator/StarGenerator snoddasmannen/galimulator/StarGene
 	METHOD hasMovingStars hasMovingStars ()Z
 	METHOD name name ()Ljava/lang/String;
 	METHOD prepareGenerator prepareGenerator ()V
+	METHOD setupSettings setupSettings ()V

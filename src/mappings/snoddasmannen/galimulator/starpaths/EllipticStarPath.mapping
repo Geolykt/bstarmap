@@ -1,0 +1,9 @@
+CLASS snoddasmannen/galimulator/starpaths/EllipticStarPath snoddasmannen/galimulator/starpaths/EllipticStarPath
+	FIELD a a F
+	FIELD b b F
+	FIELD rotation rotation F
+	METHOD <init> (FFFF)V
+		ARG 1 a
+		ARG 2 b
+		ARG 3 rotation
+		ARG 4 fudge
